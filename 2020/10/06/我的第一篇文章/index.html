@@ -1,92 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  <title>我的第一篇文章 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
   <meta name="description" content="类与对象类与对象关系、属性、方法与对象类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。 封装、继承、多态封装：将抽象性函式接口的实现细节部分包装，隐藏起来，防止类的代码和数据被外部类定义的代码随机访问。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一篇文章">
 <meta property="og:url" content="http://example.com/2020/10/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Shea&#39;s Blog">
 <meta property="og:description" content="类与对象类与对象关系、属性、方法与对象类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。 封装、继承、多态封装：将抽象性函式接口的实现细节部分包装，隐藏起来，防止类的代码和数据被外部类定义的代码随机访问。">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-06T14:15:22.000Z">
 <meta property="article:modified_time" content="2020-10-06T14:17:40.305Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Shea">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<link rel="canonical" href="http://example.com/2020/10/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>我的第一篇文章 | Shea's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-我的第一篇文章" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="article-date">
-  <time datetime="2020-10-06T14:15:22.000Z" itemprop="datePublished">2020-10-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      我的第一篇文章
-    </h1>
-  
 
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shea's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">没什么值得畏惧，你唯一需要担心的是，你配不上自己的梦想，也辜负了曾经的苦难。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Shea">
+      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shea's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我的第一篇文章
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-06 22:15:22 / 修改时间：22:17:40" itemprop="dateCreated datePublished" datetime="2020-10-06T22:15:22+08:00">2020-10-06</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h3><h4 id="类与对象关系、属性、方法与对象"><a href="#类与对象关系、属性、方法与对象" class="headerlink" title="类与对象关系、属性、方法与对象"></a>类与对象关系、属性、方法与对象</h4><p><code>类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。</code></p>
 <h4 id="封装、继承、多态"><a href="#封装、继承、多态" class="headerlink" title="封装、继承、多态"></a>封装、继承、多态</h4><p><code>封装：将抽象性函式接口的实现细节部分包装，隐藏起来，防止类的代码和数据被外部类定义的代码随机访问。可以通过接口暴露代码或数据。重要的功能是能修改自己实现的代码，而不用修改调用此代码的程序片段。</code></p>
@@ -183,109 +318,217 @@
 
 <p><code>输出结果为</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test</span><br><span class="line">testExtends</span><br></pre></td></tr></table></figure>
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" data-id="ckfyp8omd0000cku5h9tb66kp" class="article-share-link">Share</a>
-      
-      
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/06/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">类与对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E3%80%81%E5%B1%9E%E6%80%A7%E3%80%81%E6%96%B9%E6%B3%95%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">类与对象关系、属性、方法与对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-number">1.2.</span> <span class="nav-text">封装、继承、多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">接口类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.5.</span> <span class="nav-text">类的创建及初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.6.</span> <span class="nav-text">类属性方法的初始化顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static"><span class="nav-number">1.7.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#protected"><span class="nav-number">1.8.</span> <span class="nav-text">protected</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-%E4%B8%8D%E5%AE%9A%E5%8F%82%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">1.9.</span> <span class="nav-text">java 不定参数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%E5%88%9B%E5%BB%BA"><span class="nav-number">1.10.</span> <span class="nav-text">内部类创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E4%B8%AD%E6%AD%A2"><span class="nav-number">1.11.</span> <span class="nav-text">循环中止</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E6%97%B6%E7%88%B6%E7%B1%BB%E5%AD%90%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">1.12.</span> <span class="nav-text">继承时父类子类的构造器</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shea"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Shea</p>
+  <div class="site-description" itemprop="description">请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Dxs-Shea" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Dxs-Shea" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/dxs_doris@163.com" title="E-Mail → dxs_doris@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shea</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2020/10/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<script src="/js/utils.js"></script>
 
-  
-    
+<script src="/js/motion.js"></script>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
-    </div>
-  </div>
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/10/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/06/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
