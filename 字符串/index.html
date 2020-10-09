@@ -25,15 +25,15 @@
 
 
 
-  <meta name="description" content="字符串字符串在java中无非String、StringBuilder、StringBuffer 三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str &#x3D; “hello” + “world”的效率要高于 StringBu">
+  <meta name="description" content="字符串字符串在java中无非String、StringBuilder、StringBuffer 三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str &#x3D; “hello” + “world”的效率要高于  StringB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串">
 <meta property="og:url" content="http://example.com/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="Shea&#39;s Blog">
-<meta property="og:description" content="字符串字符串在java中无非String、StringBuilder、StringBuffer 三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str &#x3D; “hello” + “world”的效率要高于 StringBu">
+<meta property="og:description" content="字符串字符串在java中无非String、StringBuilder、StringBuffer 三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str &#x3D; “hello” + “world”的效率要高于  StringB">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-09T02:44:15.000Z">
-<meta property="article:modified_time" content="2020-10-09T02:46:40.723Z">
+<meta property="article:modified_time" content="2020-10-09T02:49:54.996Z">
 <meta property="article:author" content="Shea">
 <meta property="article:tag" content="java基础">
 <meta name="twitter:card" content="summary">
@@ -226,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-09 10:44:15 / 修改时间：10:46:40" itemprop="dateCreated datePublished" datetime="2020-10-09T10:44:15+08:00">2020-10-09</time>
+              <time title="创建时间：2020-10-09 10:44:15 / 修改时间：10:49:54" itemprop="dateCreated datePublished" datetime="2020-10-09T10:44:15+08:00">2020-10-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,8 +257,10 @@
 
       
         <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串在java中无非String、StringBuilder、StringBuffer</p>
-<p>三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str = “hello” + “world”的效率要高于 StringBuilder str = new StringBuilder().append(“hello”).append(“world”)</p>
+<p>三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str = “hello” + “world”的效率要高于</p>
+<p> StringBuilder str = new StringBuilder().append(“hello”).append(“world”)</p>
 <a id="more"></a>
+
 <h4 id="使用选择方式"><a href="#使用选择方式" class="headerlink" title="使用选择方式"></a>使用选择方式</h4><ul>
 <li>当字符串相加操作或者改动较少时，建议使用String str = “hello”的形式</li>
 <li>当字符串相加操作较多的情况下建议使用StringBuilder。如果使用了多线程，则使用StringBuffer</li>
@@ -359,7 +361,10 @@
     <a href="/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" rel="prev" title="类与对象">
       <i class="fa fa-chevron-left"></i> 类与对象
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" rel="next" title="JVM内存管理以及垃圾回收">
+      JVM内存管理以及垃圾回收 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -436,20 +441,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
