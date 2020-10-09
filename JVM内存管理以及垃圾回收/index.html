@@ -14,10 +14,11 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
 </br></br></br></br></br>
@@ -32,35 +33,35 @@
 <meta property="og:site_name" content="Shea&#39;s Blog">
 <meta property="og:description" content="Java 内存结构以及垃圾回收内存结构java7">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103024.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103134.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103431.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103647.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103910.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715104149.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715104258.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715104408.png">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715112834.png">
+<meta property="og:image" content="http://example.com/.com//java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/.com//JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715103024.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715103134.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715103431.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715103647.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715103910.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715104149.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715104258.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715104408.png">
+<meta property="og:image" content="http://example.com/.com//TIM%E5%9B%BE%E7%89%8720190715112834.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20170505082120037?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVzdGxvdmV5b3Vf/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="https://img-blog.csdn.net/20170505083056192?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVzdGxvdmV5b3Vf/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://static.zybuluo.com/Rico123/q0t6nxkafapyn6yql7benc32/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
-<meta property="og:image" content="http://example.com/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95.jpg">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png">
-<meta property="og:image" content="http://example.com/%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.jpg">
-<meta property="og:image" content="http://example.com/heap.bmp">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%951.jpg">
-<meta property="og:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://example.com/%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95%E6%80%BB.jpg">
-<meta property="og:image" content="http://example.com/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.png">
-<meta property="og:image" content="http://example.com/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.jpg">
+<meta property="og:image" content="http://example.com/.com//%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95.jpg">
+<meta property="og:image" content="http://example.com/.com//%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/.com//%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.jpg">
+<meta property="og:image" content="http://example.com/.com//heap.bmp">
+<meta property="og:image" content="http://example.com/.com//%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%951.jpg">
+<meta property="og:image" content="http://example.com/.com//%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://example.com/.com//%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95%E6%80%BB.jpg">
+<meta property="og:image" content="http://example.com/.com//%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.png">
+<meta property="og:image" content="http://example.com/.com//%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.jpg">
 <meta property="article:published_time" content="2020-10-09T02:51:00.000Z">
-<meta property="article:modified_time" content="2020-10-09T08:35:19.379Z">
+<meta property="article:modified_time" content="2020-10-09T09:03:06.058Z">
 <meta property="article:author" content="Shea">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png">
+<meta name="twitter:image" content="http://example.com/.com//java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png">
 
 <link rel="canonical" href="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
 
@@ -251,7 +252,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-09 10:51:00 / 修改时间：16:35:19" itemprop="dateCreated datePublished" datetime="2020-10-09T10:51:00+08:00">2020-10-09</time>
+              <time title="创建时间：2020-10-09 10:51:00 / 修改时间：17:03:06" itemprop="dateCreated datePublished" datetime="2020-10-09T10:51:00+08:00">2020-10-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,21 +282,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Java-内存结构以及垃圾回收"><a href="#Java-内存结构以及垃圾回收" class="headerlink" title="Java 内存结构以及垃圾回收"></a>Java 内存结构以及垃圾回收</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><h5 id="java7"><a href="#java7" class="headerlink" title="java7"></a>java7</h5><p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png"></p>
+        <h3 id="Java-内存结构以及垃圾回收"><a href="#Java-内存结构以及垃圾回收" class="headerlink" title="Java 内存结构以及垃圾回收"></a>Java 内存结构以及垃圾回收</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><h5 id="java7"><a href="#java7" class="headerlink" title="java7"></a>java7</h5><p><img src="/.com//java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png"></p>
 <a id="more"></a>
-<p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png"></p>
-<p><img src="TIM%E5%9B%BE%E7%89%8720190715103024.png"></p>
-<p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103134.png"></p>
+<p><img src="/.com//JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715103024.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715103134.png"></p>
 <p>一般将-Xmx -Xms 设置为一样，因为当heap不够用进行扩容时会发生抖动，影响程序运行的稳定性。</p>
-<p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103431.png"></p>
-<p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103647.png"></p>
-<p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103910.png"></p>
-<p><img src="TIM%E5%9B%BE%E7%89%8720190715104149.png"></p>
-<p><img src="TIM%E5%9B%BE%E7%89%8720190715104258.png"></p>
-<p><img src="TIM%E5%9B%BE%E7%89%8720190715104408.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715103431.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715103647.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715103910.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715104149.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715104258.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715104408.png"></p>
 <p>JDK6：当调用intern方法时，如果字符串常量池先前已创建出该字符串对象，则返回池中该字符串的引用，否则，将此字符串对象添加到<u>字符串常量池</u>中，并且返回该字符串的引用。</p>
 <p>JDK6+：当调用intern方法时，如果字符串常量池先前已创建出该字符串对象，则返回池中该字符串的引用，否则，如果字符串对象已经存在于==Java堆==中，则将堆中的对此对象的引用添加到字符串常量池中，并且返回该引用，如果堆中不存在，则在池中创建该字符串并返回其引用</p>
-<p><img src="TIM%E5%9B%BE%E7%89%8720190715112834.png"></p>
+<p><img src="/.com//TIM%E5%9B%BE%E7%89%8720190715112834.png"></p>
 <h5 id="程序计数器-Program-Counter-Register"><a href="#程序计数器-Program-Counter-Register" class="headerlink" title="程序计数器(Program Counter Register)"></a>程序计数器(Program Counter Register)</h5><ul>
 <li><code> 线程私有。代码的运行时有顺序的，但当cpu在多线程切换时，当从A线程切换到B线程，在切回到A线程时，cpu如何知道该从A线程的哪里继续执行呢？cpu工作时就是根据每个线程的程序计数器的值来选取下一条需要执行的字节码指令，即“找到它离开时的位置来继续执行”。需要提示的是，当CPU执行的是一个Java方法时，程序计数器记录的是正在执行的虚拟机字节码指令的地址。如果执行的是Native方法（java调用非java代码的接口），这个计数值为undefined，即不发挥作用</code></li>
 </ul>
@@ -381,26 +382,26 @@
 <p>内存泄漏是指该==内存空间使用完毕之后未回收==，在不涉及复杂数据结构的一般情况下，Java的内存泄漏表现为==一个内存对象的生命周期超出了程序需要它的时间长度==。</p>
 <h5 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h5><p>1、标记清除算法</p>
 <p>标记清除算法分为标记和清除两个阶段。该算法首先从==根集合==进行扫描，==对存活的对象进行标记==，标记完毕后，在扫描整个空间中==未被标记==的对象进行回收，如下图所示。</p>
-<p><img src="/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95.jpg"></p>
+<p><img src="/.com//%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95.jpg"></p>
 <p>标记-清除算法的主要不足有两个：</p>
 <ul>
 <li>效率问题：标记和清除两个过程的效率都不高；</li>
 <li>空间问题：标记清除算法<u>不需要进行对象的移动，并且仅对不存活的对象进行处理</u>，因此标记清除之后会产生==大量不连续的内存碎片==，空间碎片太多可能会导致以后<u>在程序运行过程中需要分配较大对象时，无法找到足够的连续内存</u>，而不得不提前触发另一次垃圾收集动作。</li>
 </ul>
-<p><img src="%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png"></p>
+<p><img src="/.com//%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.png"></p>
 <p>2、复制算法</p>
 <p>复制算法将==可用内存按照容量划分为大小相等的两块==，每次只是用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这种算法适用于==对象存活率低==的场景，比如==新生代==。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要==移动堆顶指针，按顺序分配内存==即可，实现简单，运行高效。复制算法示例图如下：</p>
-<p><img src="/%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.jpg"></p>
+<p><img src="/.com//%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.jpg"></p>
 <p>事实上，现在商用的虚拟机都采用这种算法来回收新生代。因为研究发现，新生代中的对象每次回收基本上只有10%左右的对象存活，所以需要复制的对象很少，效率还不错。实践中会将新生代内存分为一块较大的Eden空间和两块较小的Survivor空间 (如下图所示)，==每次使用Eden和其中一块Survivor==。当回收时，将Eden和Survivor中还存活着的对象一次地复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。HotSpot虚拟机默认==Eden和Survivor的大小比例是 8:1==，也就是每次新生代中可用内存空间为整个新生代容量的90% ( 80%+10% )，只有10% 的内存会被“浪费”。</p>
-<p><img src="/heap.bmp"></p>
+<p><img src="/.com//heap.bmp"></p>
 <p>3、标记整理算法</p>
 <p>复制收集算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要额外的空间进行分配担保，以应对被使用的内存中==所有对象都100%存活的极端情况==，所以老年代一般不能直接选用这种算法。标记整理算法的标记过程类似标记清除算法，但后续步骤不是直接对可回收对象进行整理，而是让所有存活的对象都==向一端移动==，然后直接清理掉端边界以外的内存，类似于磁盘整理的过程，该垃圾回收算法适用于对象存活率高的场景（老年代），其作用原理如下图所示。</p>
-<p><img src="%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%951.jpg"></p>
+<p><img src="/.com//%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%951.jpg"></p>
 <p>标记整理算法与标记清除算法最显著的区别是：标记清除算法不进行对象的移动，并且仅对不存活的对象进行处理；而标记整理算法会将所有的存活对象移动到一端，并对不存活对象进行处理，因此其不会产生内存碎片。标记整理算法的作用示例图如下：</p>
-<p><img src="%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.png"></p>
+<p><img src="/.com//%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.png"></p>
 <p>4、分代收集算法</p>
 <p>对于一个大型的系统，当创建的对象和方法变量比较多时，对内存中的对象也会比较多，如果逐一分析对象是否该回收，那么势必造成效率低下。分代收集算法是基于这样一个事实：不同的对象的生命周期（存活情况）是不一样的，而==不同生命周期的对象位于堆中不同的区域==，因此对堆内存不同区域采用不同的策略进行回收可以提高JVM的执行效率。当代商用虚拟机使用的都是分代收集算法：新生代对象存活率低，就采用复制算法；老年代存活率高就用标记清除算法或者标记整理算法。Java堆内存一般可以分为新生代、老年代。<u>老年代一般说归在方法区</u>（但是这种说法是不准确的）</p>
-<p><img src="/%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95%E6%80%BB.jpg"></p>
+<p><img src="/.com//%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95%E6%80%BB.jpg"></p>
 <h5 id="新生代、老年代、永久代详解"><a href="#新生代、老年代、永久代详解" class="headerlink" title="新生代、老年代、永久代详解"></a>新生代、老年代、永久代详解</h5><p>1、新生代（Young Generation）</p>
 <p>新生代的目标就是尽可能快速的收集掉那些生命周期短的对象，一般情况下，所有新生成的对象都是放在新生代的，新生代内存按照==8:1:1==的比例分为一个 eden区和两个survivor(0,1)区，大部分对象在Eden区中生成。在进行垃圾回收时，==先将eden区存活对象复制到survivor0区然后清空eden区==，当这个survivor0区也满了时，==将eden区和survivor0区存活对象复制到survivor1区==，然后清空eden和这个survivor0区，此时survivor0区是空的，然后交换survivor0区和survivor1区的角色（即下次垃圾回收时会扫描Eden区和survivor1区），即==保持survivor0区是空的==，如此往复。特别的，当survivor1区也不足以存放eden区和survivor0区的存活对象时，就将存活对象==直接存放到老年代==。如果老年代也满了，就会触发一次==FullGC==,也就是新生代、老年代都进行回收。注意，新生代发生的GC也叫作MinorGC,MinorGC发生的频率比较高，不一定等Eden区满了才触发。</p>
 <p>2、老年代（Old Generation）</p>
@@ -414,7 +415,7 @@
 <li>产生safepoint的地方：方法调用；循环跳转；异常跳转</li>
 <li>安全点数量得适中</li>
 </ul>
-<h5 id="垃圾回收算法总结"><a href="#垃圾回收算法总结" class="headerlink" title="垃圾回收算法总结"></a>垃圾回收算法总结</h5><p><img src="/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.png"></p>
+<h5 id="垃圾回收算法总结"><a href="#垃圾回收算法总结" class="headerlink" title="垃圾回收算法总结"></a>垃圾回收算法总结</h5><p><img src="/.com//%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.png"></p>
 <p>由于对象进行了分代处理，因此垃圾回收区域、时间也不一样。垃圾回收有两种类型，Minor GC 和Full GC。</p>
 <ul>
 <li>Minor GC：对新生代进行垃圾回收，不会影响到老年代。因为新生代的Java对象大多都死亡频繁，所以MinorGC 非常频繁，一般在这里使用速度快、效率高的算法，使垃圾回收能尽快完成。</li>
@@ -422,7 +423,7 @@
 </ul>
 <h5 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h5><p>垃圾收集器回收的是==无任何引用的对象占据的内存空间==而不是对象本身</p>
 <p>如果说垃圾收集算法是内存回收的方法论，那么垃圾收集器就是==内存回收的具体实现==。下图展示了其中作用于不同分代的收集器，其中用于**==回收新生代的收集器包括Serial、ParNew、Parallel Scavenge==<strong>,</strong>==回收老年代的收集器包括Serial Old、Paralled Old 、CMS==<strong>还有用于回收整个Java堆的</strong>==G1收集器==**。不同的收集器之间的连线表示他们可以搭配使用。</p>
-<p><img src="/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.jpg"></p>
+<p><img src="/.com//%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.jpg"></p>
 <ul>
 <li>【单线程–并行，并行×并行】</li>
 <li>Serial 收集器（复制算法）：新生代单线程收集器，标记和清理都是单线程，优点是简单高效。</li>
@@ -470,7 +471,7 @@
   <p><span>本文标题:</span>JVM内存管理以及垃圾回收</a></p>
   <p><span>文章作者:</span></a></p>
   <p><span>发布时间:</span>2020年10月09日 - 10:51:00</p>
-  <p><span>最后更新:</span>2020年10月09日 - 16:35:19</p>
+  <p><span>最后更新:</span>2020年10月09日 - 17:03:06</p>
   <p><span>原始链接:</span><a href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="JVM内存管理以及垃圾回收">http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"  aria-label="复制成功！"></i></span>
   </p>
@@ -694,6 +695,8 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
