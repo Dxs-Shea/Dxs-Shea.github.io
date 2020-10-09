@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+</br></br></br></br></br>
+
+
+
+
+  <meta name="description" content="集合类常见的集合类： 实现Collection接口的 Set List 以及他们的实现类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合类">
+<meta property="og:url" content="http://example.com/%E9%9B%86%E5%90%88%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Shea&#39;s Blog">
+<meta property="og:description" content="集合类常见的集合类： 实现Collection接口的 Set List 以及他们的实现类">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/%E9%9B%86%E5%90%88%E7%B1%BB/images/%E9%9B%86%E5%90%88%E7%B1%BB.jpg">
+<meta property="og:image" content="http://example.com/%E9%9B%86%E5%90%88%E7%B1%BB/images/%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%88Map%EF%BC%89.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20170317181650025?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVzdGxvdmV5b3Vf/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="article:published_time" content="2020-08-11T18:22:21.000Z">
+<meta property="article:modified_time" content="2020-10-09T02:57:21.564Z">
+<meta property="article:author" content="Shea">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/%E9%9B%86%E5%90%88%E7%B1%BB/images/%E9%9B%86%E5%90%88%E7%B1%BB.jpg">
+
+<link rel="canonical" href="http://example.com/%E9%9B%86%E5%90%88%E7%B1%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>集合类 | Shea's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shea's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">没什么值得畏惧，你唯一需要担心的是，你配不上自己的梦想，也辜负了曾经的苦难。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E9%9B%86%E5%90%88%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Shea">
+      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shea's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          集合类
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-12 02:22:21" itemprop="dateCreated datePublished" datetime="2020-08-12T02:22:21+08:00">2020-08-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-09 10:57:21" itemprop="dateModified" datetime="2020-10-09T10:57:21+08:00">2020-10-09</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="集合类"><a href="#集合类" class="headerlink" title="集合类"></a>集合类</h3><h4 id="常见的集合类："><a href="#常见的集合类：" class="headerlink" title="常见的集合类："></a>常见的集合类：</h4><ul>
+<li><p>实现Collection接口的</p>
+<p>Set List 以及他们的实现类</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>实现Map接口的</p>
+<p>HashMap及其实现类</p>
+</li>
+</ul>
+<ul>
+<li><p>常用的</p>
+<p>HashMap、HashTable、List、Set、ArrayList、HashSet</p>
+</li>
+</ul>
+<h4 id="关系图表"><a href="#关系图表" class="headerlink" title="关系图表"></a>关系图表</h4><p><img src="images/%E9%9B%86%E5%90%88%E7%B1%BB.jpg" alt="集合类"></p>
+<p><img src="images/%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%88Map%EF%BC%89.jpg" alt="集合类（Map）"></p>
+<h4 id="Set-List-Map-区别联系"><a href="#Set-List-Map-区别联系" class="headerlink" title="Set List Map 区别联系"></a>Set List Map 区别联系</h4><h5 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h5><ul>
+<li><p>成员不能重复</p>
+</li>
+<li><p>实现类：HashSet、TreeSet、LinkedHashSet</p>
+</li>
+<li><p>HashSet</p>
+<p> 操作：外部无序的遍历成员</p>
+<p>成员要求：成员可为任意的Object子类的对象，但如果覆盖了equals方法，同时注意要修改hashCode方法</p>
+</li>
+</ul>
+<ul>
+<li><p>TreeSet</p>
+<p>操作：外部有序的遍历成员，附加实现了SortedSet，支持子集等要求顺序的操作</p>
+<p>成员要求：成员要求实现caparable接口，或者使用 Comparator构造TreeSet，成员一般为同一类型</p>
+</li>
+</ul>
+<ul>
+<li><p>LinkedHashSet</p>
+<p>操作：外部按成员的插入顺序遍历成员</p>
+<p>成员要求：成员与HashSet成员类似</p>
+</li>
+</ul>
+<h5 id="List"><a href="#List" class="headerlink" title="List"></a>List</h5><ul>
+<li><p>提供基于索引的队列成员的随机访问</p>
+</li>
+<li><p>实现类：ArrayList、LinkedList等</p>
+</li>
+<li><p>ArrayList</p>
+<p>操作：提供快速的==基于索引==的成员访问，对尾部成员的增加和删除支持较好</p>
+<p>成员要求：成员可为任意Object子类对象</p>
+</li>
+</ul>
+<ul>
+<li><p>LinkedList</p>
+<p>操作：对列表中任何位置的成员的增加和删除支持较好，但对于基于索引的成员访问支持性能较差</p>
+<p>成员要求：成员可为任意Object子类的对象</p>
+</li>
+</ul>
+<h5 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h5><ul>
+<li><p>保存键值对成员，基于键找值操作，compareTo或compare方法对键排序</p>
+</li>
+<li><p>实现类：HashMap、TreeMap、LinkedHashMap、IdentityHashMap、WeakHashMap</p>
+</li>
+<li><p>HashMap</p>
+<p>操作：能满足用户对Map的通用需求</p>
+<p>成员要求：键成员可为任意Object子类的对象，但如果覆盖了equals方法，同时注意修改hashCode方法</p>
+</li>
+</ul>
+<ul>
+<li><p>TreeMap</p>
+<p>操作：支持对键有序的遍历，使用时建议先用HashMap增加和删除成员，最后从HashMap生成TreeMap;附加实现了SortedMap接口，支持子Map等要求顺序的操作</p>
+<p>成员要求：键成员要求实现caparable接口或者使用comparator构造TreeMap，键成员一般为同一类型</p>
+</li>
+</ul>
+<ul>
+<li><p>LinkedHashMap</p>
+<p>操作：<u>保留键的插入顺序</u>，用equals方法检查键和值得相等性</p>
+<p>成员要求：成员可为任意Object子类的对象，但如果覆盖了equals方法，同时注意修改hashCode方法</p>
+</li>
+</ul>
+<ul>
+<li><p>IdentityHashMap</p>
+<p>操作：使用==来检查键和值的相等性</p>
+<p>成员要求：成员使用的是严格相等</p>
+</li>
+</ul>
+<ul>
+<li><p>WeakHashMap</p>
+<p>操作：其行为依赖于垃圾回收线程，没有理由则少用</p>
+</li>
+</ul>
+<h5 id="总观"><a href="#总观" class="headerlink" title="总观"></a>总观</h5><p>实现Collection接口的类，如Set和List，他们都是单值元素（其实Set内部也是采用Map来实现的，只是==键值一样==，从表面理解，就是单值），不像实现Map接口的类一样，里面存放的是key-value（键值对）形式的数据。这方面就会造成他们很多的不同点，如遍历方式，前者只能采用迭代或者循环来取值，但是后者可以使用键来获得键的值</p>
+<p>Set接口不保证维护元素的顺序，而且元素不能重复。List接口维护元素的顺序，而且元素可以重复。</p>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><ul>
+<li><p>Map 是Key-Value对映射的抽象接口。改映射不包括重复的键，即一个键对应一个值。简单地说，HashMap是基于哈希表的Map接口的实现，以Key-Value的形式存在，即存储的对象是==Entry==(To那个是包含了Key和Value)。</p>
+</li>
+<li><p>非线程安全，即任一时刻，可以有==多个线程同时写HashMap==,如需满足线程安全可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。</p>
+</li>
+<li><p>在HashMap中，其会根据==hash算法来计算key-value的存储位置==，并进行快速存取。</p>
+</li>
+<li><p>HashMap最多只允许一条Entry的键为Nul,但允许多条entry的值为Null即key最多只有一个为null而value没有限制</p>
+</li>
+<li><p>HashMap是Map的一个==非同步==的实现</p>
+</li>
+<li><p>HashMap与HashSet虽然实现的接口规范不同，但是他们底层的Hash存贮机制完全相同，实际上，HashSet本身就是在HashMap的基础上实现的。</p>
+</li>
+<li><p>虽然容器号称存贮的是Java对象，但实际上并不会真正将Java对象放入容器中，只是在容器中保留这些对象的引用。也就是说Java容器实际上包含的是==引用变量==，而这些引用变量指向了我们要实际保存的java对象。</p>
+</li>
+<li><p>JDK1.8引入==红黑树==大程度优化了HashMap的性能。</p>
+<h4 id="HashMap-源码中的分析"><a href="#HashMap-源码中的分析" class="headerlink" title="HashMap 源码中的分析"></a>HashMap 源码中的分析</h4><p><code>哈希的相关概念：Hash就是把任意长度的输入（又叫预映射，pre-image），通过哈希算法，变换成固定长度的输出（通常是整型），该输出就是哈希值。这种转换是一种压缩映射,也就是说散列值的空间通常小于输入的空间。不同的输入可能会散列成相同的输出，从而不可能从散列值来唯一的确定输入值。简单的说，就是将任意长度的消息压缩到某一一固定长度的摘要函数</code></p>
+<p><code>loadFactor:负载因子，用于衡量的是一个散列表的空间的使用程度</code></p>
+<p><code>threshold:HashMap进行扩容的阈值，他的值等于HashMap的容量乘以负载因子</code></p>
+<p><code>table:说明HashMap的底层实现仍是数组，只是数组的每一项都是一条链</code></p>
+<p><code>初始容量和负载因子：这两个参数是影响HashMap性能的重要参数。其中容量拜师哈希表中桶的数量（table数组的大小）初始容量是创建哈希表时痛的数量；负载因子是哈希表在其容量自动增加之前可以达到多满的一种尺度，他衡量的是一个散列表的使用程度，负载因子越大表示散列表的装填程度越高，反之越小</code></p>
+<p><code>HashMap的底层实现还是数组，只是数组的每一项都是一条链</code></p>
+</li>
+</ul>
+<p>  <img src="https://img-blog.csdn.net/20170317181650025?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvanVzdGxvdmV5b3Vf/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructs an empty HashMap with the default initial capacity</span></span><br><span class="line"><span class="comment">     * (16) and the default load factor (0.75).</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HashMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//负载因子:用于衡量的是一个散列表的空间的使用程度</span></span><br><span class="line">        <span class="keyword">this</span>.loadFactor = DEFAULT_LOAD_FACTOR; </span><br><span class="line"></span><br><span class="line">        <span class="comment">//HashMap进行扩容的阈值，它的值等于 HashMap 的容量乘以负载因子</span></span><br><span class="line">        threshold = (<span class="keyword">int</span>)(DEFAULT_INITIAL_CAPACITY * DEFAULT_LOAD_FACTOR);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// HashMap的底层实现仍是数组，只是数组的每一项都是一条链DEFAULT_INITIAL_CAPACITY是初始长度</span></span><br><span class="line">        table = <span class="keyword">new</span> Entry[DEFAULT_INITIAL_CAPACITY];<span class="comment">//table</span></span><br><span class="line"></span><br><span class="line">        init();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Entry（Node 1.8继承自Map.Entry）为HashMap的内部类，实现了Map.Entry接口，其包含了键Key、值value、下一个节点next、以及hash值四个属性。事实上，Entry是构成hash table的基石，是哈希表所存储的元素的具体形式</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> K key;     <span class="comment">// 键值对的键</span></span><br><span class="line">    V value;        <span class="comment">// 键值对的值</span></span><br><span class="line">    Entry&lt;K,V&gt; next;    <span class="comment">// 下一个节点</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;     <span class="comment">// hash(key.hashCode())方法的返回值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates new entry.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;     <span class="comment">// Entry 的构造函数</span></span><br><span class="line">        value = v;</span><br><span class="line">        next = n;</span><br><span class="line">        key = k;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java 1.8</span></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> hash;    <span class="comment">//用来定位数组索引位置</span></span><br><span class="line">        <span class="keyword">final</span> K key;</span><br><span class="line">        V value;</span><br><span class="line">        Node&lt;K,V&gt; next;   <span class="comment">//链表的下一个node</span></span><br><span class="line"> </span><br><span class="line">        Node(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123; ... &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> K <span class="title">getKey</span><span class="params">()</span></span>&#123; ... &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">getValue</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">setValue</span><span class="params">(V newValue)</span> </span>&#123; ... &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="HashMap快速存储"><a href="#HashMap快速存储" class="headerlink" title="HashMap快速存储"></a>HashMap快速存储</h5><p><code>HashMap中，最常用的操作就是put和get，在HashMap中key是惟一的。他保持唯一性首先不是通过equals方法进行比较，因为这种方法的时间复杂度是O(n)达不到HashMap快速存取的目的。实际上当我们put时，HashMap首先会调用Key的hashCode方法，然后基于此获取Key哈希码，通过哈希码快速找到某个桶即table数组中的位置，这个位置被称之为bucketIndex，如果两个对象的hashCode不同，那么equals一定为false。但是当其hashCode相同时，equals不一定为true。当这种情况发生时，我们称之为碰撞。碰撞发生后，会去除bucketIndex桶内已存储的元素，并通过hashCode()和equals方法来比较判断key是否已存在，如果存在则新的value替换旧的，不存在则存放新的键值对到桶中，所以equals方法只有在哈希码碰撞时才会用到。</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Associates the specified value with the specified key in this map.</span></span><br><span class="line"><span class="comment"> * If the map previously contained a mapping for the key, the old</span></span><br><span class="line"><span class="comment"> * value is replaced.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> key key with which the specified value is to be associated</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value value to be associated with the specified key</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the previous value associated with key, or null if there was no mapping for key.</span></span><br><span class="line"><span class="comment"> *  Note that a null return can also indicate that the map previously associated null with key.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//当key为null时，调用putForNullKey方法，并将该键值对保存到table的第一个位置 </span></span><br><span class="line">    <span class="keyword">if</span> (key == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> putForNullKey(value); </span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据key的hashCode计算hash值</span></span><br><span class="line">    <span class="keyword">int</span> hash = hash(key.hashCode());             <span class="comment">//  ------- (1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算该键值对在数组中的存储位置（哪个桶）</span></span><br><span class="line">    <span class="keyword">int</span> i = indexFor(hash, table.length);              <span class="comment">// ------- (2)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//在table的第i个桶上进行迭代，寻找 key 保存的位置</span></span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[i]; e != <span class="keyword">null</span>; e = e.next) &#123;      <span class="comment">// ------- (3)</span></span><br><span class="line">        Object k;</span><br><span class="line">        <span class="comment">//判断该条链上是否存在hash值相同且key值相等的映射，若存在，则直接覆盖 value，并返回旧value</span></span><br><span class="line">        <span class="keyword">if</span> (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</span><br><span class="line">            V oldValue = e.value;</span><br><span class="line">            e.value = value;</span><br><span class="line">            e.recordAccess(<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">return</span> oldValue;    <span class="comment">// 返回旧值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modCount++; <span class="comment">//修改次数增加1，快速失败机制</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//原HashMap中无该映射，将该添加至该链的链头</span></span><br><span class="line">    addEntry(hash, key, value, i);            </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HashMap扩容机制"><a href="#HashMap扩容机制" class="headerlink" title="HashMap扩容机制"></a>HashMap扩容机制</h5><p><code>结合负载因子的定义公式可知，threshold就是在此Load factor和length(数组长度)对应下允许的最大元素数目，超过这个数目就重新resize(扩容)，扩容后的HashMap容量是之前容量的两倍。</code></p>
+<p><code>Java中的数组是无法自动扩容的，方法是使用一个新的数组代替已有的容量小的数组</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;   <span class="comment">//传入新的容量</span></span><br><span class="line">    Entry[] oldTable = table;    <span class="comment">//引用扩容前的Entry数组</span></span><br><span class="line">    <span class="keyword">int</span> oldCapacity = oldTable.length;         </span><br><span class="line">    <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;  <span class="comment">//扩容前的数组大小如果已经达到最大(2^30)了</span></span><br><span class="line">        threshold = Integer.MAX_VALUE; <span class="comment">//修改阈值为int的最大值(2^31-1)，这样以后就不会扩容了</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];  <span class="comment">//初始化一个新的Entry数组</span></span><br><span class="line">    transfer(newTable);                         <span class="comment">//！！将数据转移到新的Entry数组里</span></span><br><span class="line">    table = newTable;                           <span class="comment">//HashMap的table属性引用新的Entry数组</span></span><br><span class="line">    threshold = (<span class="keyword">int</span>)(newCapacity * loadFactor);<span class="comment">//修改阈值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HashMap的底层数组长度总是2的n次方的原因"><a href="#HashMap的底层数组长度总是2的n次方的原因" class="headerlink" title="HashMap的底层数组长度总是2的n次方的原因"></a>HashMap的底层数组长度总是2的n次方的原因</h5><p><code>我们知道，HashMap的底层数组长度总是2的n次方，原因是 HashMap 在其构造函数 HashMap(int initialCapacity, float loadFactor) 中作了特别的处理，如下面的代码所示。当底层数组的length为2的n次方时， h&amp;(length - 1) 就相当于对length取模，其效率要比直接取模高得多，这是HashMap在效率上的一个优化</code></p>
+<ul>
+<li><strong>不同的hash值发生碰撞的概率比较小，这样就会使得数据在table数组中分布较均匀，空间利用率较高，查询速度也较快；</strong></li>
+<li><strong>h&amp;(length - 1) 就相当于对length取模，而且在速度、效率上比直接取模要快得多，即二者是等价不等效的，这是HashMap在速度和效率上的一个优化。</strong></li>
+</ul>
+<p>由于是双倍扩容，迁移过程中，会将原来 table[i] 中的链表的所有节点，分拆到新的数组的 newTable[i] 和 newTable[i + oldLength] 位置上。如原来数组长度是 16，那么扩容后，原来 table[0] 处的链表中的所有元素会被分配到新数组中 newTable[0] 和 newTable[16] 这两个位置。</p>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><ul>
+<li>LinkedList 底层采用双向循环列表实现，进行插入和删除操作时具有较高的速度，可以使用LinkedList来实现队列和栈。但是在随机访问方面效率不高</li>
+<li>LinkedList 继承了AbstractSequentialList接口，AbstractSequentialList相比于AbstractList只支持次序访问1而不支持随机访问，因为前者的get(int index),set(int index,E element),add(int index,E element),remove(int index)都是基于迭代器实现的，所以在LinkedList使用迭代器遍历更快，而ArrayList使用get(i)更快。</li>
+</ul>
+<h5 id="基本数据结构"><a href="#基本数据结构" class="headerlink" title="基本数据结构"></a>基本数据结构</h5><p><code>transient int size = 0;//计数 链表中的节点个数</code></p>
+<p><code>transient Node&lt;E&gt; first;// 头节点指针</code></p>
+<p><code>transient Node&lt;E&gt; last;// 尾节点指针</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line">  E item;</span><br><span class="line">  Node&lt;E&gt; next;</span><br><span class="line">  Node&lt;E&gt; prev;</span><br><span class="line">  Node(Node&lt;E&gt; prev,E element,Node&lt;E&gt; next)&#123;</span><br><span class="line">    <span class="keyword">this</span>.item = element;<span class="comment">//当前节点值</span></span><br><span class="line">    <span class="keyword">this</span>.next = next;<span class="comment">//后继节点</span></span><br><span class="line">    <span class="keyword">this</span>.prev = prev;<span class="comment">//前驱节点</span></span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="插入与删除"><a href="#插入与删除" class="headerlink" title="插入与删除"></a>插入与删除</h5><ul>
+<li><p>获取节点</p>
+<p>getFirst()、getList()、get(int index);</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *检查非空后，直接返回first节点的item</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">getFirst</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">final</span> Node&lt;E&gt; f = first;</span><br><span class="line">  <span class="keyword">if</span>(f==<span class="keyword">null</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">  <span class="keyword">return</span> f.item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *检查非空后，直接返回last节点的item</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">getLast</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">final</span> Node&lt;E&gt; l = last;</span><br><span class="line">  <span class="keyword">if</span>(l == <span class="keyword">null</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">  <span class="keyword">return</span> l.item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;<span class="comment">//indexOf LastIndexof同理</span></span><br><span class="line">  checkElementIndex(index);<span class="comment">//checkElemetIndex中主要用到isElementIndex方法</span></span><br><span class="line">  <span class="keyword">return</span> node(index).item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isElementIndex</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> index &gt;= <span class="number">0</span> &amp;&amp; index &lt; size;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Node&lt;E&gt; <span class="title">node</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;<span class="comment">//事实证明确实是迭代取值</span></span><br><span class="line">  <span class="keyword">if</span>(index &lt;(size&gt;&gt;<span class="number">1</span>))&#123;<span class="comment">//判断index是在链表偏左侧还是偏右侧</span></span><br><span class="line">    Node&lt;E&gt; x = first;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;index;i++)</span><br><span class="line">      x = x.next;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    Node&lt;E&gt; x = last;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = size-<span class="number">1</span>;i&gt;index;i--)</span><br><span class="line">      x = x.prev;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置节点</p>
+<p>set(int index),add(int index,E element),addFirst(E e),addLast(E e);</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span>&#123;</span><br><span class="line">  checkElemetIndex(index);</span><br><span class="line">  Node&lt;E&gt; x = node(index);</span><br><span class="line">  E oldVal = x.item;</span><br><span class="line">  x.item = element;<span class="comment">//根据node返回的对象直接赋值就能更改，我认为是node函数返回的就是那个对象，而x是引用，索引当用x.item进行赋值时实际上将堆内存中的内容改变。</span></span><br><span class="line">  <span class="keyword">return</span> oldVal;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span>&#123;<span class="comment">//实际就是在指定前插入一个新的节点，并将旧的节点的prev设置为这个新的节点，旧的节点前的节点的next指向新的节点。</span></span><br><span class="line">  checkPositionIndex(index);</span><br><span class="line">  <span class="keyword">if</span> (index == size)</span><br><span class="line">    linkLast(element);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    linkBefore(element, node(index));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//addFirst、addList很简单不做赘述</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="与ArrayList"><a href="#与ArrayList" class="headerlink" title="与ArrayList"></a>与ArrayList</h5><p>相同点：都实现了Collection接口</p>
+<p>不同点：ArrayList基于数组，具有较高的查询速度，而LinkedList基于双向循环链表，具有较快的添加或者删除的速度，</p>
+<h4 id="两两对比"><a href="#两两对比" class="headerlink" title="两两对比"></a>两两对比</h4><h5 id="HashMap和HashTable"><a href="#HashMap和HashTable" class="headerlink" title="HashMap和HashTable"></a><strong>HashMap和HashTable</strong></h5><p>相同点：两者都实现了Map接口，因此具有一系列Map接口提供的发法</p>
+<p>不同点：</p>
+<p>HashMap继承了AbstractMap，而HashTable继承了Dictionary。</p>
+<p> HashMap非线程安全，HashTable线程安全，到处都是synchronized关键字。</p>
+<p>因为HashMap没有同步，所以处理起来效率较高。</p>
+<p>HashMap键、值都允许为null，HashTable键、值都不允许有null。</p>
+<p>HashTable使用Enumeration，HashMap使用Iterator。</p>
+<h5 id="Set-和List"><a href="#Set-和List" class="headerlink" title="Set 和List"></a>Set 和List</h5><p>相同点：都实现了Collection接口</p>
+<p>不同点：</p>
+<p>Set接口不保证维护元素的顺序，并且元素不能重复。List维护元素第二顺序，元素可以重复</p>
+<h5 id="SortedSet-和SortedMap"><a href="#SortedSet-和SortedMap" class="headerlink" title="SortedSet 和SortedMap"></a>SortedSet 和SortedMap</h5><p>两者都提供了排序的功能</p>
+<h5 id="TreeMap和HashMap"><a href="#TreeMap和HashMap" class="headerlink" title="TreeMap和HashMap"></a>TreeMap和HashMap</h5><p>HashMap具有较高的速度（查询）,TreeMap则提供了按照键进行排序的功能。</p>
+<h5 id="HashSet和LinkedHashSet"><a href="#HashSet和LinkedHashSet" class="headerlink" title="HashSet和LinkedHashSet"></a>HashSet和LinkedHashSet</h5><p>HashSet,为快速查找而设计的set，存入HashSet的对象必须实现hashCode和equals</p>
+<p>LinkedHashSet，具有HashSet的查询速度，且内部使用链表维护元素的顺序（插入的顺序），于是在使用迭代器遍历Set时，结果会按照元素插入的次序显示</p>
+<h5 id="TreeSet和HashSet"><a href="#TreeSet和HashSet" class="headerlink" title="TreeSet和HashSet"></a>TreeSet和HashSet</h5><p>TreeSet提供排序功能的Set，底层为树结构，相比较HashMap查询速度滴，如果只是元素的查询，我们一般使用HashSet</p>
+<h5 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h5><p>同步性：Vector是线程安全的，也就是说同步的，而ArrayList是线程不安全的，不是同步的。</p>
+<p>数据增长：当需要增长时，Vector默认增长为原来的一倍，而ArrayList确实原来的一半</p>
+<h5 id="Collection和Collections"><a href="#Collection和Collections" class="headerlink" title="Collection和Collections"></a>Collection和Collections</h5><p>Collection是一些列单值集合类的负借口，提供了基本的一些方法，而Collections则是一系列算法的集合。里面的属性和方法基本都是static的，也就是不需要实例化，直接可以使用类名来调用。</p>
+<p>collections可以生成单元素集合（</p>
+<p>Collections中的单元素集合指的是集合中只有一个元素而且集合只读。<br>Collections.singletonList——用来生成只读的单一元素的List<br>Collections.singletonMap——用来生成只读的单Key和Value组成的Map</p>
+<p>Collections.singleton——用来生成只读的单一元素的Set</p>
+<p>）</p>
+<p>Checked集合、同步集合（为一些非线程安全的集合类提供同步机制）查找替换、集合排序</p>
+
+    </div>
+
+    
+    
+    
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/Redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="next" title="Redis持久化和缓存机制">
+      Redis持久化和缓存机制 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2007980572&auto=1&height=90"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+	  
+	  
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">常见的集合类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9B%BE%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">关系图表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set-List-Map-%E5%8C%BA%E5%88%AB%E8%81%94%E7%B3%BB"><span class="nav-number">1.3.</span> <span class="nav-text">Set List Map 区别联系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Set"><span class="nav-number">1.3.1.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#List"><span class="nav-number">1.3.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Map"><span class="nav-number">1.3.3.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%BB%E8%A7%82"><span class="nav-number">1.3.4.</span> <span class="nav-text">总观</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap"><span class="nav-number">1.4.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap-%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">HashMap 源码中的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap%E5%BF%AB%E9%80%9F%E5%AD%98%E5%82%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">HashMap快速存储</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-number">1.5.2.</span> <span class="nav-text">HashMap扩容机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap%E7%9A%84%E5%BA%95%E5%B1%82%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%80%BB%E6%98%AF2%E7%9A%84n%E6%AC%A1%E6%96%B9%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.5.3.</span> <span class="nav-text">HashMap的底层数组长度总是2的n次方的原因</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.6.</span> <span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.6.1.</span> <span class="nav-text">基本数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4"><span class="nav-number">1.6.2.</span> <span class="nav-text">插入与删除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8EArrayList"><span class="nav-number">1.6.3.</span> <span class="nav-text">与ArrayList</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%A4%E5%AF%B9%E6%AF%94"><span class="nav-number">1.7.</span> <span class="nav-text">两两对比</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap%E5%92%8CHashTable"><span class="nav-number">1.7.1.</span> <span class="nav-text">HashMap和HashTable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Set-%E5%92%8CList"><span class="nav-number">1.7.2.</span> <span class="nav-text">Set 和List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SortedSet-%E5%92%8CSortedMap"><span class="nav-number">1.7.3.</span> <span class="nav-text">SortedSet 和SortedMap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TreeMap%E5%92%8CHashMap"><span class="nav-number">1.7.4.</span> <span class="nav-text">TreeMap和HashMap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashSet%E5%92%8CLinkedHashSet"><span class="nav-number">1.7.5.</span> <span class="nav-text">HashSet和LinkedHashSet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TreeSet%E5%92%8CHashSet"><span class="nav-number">1.7.6.</span> <span class="nav-text">TreeSet和HashSet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList%E5%92%8CVector"><span class="nav-number">1.7.7.</span> <span class="nav-text">ArrayList和Vector</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Collection%E5%92%8CCollections"><span class="nav-number">1.7.8.</span> <span class="nav-text">Collection和Collections</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shea"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Shea</p>
+  <div class="site-description" itemprop="description">请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Dxs-Shea" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Dxs-Shea" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+	 
+  </aside>
+
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shea</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
+
+
+<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script>
+<!--社会主义核心价值观-->
+<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>
+
+<script src="/js/cursor.js"></script>
+<script src="/js/snow.js"></script>
+
+<script type="text/javascript">
+var a_idx = 0;
+jQuery(document).ready(function ($) {
+    $("body").click(function (e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+            y = e.pageY;
+        $i.css({
+            "z-index": 5,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#FF0000"
+        });
+        $("body").append($i);
+        $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            3000,
+            function () {
+                $i.remove();
+            });
+    });
+    setTimeout('delay()', 2000);
+});
+
+function delay() {
+    $(".buryit").removeAttr("onclick");
+}
+
+</script>
