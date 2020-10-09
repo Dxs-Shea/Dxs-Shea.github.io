@@ -392,9 +392,9 @@
   <entry>
     <title>JVM内存管理以及垃圾回收</title>
     <url>/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</url>
-    <content><![CDATA[<h3 id="Java-内存结构以及垃圾回收"><a href="#Java-内存结构以及垃圾回收" class="headerlink" title="Java 内存结构以及垃圾回收"></a>Java 内存结构以及垃圾回收</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><h5 id="java7"><a href="#java7" class="headerlink" title="java7"></a>java7</h5><p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1d9dc3a00e86?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+    <content><![CDATA[<h3 id="Java-内存结构以及垃圾回收"><a href="#Java-内存结构以及垃圾回收" class="headerlink" title="Java 内存结构以及垃圾回收"></a>Java 内存结构以及垃圾回收</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><h5 id="java7"><a href="#java7" class="headerlink" title="java7"></a>java7</h5><p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png"></p>
 <a id="more"></a>
-<p><img src="http://static.zybuluo.com/Rico123/wozzd000rzpwwpz4eqi0xf1j/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png"></p>
+<p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png"></p>
 <p><img src="TIM%E5%9B%BE%E7%89%8720190715103024.png"></p>
 <p><img src="JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/TIM%E5%9B%BE%E7%89%8720190715103134.png"></p>
 <p>一般将-Xmx -Xms 设置为一样，因为当heap不够用进行扩容时会发生抖动，影响程序运行的稳定性。</p>
