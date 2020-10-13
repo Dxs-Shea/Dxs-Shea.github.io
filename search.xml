@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Leetcode 110. 平衡二叉树</title>
-    <url>/Leetcode110.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="Leetcode110-平衡二叉树"><a href="#Leetcode110-平衡二叉树" class="headerlink" title="Leetcode110. 平衡二叉树"></a>Leetcode110. 平衡二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+    <title>104. 二叉树的最大深度</title>
+    <url>/104.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="104-二叉树的最大深度"><a href="#104-二叉树的最大深度" class="headerlink" title="104. 二叉树的最大深度"></a>104. 二叉树的最大深度</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，找出其最大深度。</p>
+<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
+<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
+<a id="more"></a>
+
+<p>示例：<br>给定二叉树 [3,9,20,null,null,15,7]，</p>
+<pre><code>3
+ / \
+  9  20
+    /  \
+   15   7</code></pre>
+<p>返回它的最大深度 3 。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree">https://leetcode-cn.com/problems/maximum-depth-of-binary-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>求出树的高度，看左右子树相差的高度是否超过 1</li>
+<li><strong>自底向上</strong></li>
+<li><strong>复杂度分析：</strong><ul>
+<li><strong>时间复杂度O(N)：</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> b=maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(a,b)+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="0-9-365-1-9884558162725615283155185926434e-17；"><a href="#0-9-365-1-9884558162725615283155185926434e-17；" class="headerlink" title="0.9^365=1.9884558162725615283155185926434e-17；"></a>0.9^365=1.9884558162725615283155185926434e-17；</h3><h3 id="1-1-365-1283305580313352-696899448007898。"><a href="#1-1-365-1283305580313352-696899448007898。" class="headerlink" title="1.1^365=1283305580313352.696899448007898。"></a>1.1^365=1283305580313352.696899448007898。</h3><ul>
+<li>二叉树返回的长度是所求深度+1</li>
+</ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>110. 平衡二叉树</title>
+    <url>/110.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="110-平衡二叉树"><a href="#110-平衡二叉树" class="headerlink" title="110. 平衡二叉树"></a>110. 平衡二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
 <p>本题中，一棵高度平衡二叉树定义为：</p>
 <p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。</p>
 <a id="more"></a>
@@ -55,16 +96,18 @@
 </ul>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>leetcode</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
-    <title>Leetcode 155. 最小栈</title>
-    <url>/Leetcode155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/</url>
-    <content><![CDATA[<p>Leetcode 155. 最小栈</p>
+    <title>155. 最小栈</title>
+    <url>/155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/</url>
+    <content><![CDATA[<ol start="155">
+<li>最小栈</li>
+</ol>
 <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
 <p>push(x) —— 将元素 x 推入栈中。<br>pop() —— 删除栈顶的元素。<br>top() —— 获取栈顶元素。<br>getMin() —— 检索栈中的最小元素。</p>
 <a id="more"></a>
@@ -106,9 +149,9 @@
 
 
 <h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>栈：LIFO 后进先出模型【栈顶指针随之移动】</p>
-<p><img src="/Leetcode155/image-20201011181640126.png" alt="image-20201011181640126"></p>
+<p><img src="/155/image-20201011181640126.png" alt="image-20201011181640126"></p>
 <p>可用LinkedList实现栈</p>
-<p><img src="/Leetcode155/image-20201011181508145.png" alt="image-20201011181508145"></p>
+<p><img src="/155/image-20201011181508145.png" alt="image-20201011181508145"></p>
 <p>Stack.Peek 与 stack.pop 的区别</p>
 <ul>
 <li><p>都返回栈顶的值</p>
@@ -118,10 +161,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>leetcode</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
+        <tag>栈</tag>
       </tags>
   </entry>
   <entry>
