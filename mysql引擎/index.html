@@ -26,15 +26,15 @@
 
 
 
-  <meta name="description" content="MySQL存储引擎 常用的存储引擎有以下：  Innodb引擎：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。  MyIASM引擎(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。  MEMORY引擎：所有的数据都在内存中，数据的处理速度快，但是安全性不高。">
+  <meta name="description" content="MySQL存储引擎常用的存储引擎有以下：  Innodb引擎：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。  MyIASM引擎(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。  MEMORY引擎：所有的数据都在内存中，数据的处理速度快，但是安全性不高。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql引擎">
 <meta property="og:url" content="http://example.com/mysql%E5%BC%95%E6%93%8E/index.html">
 <meta property="og:site_name" content="Shea&#39;s Blog">
-<meta property="og:description" content="MySQL存储引擎 常用的存储引擎有以下：  Innodb引擎：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。  MyIASM引擎(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。  MEMORY引擎：所有的数据都在内存中，数据的处理速度快，但是安全性不高。">
+<meta property="og:description" content="MySQL存储引擎常用的存储引擎有以下：  Innodb引擎：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。  MyIASM引擎(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。  MEMORY引擎：所有的数据都在内存中，数据的处理速度快，但是安全性不高。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-12T01:33:53.000Z">
-<meta property="article:modified_time" content="2020-10-12T02:41:22.349Z">
+<meta property="article:modified_time" content="2020-10-12T07:11:43.217Z">
 <meta property="article:author" content="Shea">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-12 09:33:53 / 修改时间：10:41:22" itemprop="dateCreated datePublished" datetime="2020-10-12T09:33:53+08:00">2020-10-12</time>
+              <time title="创建时间：2020-10-12 09:33:53 / 修改时间：15:11:43" itemprop="dateCreated datePublished" datetime="2020-10-12T09:33:53+08:00">2020-10-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,8 +272,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>MySQL存储引擎</p>
-<p>常用的存储引擎有以下：</p>
+        <h1 id="MySQL存储引擎"><a href="#MySQL存储引擎" class="headerlink" title="MySQL存储引擎"></a>MySQL存储引擎</h1><p>常用的存储引擎有以下：</p>
 <ul>
 <li><p><strong>Innodb引擎</strong>：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。</p>
 </li>
@@ -476,7 +475,7 @@
 	  
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM%E7%B4%A2%E5%BC%95%E4%B8%8EInnoDB%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">MyISAM索引与InnoDB索引的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">存储引擎选择</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-number">1.</span> <span class="nav-text">MySQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM%E7%B4%A2%E5%BC%95%E4%B8%8EInnoDB%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.0.1.</span> <span class="nav-text">MyISAM索引与InnoDB索引的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9"><span class="nav-number">1.0.2.</span> <span class="nav-text">存储引擎选择</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -497,20 +496,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -553,7 +552,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">41k</span>
+    <span title="站点总字数">42k</span>
 </div>
 <script>
     var now = new Date(); 
