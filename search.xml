@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Leetcode 110. 平衡二叉树</title>
+    <url>/Leetcode110.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="Leetcode110-平衡二叉树"><a href="#Leetcode110-平衡二叉树" class="headerlink" title="Leetcode110. 平衡二叉树"></a>Leetcode110. 平衡二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+<p>本题中，一棵高度平衡二叉树定义为：</p>
+<p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。</p>
+<a id="more"></a>
+
+
+<p>示例:</p>
+<p><strong>示例 1:</strong></p>
+<p>给定二叉树 <code>[3,9,20,null,null,15,7]</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
+
+<p>返回 true 。</p>
+<p>示例 2:</p>
+<p>给定二叉树 [1,2,2,3,3,null,null,4,4]</p>
+<pre><code>   1
+  / \
+ 2   2
+/ \</code></pre>
+<p>   3   3<br>  / <br> 4   4<br>返回 false 。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/balanced-binary-tree">https://leetcode-cn.com/problems/balanced-binary-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>求出树的高度，看左右子树相差的高度是否超过 1</li>
+<li><strong>自底向上</strong></li>
+<li><strong>复杂度分析：</strong><ul>
+<li><strong>时间复杂度O(N)：</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BalancedBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">//不要设为static变量</span></span><br><span class="line">    <span class="keyword">boolean</span> res = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        helper(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = helper(root.left) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = helper(root.right) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (Math.abs(right - left) &gt; <span class="number">1</span>) res = <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//此处在right递归求解时候，求最大高度，用最大高度完成上面的绝对值的求解</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(left, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><ul>
+<li><p>static变量</p>
+</li>
+<li><p>递归</p>
+</li>
+<li><p>本地输入输出-树</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">le</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        TreeNode left;</span><br><span class="line">        TreeNode right;</span><br><span class="line"></span><br><span class="line">        TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">            val = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">createTree</span><span class="params">(String tree)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// &#123;1,2,3,4,#,#,#,5,#,6,#,7,#,8&#125;</span></span><br><span class="line">        String[] ss = tree.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> createTree(ss);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">createTree</span><span class="params">(String[] tree)</span> </span>&#123;</span><br><span class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="comment">// 1st one should not be #</span></span><br><span class="line">        TreeNode root = constructOne(tree[<span class="number">0</span>]);</span><br><span class="line">        q.add(root);</span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line"></span><br><span class="line">            TreeNode tn = q.poll();</span><br><span class="line">            <span class="keyword">if</span> (tn == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// construct tn&#x27;s left&amp;right node</span></span><br><span class="line">            <span class="comment">// when to stop</span></span><br><span class="line">            <span class="keyword">if</span> (idx == tree.length) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            TreeNode left_ = constructOne(tree[idx]);</span><br><span class="line">            tn.left = left_;</span><br><span class="line">            q.add(left_);</span><br><span class="line">            idx++;</span><br><span class="line">            <span class="keyword">if</span> (idx == tree.length) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            TreeNode right_ = constructOne(tree[idx]);</span><br><span class="line">            idx++;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            tn.right = right_;</span><br><span class="line">            <span class="comment">// add to queue</span></span><br><span class="line">            q.add(right_);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> TreeNode <span class="title">constructOne</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.compareTo(<span class="string">&quot;null&quot;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(Integer.parseInt(s));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeNode tn = createTree(<span class="string">&quot;3,9,20,null,null,15,7&quot;</span>);</span><br><span class="line">        BalancedBinaryTree balancedBinaryTree = <span class="keyword">new</span> BalancedBinaryTree();</span><br><span class="line">        <span class="keyword">int</span> i=balancedBinaryTree.helper(tn);</span><br><span class="line">        System.out.println(balancedBinaryTree.res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">BalancedBinaryTree</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> res = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            helper(root);</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> left = helper(root.left) + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = helper(root.right) + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(right - left) &gt; <span class="number">1</span>) res = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">return</span> Math.max(left, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Leetcode 155. 最小栈</title>
     <url>/Leetcode155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/</url>
     <content><![CDATA[<p>Leetcode 155. 最小栈</p>
