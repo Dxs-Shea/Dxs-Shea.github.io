@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>101. 对称二叉树</title>
-    <url>/101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<a id="more"></a>
-
-<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
-<pre><code>      1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre>
-<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
-<pre><code>    1
-   / \
-  2   2
-   \   \
-   3    3</code></pre>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>left 和 right 不等，或者 left 和 right 都为空<br>递归的比较 left，left 和 right.right，递归比较 left，right 和 right.left</li>
-<li><strong>复杂度分析：</strong><ul>
-<li>算法的时间复杂度是 O(n)O(n)，因为要遍历 nn 个节点</li>
-<li>空间复杂度是 O(n)O(n)，空间复杂度是递归的深度，也就是跟树高度有关，最坏情况下树变成一个链表结构，高度是nn。</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(root.left,root.right);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(TreeNode left,TreeNode right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left==<span class="keyword">null</span>&amp;&amp;right==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(left==<span class="keyword">null</span>||right==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(left.val!=right.val) <span class="keyword">return</span> <span class="keyword">false</span>;		<span class="comment">//!!!注意</span></span><br><span class="line">        <span class="keyword">return</span> helper(left.left,right.right)&amp;&amp;helper(left.right,right.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(left.val!=right.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//比较值！</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>100. 相同的树</title>
     <url>/100.%20%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/</url>
     <content><![CDATA[<h1 id="100-相同的树"><a href="#100-相同的树" class="headerlink" title="100. 相同的树"></a>100. 相同的树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
@@ -101,6 +57,50 @@
 <h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><ul>
 <li></li>
 </ul>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>101. 对称二叉树</title>
+    <url>/101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<a id="more"></a>
+
+<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
+<pre><code>      1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre>
+<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
+<pre><code>    1
+   / \
+  2   2
+   \   \
+   3    3</code></pre>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>left 和 right 不等，或者 left 和 right 都为空<br>递归的比较 left，left 和 right.right，递归比较 left，right 和 right.left</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>算法的时间复杂度是 O(n)O(n)，因为要遍历 nn 个节点</li>
+<li>空间复杂度是 O(n)O(n)，空间复杂度是递归的深度，也就是跟树高度有关，最坏情况下树变成一个链表结构，高度是nn。</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(root.left,root.right);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(TreeNode left,TreeNode right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left==<span class="keyword">null</span>&amp;&amp;right==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(left==<span class="keyword">null</span>||right==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(left.val!=right.val) <span class="keyword">return</span> <span class="keyword">false</span>;		<span class="comment">//!!!注意</span></span><br><span class="line">        <span class="keyword">return</span> helper(left.left,right.right)&amp;&amp;helper(left.right,right.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(left.val!=right.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//比较值！</span></span><br></pre></td></tr></table></figure>
+
+
+
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -583,6 +583,33 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Se7en</title>
+    <url>/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/</url>
+    <content><![CDATA[<p><strong>影片背景</strong></p>
+<p>​                本片完全依据真实事件改编。卢旺达这个非洲国家有两个主要民族，胡图族和图西族。<u>在1962年独立以前，这里是比利时的殖民地</u>。灾难的根源正是来自这些殖民者。<u>图西族人皮肤较白，五官较接近西方人</u>，比利时人竟以这个理由让占总人口15%的<strong>图西族</strong>人管理占总人口85%的胡图族人。然而卢旺达独立之时，比利时人又让<strong>胡图族</strong>人接管了权力。两个民族的矛盾爆发了。图西族武装撤退到邻国乌干达，时刻准备反攻夺权。而卢旺达当局的胡图族政府也通过广播在不断煽动民族仇恨，在军队之外滋生了许多更为激进的民兵组织。双方的矛盾不断加深，在1994年的这个危机四伏的紧要关头，卢旺达胡图族总统的座机被不明飞弹击落。胡图族激进分子一口咬定是图西反政府武装所为，于是屠杀爆发了。</p>
+<a id="more"></a>
+
+<p>​                保护图西族女总理的比利时维和士兵连同女总理一起被暴徒杀害，美国刚刚经历了在索马里美军士兵遭虐尸事件（详见影片《黑鹰坠落》），决定不干预卢旺达事务，国际社会普遍持相同态度。<u>联合国维和部队大部分撤离</u>，法国派兵将西方人全部撤离卢旺达，随后也就离开了，留下了这一片完全无秩序的人间地狱。这时候，卢旺达首都基加利的一座比利时人开的酒店经理，胡图族人<strong>保罗·卢斯赛伯吉纳</strong>担负起了辛德勒的责任。在这个人间地狱中，他历经艰险保护了1000多名图西族人，而他自己险些遭到视其为叛徒的民兵的杀害。在卢旺达饭店，一幕又一幕惊心动魄或感人至深的场景上演。</p>
+<p>​                整整一百天过去，直到图西族武装和乌干达军队攻入基加利，屠杀才告一段落。然而惨剧并没有结束，200万胡图族人害怕遭到报复，纷纷逃往邻国，尽管他们中的大部分人没有参与屠杀。无数的人在路上和难民营中死于霍乱和疟疾。直到这时候，全世界仍然默不作声。正如影片中一位西方记者所说：“我把这些画面送到全世界，他们会叫到‘<strong>Oh my God, it’s horrible!’然后他们将继续吃晚饭</strong>。”</p>
+<p>​                酒店经理保罗，平常对在酒店潇洒的国际政要唯唯诺诺，不断周旋，希望能在危机爆发的那一天得到一点帮助。然而，人间地狱降临的那一刻，这些白皮肤的人拍拍屁股，一去不返。即便是那位勇敢的拍下屠杀画面的记者。当然，我们不能责怪他，他已经尽到了责任，然而他临走时留给他的卢旺达情人的只有一堆废弃的钞票。维和部队的长官对保罗说：“你善良、礼貌、聪明，可惜你是黑人！在西方人眼中，100万个你不如一张选票！”可笑的是，保罗却利用了西方大国的“正义威信”震慑住了屠杀者：“美国间谍卫星一直在监视！他们会审判战犯！”</p>
+<p>​                <strong>100万人，对我们来说似乎仅仅是个数字</strong>。当我们看到南京大屠杀30万遇难者的数字时，你会觉得它不再是数字。然而对于其他民族来说，这仍然是个数字。这部电影沉重、真实地让全世界看到这100万意味着什么。影片导演特里·乔治和当事人保罗· 卢斯赛伯吉纳一起在幸存者敬仰的目光中走过，一起在4000具干尸边走过，他将他的所见所感真切地反映到了影片中。</p>
+<p>​                《辛德勒的名单》、《上帝之城》、《血钻》、《末代独裁》、《不朽的园丁》、《战争之王》、《黑鹰坠落》……一个又一个名字只能告诉我们，在所谓的现代文明下，人间惨剧从来就没有停止。现在，这灭绝人性的一切正在被遗忘的大陆——非洲上演。</p>
+<p>​                    说点题外话。美国干涉索马里内战，遭遇美军士兵遭到虐尸的惨剧，某媒体鼓噪道，“美国霸权主义遭到全世界人民的反对”。在国内的压力下，美国不再干涉卢旺达内战。坐看百万人被屠杀后，该媒体责难道“以美国为首的西方国家对这起人道主义灾难视而不见”。我说这个正在伟大复兴的民族，是否也该开始承担一点国际责任，而不是在一旁冷嘲热讽。比如现在的苏丹达.尔.富.尔，已经20万人丧生了。我并不打算美化西方人，美国高声问罪，只不过因为这是给予压力的筹码。无论对于哪国，20万，30万，100万，600万都只是数字而已。</p>
+<p>​                    一切只能靠自己。如今扬眉吐气的犹太人，让全世界人都知道600万同胞被杀的惨剧，让德国人低下了头。中国正在变强，声音正在变得有力，相信我们当年的惨剧也会得到更多的认知。那卢旺达人，乌干达人，津巴布韦人，索马里人，苏丹人呢？    </p>
+<p>保罗和妻子是善良的，在这样的战争关头，在自身都难保的情况下。幸好，结局是好的。</p>
+<p>弹幕中有这样一句话：男人的魅力来自智慧和担当。</p>
+<p>是这样的。</p>
+<p>我也在想，女人的魅力呢？温柔，智慧？</p>
+<p>我太喜欢温柔的人了 呜呜呜</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>2020-movies</tag>
       </tags>
   </entry>
   <entry>
