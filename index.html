@@ -1,1399 +1,372 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
-
-<script src
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-</br></br></br></br></br>
-
-
-
-
-  <meta name="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shea's Blog</title><meta name="author" content="Shea"><meta name="copyright" content="Shea"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="没什么值得畏惧，你唯一需要担心的是，你配不上自己的梦想，也辜负了曾经的苦难。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shea&#39;s Blog">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Shea&#39;s Blog">
-<meta property="og:description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
+<meta property="og:description" content="没什么值得畏惧，你唯一需要担心的是，你配不上自己的梦想，也辜负了曾经的苦难。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.png">
 <meta property="article:author" content="Shea">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Shea","link":"链接: ","source":"来源: Shea's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
 
-<link rel="canonical" href="http://example.com/">
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-  <title>Shea's Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-10-30 15:27:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-  <script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/clicksocialvalue.js"></script>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Shea's Blog</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">没什么值得畏惧，你唯一需要担心的是，你配不上自己的梦想，也辜负了曾经的苦难。</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/" class="post-title-link" itemprop="url">Se7en</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-18 15:13:37 / 修改时间：15:29:03" itemprop="dateCreated datePublished" datetime="2020-10-18T15:13:37+08:00">2020-10-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>影片背景</strong></p>
-<p>​                本片完全依据真实事件改编。卢旺达这个非洲国家有两个主要民族，胡图族和图西族。<u>在1962年独立以前，这里是比利时的殖民地</u>。灾难的根源正是来自这些殖民者。<u>图西族人皮肤较白，五官较接近西方人</u>，比利时人竟以这个理由让占总人口15%的<strong>图西族</strong>人管理占总人口85%的胡图族人。然而卢旺达独立之时，比利时人又让<strong>胡图族</strong>人接管了权力。两个民族的矛盾爆发了。图西族武装撤退到邻国乌干达，时刻准备反攻夺权。而卢旺达当局的胡图族政府也通过广播在不断煽动民族仇恨，在军队之外滋生了许多更为激进的民兵组织。双方的矛盾不断加深，在1994年的这个危机四伏的紧要关头，卢旺达胡图族总统的座机被不明飞弹击落。胡图族激进分子一口咬定是图西反政府武装所为，于是屠杀爆发了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/mysql%E5%BC%95%E6%93%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/mysql%E5%BC%95%E6%93%8E/" class="post-title-link" itemprop="url">mysql引擎</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-12 09:33:53 / 修改时间：15:11:43" itemprop="dateCreated datePublished" datetime="2020-10-12T09:33:53+08:00">2020-10-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0-2020/" itemprop="url" rel="index"><span itemprop="name">学习-2020</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MySQL存储引擎"><a href="#MySQL存储引擎" class="headerlink" title="MySQL存储引擎"></a>MySQL存储引擎</h1><p>常用的存储引擎有以下：</p>
-<ul>
-<li><p><strong>Innodb引擎</strong>：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。</p>
-</li>
-<li><p><strong>MyIASM引擎</strong>(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。</p>
-</li>
-<li><p><strong>MEMORY引擎</strong>：所有的数据都在内存中，数据的处理速度快，但是安全性不高。</p></li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/mysql%E5%BC%95%E6%93%8E/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/Se7en/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Se7en/" class="post-title-link" itemprop="url">Se7en</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-11 19:13:37 / 修改时间：19:34:31" itemprop="dateCreated datePublished" datetime="2020-10-11T19:13:37+08:00">2020-10-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/.com//seven.jpg" alt="seven"></p>
-<p>​        最近不在状态，今天下午看个电影，试图找回状态，遂选择了之前没有看完的《七宗罪》😈</p>
-<p>​        转载链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/30624448/answer/232930196">https://www.zhihu.com/question/30624448/answer/232930196</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Se7en/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" class="post-title-link" itemprop="url">JVM内存管理以及垃圾回收</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-09 10:51:00 / 修改时间：18:49:12" itemprop="dateCreated datePublished" datetime="2020-10-09T10:51:00+08:00">2020-10-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Java-内存结构以及垃圾回收"><a href="#Java-内存结构以及垃圾回收" class="headerlink" title="Java 内存结构以及垃圾回收"></a>Java 内存结构以及垃圾回收</h3><h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><h5 id="java7"><a href="#java7" class="headerlink" title="java7"></a>java7</h5><p><img src="/.com//java7%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-09 10:44:15 / 修改时间：10:49:54" itemprop="dateCreated datePublished" datetime="2020-10-09T10:44:15+08:00">2020-10-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串在java中无非String、StringBuilder、StringBuffer</p>
-<p>三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str = “hello” + “world”的效率要高于</p>
-<p> StringBuilder str = new StringBuilder().append(“hello”).append(“world”)</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">类与对象</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-06 22:15:22" itemprop="dateCreated datePublished" datetime="2020-10-06T22:15:22+08:00">2020-10-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-09 10:46:33" itemprop="dateModified" datetime="2020-10-09T10:46:33+08:00">2020-10-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="类与对象关系、属性、方法与对象"><a href="#类与对象关系、属性、方法与对象" class="headerlink" title="类与对象关系、属性、方法与对象"></a>类与对象关系、属性、方法与对象</h4><p>类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">类加载机制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-01 10:51:00" itemprop="dateCreated datePublished" datetime="2020-10-01T10:51:00+08:00">2020-10-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-09 10:54:11" itemprop="dateModified" datetime="2020-10-09T10:54:11+08:00">2020-10-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1、什么是类加载器"><a href="#1、什么是类加载器" class="headerlink" title="1、什么是类加载器"></a>1、什么是类加载器</h1><p>负责读取java字节代码，并转化成java.lang.Class类的一个实例。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/Redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">Redis持久化和缓存机制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-16 12:24:35" itemprop="dateCreated datePublished" datetime="2020-09-16T12:24:35+08:00">2020-09-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-11 19:14:35" itemprop="dateModified" datetime="2020-10-11T19:14:35+08:00">2020-10-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>  说到redis，我们可能都会知道了他是一个类似缓存的一个内存数据库，我们从未感知到它的存在是因为他很快，为什么非常快，是因为他的发展到应用很快，还有他的反应速度也是非常快的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" class="post-title-link" itemprop="url">322. 零钱兑换</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-28 21:13:37" itemprop="dateCreated datePublished" datetime="2020-08-28T21:13:37+08:00">2020-08-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 22:09:47" itemprop="dateModified" datetime="2020-10-29T22:09:47+08:00">2020-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>#<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Shea">
-      <meta itemprop="description" content="请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shea's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/" class="post-title-link" itemprop="url">322. 零钱兑换</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-28 21:13:37" itemprop="dateCreated datePublished" datetime="2020-08-28T21:13:37+08:00">2020-08-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-29 22:15:13" itemprop="dateModified" datetime="2020-10-29T22:15:13+08:00">2020-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213. 打家劫舍 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，能够偷窃到的最高金额</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
     }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
       }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tzki/tzki.github.io/css/pool.css"><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/e11b24c7c3f418db09ba125448648a60.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Shea's Blog</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">Shea's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Dxs-Shea" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dxs_doris@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/" title="Se7en">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Se7en"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/" title="Se7en">Se7en</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-18T07:13:37.000Z" title="发表于 2020-10-18 15:13:37">2020-10-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/2020-movies/">2020-movies</a></span></div><div class="content">影片背景
+​                本片完全依据真实事件改编。卢旺达这个非洲国家有两个主要民族，胡图族和图西族。在1962年独立以前，这里是比利时的殖民地。灾难的根源正是来自这些殖民者。图西族人皮肤较白，五官较接近西方人，比利时人竟以这个理由让占总人口15%的图西族人管理占总人口85%的胡图族人。然而卢旺达独立之时，比利时人又让胡图族人接管了权力。两个民族的矛盾爆发了。图西族武装撤退到邻国乌干达，时刻准备反攻夺权。而卢旺达当局的胡图族政府也通过广播在不断煽动民族仇恨，在军队之外滋生了许多更为激进的民兵组织。双方的矛盾不断加深，在1994年的这个危机四伏的紧要关头，卢旺达胡图族总统的座机被不明飞弹击落。胡图族激进分子一口咬定是图西反政府武装所为，于是屠杀爆发了。
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2007980572&auto=1&height=90"></iframe>
+​                保护图西族女总理的比利时维和士兵连同女总理一起被暴徒杀害，美国刚刚经历了在索马里美军士兵遭虐尸事件（详见影片《黑鹰坠落》），决定不干预卢旺达事务，国际社会普遍持相同态度。联合国维和部队大部分撤离，法国派兵将西方人全部撤离卢旺达，随后也就离开了，留下了这一片完全无秩序的人间地狱。这时候 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/mysql%E5%BC%95%E6%93%8E/" title="mysql引擎">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql引擎"></a></div><div class="recent-post-info"><a class="article-title" href="/mysql%E5%BC%95%E6%93%8E/" title="mysql引擎">mysql引擎</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-12T01:33:53.000Z" title="发表于 2020-10-12 09:33:53">2020-10-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0-2020/">学习-2020</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/mysql/">mysql</a></span></div><div class="content">MySQL存储引擎常用的存储引擎有以下：
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-	  
-	  
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
+Innodb引擎：Innodb引擎提供了对数据库ACID事务的支持。并且还提供了行级锁和外键的约束。它的设计的目标就是处理大数据容量的数据库系统。
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Shea"
-      src="/images/avatar.jpg">
-  <p class="site-author-name" itemprop="name">Shea</p>
-  <div class="site-description" itemprop="description">请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Dxs-Shea" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Dxs-Shea" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-  </div>
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">27</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">14</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
+MyIASM引擎(原本Mysql的默认引擎)：不提供事务的支持，也不支持行级锁和外键。
+
+MEMORY引擎：所有的数据都在内存中，数据的处理速度快，但是安全性不高。
 
 
 
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
 
-    </div>
-	 
-  </aside>
-
-  <div id="sidebar-dimmer"></div>
+MyISAM与InnoDB区别
 
 
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Shea</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-      <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">67k</span>
-</div>
+MyISAM
+Innodb
 
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+
+
+存储结构
+每张表被存放在三个文件：frm-表格定义、MYD(MYData)-数据文件、MYI(MYIndex)-索引文件
+所有的表都保存在同一个数据文件中（也可能是多个文件，或者是独立的表空间文件），InnoDB表的大小只受限于操作系统文件的大小，一般为2GB
+
+
+存储空间
+MyISAM可被压缩，存储空间较小
+InnoDB的表需要更多的内存和存储，它会在主内存中建立其专用的缓冲池用于高速缓冲数据和索引
+
+
+可移植性、备份及恢复
+由于MyISAM的数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作
+免费的方案 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Se7en/" title="Se7en">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Se7en"></a></div><div class="recent-post-info"><a class="article-title" href="/Se7en/" title="Se7en">Se7en</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-11T11:13:37.000Z" title="发表于 2020-10-11 19:13:37">2020-10-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/2020-movies/">2020-movies</a></span></div><div class="content">
+​        最近不在状态，今天下午看个电影，试图找回状态，遂选择了之前没有看完的《七宗罪》😈
+​        转载链接：https://www.zhihu.com/question/30624448/answer/232930196
+
+
+​        《七宗罪》由摩根弗里曼和布拉德皮特主演，涉及到了宗教中的七原罪、精神疾病、悬疑、社会现象、人性隐喻、个人成长等多个方面，每一个方面拿出来，都是可以作为完整的一篇电影解析来呈现的。
+​        此文在社会现象和电影结构两点展开
+​        在影片的开头里，我们也看到了萨摩赛特办一场杀夫案的时候，问警员：孩子看到了吗？警员埋怨萨摩赛特多管闲事，让他管好自己和工作就好了，不要为自己找麻烦。
+
+​        在影片里，萨摩赛特提到了自己遇见的一件事情加以佐证这种想法，他说自己并不是悲观，而是人性确实如此，一个女人收到迫害的时候，**喊“救火”甚至比“救命”要有效…**影片中多次通过萨摩赛特的对话让我们了解了他本人的一些观念，而从这些观念中，我们得出，萨摩赛特与现代生活是格格不入的。
+​        他会用一台脱离 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="JVM内存管理以及垃圾回收">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM内存管理以及垃圾回收"></a></div><div class="recent-post-info"><a class="article-title" href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="JVM内存管理以及垃圾回收">JVM内存管理以及垃圾回收</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-09T02:51:00.000Z" title="发表于 2020-10-09 10:51:00">2020-10-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/JVM/">JVM</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/JVM/">JVM</a></span></div><div class="content">Java 内存结构以及垃圾回收内存结构java7
+
+
+
+
+一般将-Xmx -Xms 设置为一样，因为当heap不够用进行扩容时会发生抖动，影响程序运行的稳定性。
 
 
 
 
 
 
+JDK6：当调用intern方法时，如果字符串常量池先前已创建出该字符串对象，则返回池中该字符串的引用，否则，将此字符串对象添加到字符串常量池中，并且返回该字符串的引用。
+JDK6+：当调用intern方法时，如果字符串常量池先前已创建出该字符串对象，则返回池中该字符串的引用，否则，如果字符串对象已经存在于==Java堆==中，则将堆中的对此对象的引用添加到字符串常量池中，并且返回该引用，如果堆中不存在，则在池中创建该字符串并返回其引用
+
+程序计数器(Program Counter Register)
+ 线程私有。代码的运行时有顺序的，但当cpu在多线程切换时，当从A线程切换到B线程，在切回到A线程时，cpu如何知道该从A线程的哪里继续执行呢？cpu工作时就是根据每个线程的程序计数器的值来选取下一条需要执行的字节码指令，即“找到它离开时的位置来继续执行”。需要提示的是，当CPU执行的是一个Java方法时，程序计数器 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符串"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串">字符串</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-09T02:44:15.000Z" title="发表于 2020-10-09 10:44:15">2020-10-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java%E5%9F%BA%E7%A1%80/">java基础</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></span></div><div class="content">字符串字符串在java中无非String、StringBuilder、StringBuffer
+三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str = “hello” + “world”的效率要高于
+ StringBuilder str = new StringBuilder().append(“hello”).append(“world”)
 
 
-      </div>
-    </footer>
-  </div>
+使用选择方式
+当字符串相加操作或者改动较少时，建议使用String str = “hello”的形式
+当字符串相加操作较多的情况下建议使用StringBuilder。如果使用了多线程，则使用StringBuffer
 
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+==与equalsequals比较的是对象的内容也就是JVM堆内存中的内容，==比较的是地址即JVM栈内存中的内容
+String
+string声明的字符串长度不可变是与StringBuilder与SringBuffer的最直观的区别。
+string ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" title="类与对象">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="类与对象"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" title="类与对象">类与对象</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-06T14:15:22.000Z" title="发表于 2020-10-06 22:15:22">2020-10-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/java%E5%9F%BA%E7%A1%80/">java基础</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></span></div><div class="content">类与对象关系、属性、方法与对象类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。
 
 
-<script src="/js/schemes/pisces.js"></script>
+封装、继承、多态封装：将抽象性函式接口的实现细节部分包装，隐藏起来，防止类的代码和数据被外部类定义的代码随机访问。可以通过接口暴露代码或数据。重要的功能是能修改自己实现的代码，而不用修改调用此代码的程序片段。
+继承：继承就是子类继承父类的特征和行为。子类通过extend或implements声明继承父类，子类能继承父类非private的属性和方法，子类可以拥有自己的属性和方法。extend单一继承一个子类只能有一个父类。implements多继承一个子类可以有多个父类，父类的类型为interface。在类中super指向父类的引用，this指向本类的引用。
+多态：方法的重载,参数多态,一个类中的多个方法，方法名相同，参数列表不同/个数不同/返回值不同。方法的重写覆盖,对于父类中的某个方法,在子类重新定义一个相 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="类加载机制"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" title="类加载机制">类加载机制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-01T02:51:00.000Z" title="发表于 2020-10-01 10:51:00">2020-10-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/JVM/">JVM</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/JVM/">JVM</a></span></div><div class="content">1、什么是类加载器负责读取java字节代码，并转化成java.lang.Class类的一个实例。
 
 
-<script src="/js/next-boot.js"></script>
+2、类加载器与类的“相同”判断
+类加载器除了用于加载类外，还可用于确定类在Java虚拟机中的唯一性。
+即便是同样的字节代码，被不同的类加载器加载之后得到的类也是不同的。
+通俗一点来讲，要判断两个类是否“相同”，前提是这两个类必须被同一个类加载器加载，否则这个两个类不“相同”。
+这里的相同，包括Class对象的equals()方法、isAssignableFrom()方法、isInstance()方法、instanceof关键字等判断出来的结果。
 
-<script src="/js/bookmark.js"></script>
-
-
-  <script defer src="/lib/three/three.min.js"></script>
-    <script defer src="/lib/three/three-waves.min.js"></script>
-    <script defer src="/lib/three/canvas_lines.min.js"></script>
-    <script defer src="/lib/three/canvas_sphere.min.js"></script>
-
-
-  
-
+3、类加载器种类
+启动类加载器，Bootstrap ClassLoader 加载JAVA_HOME\lib 或者被-Xbootclasspath参数限定的类
+扩展类加载器、Extension ClassLoader 加载\lib\ext,或者被java.ext.dirs系统变量指定的类
+应用程序类加载器，Application ClassLoader，加载ClassPath中的类库.
+自定义类加载器，通过集成ClassLoader实现，一般是 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" title="Redis持久化和缓存机制">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis持久化和缓存机制"></a></div><div class="recent-post-info"><a class="article-title" href="/Redis%E6%8C%81%E4%B9%85%E5%8C%96%E5%92%8C%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" title="Redis持久化和缓存机制">Redis持久化和缓存机制</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-16T04:24:35.000Z" title="发表于 2020-09-16 12:24:35">2020-09-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Redis/">Redis</a></span></div><div class="content">  说到redis，我们可能都会知道了他是一个类似缓存的一个内存数据库，我们从未感知到它的存在是因为他很快，为什么非常快，是因为他的发展到应用很快，还有他的反应速度也是非常快的。
 
 
-
-  
-<script src="/js/local-search.js"></script>
-
-
+1 、Redis的适用环境首先作为一个nosql的key—value组成的数据库，它们能存储的数据结构必须是简单的，因为有关系的数据即使存储进去之后查询也是很困难的，并且对于海量的数据存储还是关系型数据库比较合适。
+举一个把一般数据库数据存储到key-value中的例子：
 
 
 
-
+student
 
 
 
 
 
 
+学号
+姓名
+年龄
+班级
 
-  
 
-  
+001
+小明
+18
+2
 
 
-<script src="https://cdn.jsdelivr.net/gh/Sanarous/files@1.151/js/click.min.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":300,"height":350},"mobile":{"show":true},"log":false});</script></body>
-</html>
 
-<script type="text/javascript">
-    var OriginTitile=document.title,st;
-    document.addEventListener("visibilitychange",function(){
-        document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+
+
+key
+value
+
+
+
+student:001:姓名
+小明
+
+
+student:001:年龄
+18
+
+
+student:001:班级
+2
+
+
+遵从规则为        key  表名：主键值：列名​                            value  列值
+如果加上表关系的话还要复杂好几倍的。
+        那么什么样的数据适合存储在非关系型数据库中的呢？
+        1、关系不是很密切的的数据，比如用户信息，班级信息 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" title="322. 零钱兑换">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="322. 零钱兑换"></a></div><div class="recent-post-info"><a class="article-title" href="/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" title="322. 零钱兑换">322. 零钱兑换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-28T13:13:37.000Z" title="发表于 2020-08-28 21:13:37">2020-08-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/leetcode/">leetcode</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></span></div><div class="content">#198. 打家劫舍
+题目描述你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+
+
+示例1:
+1234输入：[1,2,3,1]输出：4解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。     偷窃到的最高金额 = 1 + 3 = 4 。
+
+示例2:
+1234输入：[2,7,9,3,1]输出：12解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。     偷窃到的最高金额 = 2 + 9 + 1 = 12 。
+
+
+
+提示：
+
+0 &lt;= nums.length &lt;= 100
+0 &lt;= nums[i] &lt;= 400
+
+思路1
+读题知输入一个长度为 n 的数组，表示 n 个房屋，让我们求到第 n 个房屋的最大金额。
+
+我们想 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/" title="322. 零钱兑换">     <img class="post_bg" data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="322. 零钱兑换"></a></div><div class="recent-post-info"><a class="article-title" href="/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/" title="322. 零钱兑换">322. 零钱兑换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-28T13:13:37.000Z" title="发表于 2020-08-28 21:13:37">2020-08-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/leetcode/">leetcode</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></span></div><div class="content">213. 打家劫舍 II题目描述你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。
+给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，能够偷窃到的最高金额
+
+
+示例1:
+123输入：nums = [2,3,2]输出：3解释：你不能先偷窃 1 号房屋（金额 = 2），然后偷窃 3 号房屋（金额 = 2）, 因为他们是相邻的。
+
+示例2:
+1234输入：nums = [1,2,3,1]输出：4解释：你可以先偷窃 1 号房屋（金额 = 1），然后偷窃 3 号房屋（金额 = 3）。     偷窃到的最高金额 = 1 + 3 = 4 。
+
+示例3:
+12输入：nums = [0]输出：0
+
+
+
+提示：
+
+0 &lt;= nums.length &lt;= 100
+0 &lt;= nums[i] &lt;= 400
+
+思路1
+两个dp,一个从0到n-1,另一个从1到n,最后取两个 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Shea</div><div class="author-info__description">没什么值得畏惧，你唯一需要担心的是，你配不上自己的梦想，也辜负了曾经的苦难。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Dxs-Shea" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dxs_doris@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/" title="Se7en"><img data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Se7en"/></a><div class="content"><a class="title" href="/%E5%8D%A2%E6%97%BA%E8%BE%BE%E9%A5%AD%E5%BA%97%20Hotel%20Rwanda%20(2004)/" title="Se7en">Se7en</a><time datetime="2020-10-18T07:13:37.000Z" title="发表于 2020-10-18 15:13:37">2020-10-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/mysql%E5%BC%95%E6%93%8E/" title="mysql引擎"><img data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql引擎"/></a><div class="content"><a class="title" href="/mysql%E5%BC%95%E6%93%8E/" title="mysql引擎">mysql引擎</a><time datetime="2020-10-12T01:33:53.000Z" title="发表于 2020-10-12 09:33:53">2020-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Se7en/" title="Se7en"><img data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Se7en"/></a><div class="content"><a class="title" href="/Se7en/" title="Se7en">Se7en</a><time datetime="2020-10-11T11:13:37.000Z" title="发表于 2020-10-11 19:13:37">2020-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="JVM内存管理以及垃圾回收"><img data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM内存管理以及垃圾回收"/></a><div class="content"><a class="title" href="/JVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="JVM内存管理以及垃圾回收">JVM内存管理以及垃圾回收</a><time datetime="2020-10-09T02:51:00.000Z" title="发表于 2020-10-09 10:51:00">2020-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串"><img data-lazy-src="https://gitee.com/yinuxy/cdn/raw/master/2020/10/30/10eae0a4cff093b39b97ad741a4bd2f1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符串"/></a><div class="content"><a class="title" href="/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串">字符串</a><time datetime="2020-10-09T02:44:15.000Z" title="发表于 2020-10-09 10:44:15">2020-10-09</time></div></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="card-content"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JVM/"><span class="card-category-list-name">JVM</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/java%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">java基础</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/leetcode/"><span class="card-category-list-name">leetcode</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0-2020/"><span class="card-category-list-name">学习-2020</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">2</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/2020-movies/" style="font-size: 1.23em; color: #999ea6">2020-movies</a> <a href="/tags/JVM/" style="font-size: 1.23em; color: #999ea6">JVM</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/Redis/" style="font-size: 1.1em; color: #999">Redis</a> <a href="/tags/java%E5%9F%BA%E7%A1%80/" style="font-size: 1.23em; color: #999ea6">java基础</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 1.1em; color: #999">位运算</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.37em; color: #99a4b2">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 1.37em; color: #99a4b2">双指针</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">摩尔投票法</a> <a href="/tags/%E6%A0%88/" style="font-size: 1.1em; color: #999">栈</a> <a href="/tags/%E6%A0%91/" style="font-size: 1.5em; color: #99a9bf">树</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.23em; color: #999ea6">链表</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">19</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">27</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">34.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-10-30T07:27:39.798Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Shea</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.spacingElementById('content-inner')
+  else {
+    $.getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js', () => {
+      pangu.spacingElementById('content-inner')
     })
-</script>
-
-<!--动态线条背景-->
-<script type="text/javascript"
-color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
-</script>
-
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<!--<script type="text/javascript" src="/js/fireworks.js"></script>-->
-
-
-<script type="text/javascript">
-//只在桌面版网页启用特效
-var windowWidth = $(window).width();
-if (windowWidth > 768) {
-    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+  }
 }
-</script>
-<script src="/js/cursor.js"></script>
-<!--<script src="/js/snow.js"></script>-->
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguFn)</script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "请你用绝对的理智和清醒的头脑去压制住心里的爱和难过，站在未来的高点去否定当下没意义的事。".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '请'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
+} else {
+  subtitleType()
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/js/hideMobileSidebar.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" async="async" mobile="true"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":300,"height":350},"mobile":{"show":true},"log":false});</script></body></html>
