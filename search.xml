@@ -475,6 +475,38 @@
   </entry>
   <entry>
     <title>206. 反转链表</title>
+    <url>/206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>反转一个单链表。</p>
+<a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>-&gt;NULL</span><br><span class="line">输出: <span class="number">5</span>-&gt;<span class="number">4</span>-&gt;<span class="number">3</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span>-&gt;NULL</span><br></pre></td></tr></table></figure>
+
+<p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>我们可以申请两个指针，第一个指针叫 pre，最初是指向 null 的。<br>第二个指针 cur 指向 head，然后不断遍历 cur。<br>每次迭代到 cur，都将 cur 的 next 指向 pre，然后 pre 和 cur 前进一位。<br>都迭代完了(cur 变成 null 了)，pre 就是最后一个节点了。</li>
+<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// if(head==null) return;</span></span><br><span class="line">        <span class="comment">// if(head.next==null) return head;</span></span><br><span class="line">        ListNode cur=head;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=cur.next;</span></span><br><span class="line">        ListNode temp=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//while(head!=null&amp;&amp;head.next!=null)&#123;</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            <span class="comment">//pre前进一位</span></span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//return head;</span></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>递归</li>
+<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>pre前进一位：pre=cur;</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
     <url>/169.%20%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<h1 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169. 多数元素"></a>169. 多数元素</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
 <p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
@@ -606,38 +638,6 @@
       </categories>
       <tags>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>206. 反转链表</title>
-    <url>/206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>反转一个单链表。</p>
-<a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>-&gt;NULL</span><br><span class="line">输出: <span class="number">5</span>-&gt;<span class="number">4</span>-&gt;<span class="number">3</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span>-&gt;NULL</span><br></pre></td></tr></table></figure>
-
-<p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>我们可以申请两个指针，第一个指针叫 pre，最初是指向 null 的。<br>第二个指针 cur 指向 head，然后不断遍历 cur。<br>每次迭代到 cur，都将 cur 的 next 指向 pre，然后 pre 和 cur 前进一位。<br>都迭代完了(cur 变成 null 了)，pre 就是最后一个节点了。</li>
-<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// if(head==null) return;</span></span><br><span class="line">        <span class="comment">// if(head.next==null) return head;</span></span><br><span class="line">        ListNode cur=head;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=cur.next;</span></span><br><span class="line">        ListNode temp=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//while(head!=null&amp;&amp;head.next!=null)&#123;</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            <span class="comment">//pre前进一位</span></span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//return head;</span></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
-<li>递归</li>
-<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>pre前进一位：pre=cur;</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1284,97 +1284,6 @@
       </tags>
   </entry>
   <entry>
-    <title>字符串</title>
-    <url>/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串在java中无非String、StringBuilder、StringBuffer</p>
-<p>三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str = “hello” + “world”的效率要高于</p>
-<p> StringBuilder str = new StringBuilder().append(“hello”).append(“world”)</p>
-<a id="more"></a>
-
-<h4 id="使用选择方式"><a href="#使用选择方式" class="headerlink" title="使用选择方式"></a>使用选择方式</h4><ul>
-<li>当字符串相加操作或者改动较少时，建议使用String str = “hello”的形式</li>
-<li>当字符串相加操作较多的情况下建议使用StringBuilder。如果使用了多线程，则使用StringBuffer</li>
-</ul>
-<h4 id="与equals"><a href="#与equals" class="headerlink" title="==与equals"></a>==与equals</h4><p><code>equals比较的是对象的内容也就是JVM堆内存中的内容，==比较的是地址即JVM栈内存中的内容</code></p>
-<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><ul>
-<li>string声明的字符串长度不可变是与StringBuilder与SringBuffer的最直观的区别。</li>
-<li>string通过char数组保存字符串</li>
-<li>对String对象的任何改变都不影响到原对象，任何的change操作都会生成新对象，比如substring,concat或replace在源码中的操作都不是在原有字符串上进行的么事重新生成了一个新的字符串对象。</li>
-<li>string类的源码中 被final修饰  不能被继承（早起final修饰的方法会被转为内嵌调用以提升执行效率，现在的版本中已经渐渐被摒弃，所以现在不需要考虑用final去提升方法调用效率。只有不想让该方法被覆盖时才将方法设置为final）</li>
-<li>类似 String s = “hello,world”创建时会在JVM的栈内存中产生一个变量 s ，同时在堆内存中产生”hello,world“字符串对象，s指向hello,world的内存地址。像上面这种方式产生的字符串属于<strong>直接量字符串</strong> (直接赋值的这种类型，<em>new String(“hello,world”)不会产生缓存,new关键字来生成对象都是在堆区进行的。而在堆区进行对象生成的过程是不会去检测对象是否已经存在的，因此通过new来创建对象，创建出的一定是不同的对象，及时字符串的内容是相同的</em>)对象，JVM在处理这类字符串的时候，会进行缓存，产生时放入字符串池，当程序需要再次使用的时候，无需重新创建一个新的字符串，而是直接指向已存在的字符串。如下代码打印结果为 true：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestString</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String s = <span class="string">&quot;hello,world&quot;</span>;</span><br><span class="line">        String s1 = <span class="string">&quot;hello,world&quot;</span>;</span><br><span class="line">        String s2 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">        String s3 = s2 + <span class="string">&quot;,world&quot;</span>;</span><br><span class="line">        System.out.println(s == s3);<span class="comment">//false</span></span><br><span class="line">        System.out.pringln(s.equals(s3));<span class="comment">//true</span></span><br><span class="line">        <span class="keyword">final</span> String s4 = <span class="string">&quot;hello&quot;</span>;<span class="comment">//对于被final修饰的变量，堆在class文件常量池中保存一个副本，也就是说不会通过连接而进行访问，对final边量的访问在编译期间都会直接被替代为真实的值。所以 String s5 = s4 + &quot;,world&quot;，实际上被JVM优化为 String s5 = &quot;hello&quot; +&quot;,world&quot;；等同于 String s5 = &quot;hello,world&quot;;但是如果final修饰的变量的结果是在运行时才能确定的，则 s4与s不是同一个对象</span></span><br><span class="line">        String s5 = s4 + <span class="string">&quot;,world&quot;</span>;</span><br><span class="line">      	String s6 = s2.concat(<span class="string">&quot;,world&quot;</span>);<span class="comment">//从末尾拼接</span></span><br><span class="line">        System.out.println(s == s5);<span class="comment">//true</span></span><br><span class="line">        System.out.println(s.equals(s5));<span class="comment">//true</span></span><br><span class="line">      	System.out.println(s == s6);<span class="comment">//false</span></span><br><span class="line">      	System.out.println(s.equals(s6))<span class="comment">//true</span></span><br><span class="line">        System.out.println(s == s1);<span class="comment">//true</span></span><br><span class="line">        String s7 = <span class="keyword">new</span> String(<span class="string">&quot;hello,world&quot;</span>);</span><br><span class="line">        String s8 = s7.intern();<span class="comment">//当调用s.intern()这句的时候，先去字符串常量池中找，是否有abc这个串，如果没有，则新增，同时返回引用，如果有，则返回已经存在的引用;</span></span><br><span class="line">        System.out.println(s == s7);<span class="comment">//false</span></span><br><span class="line">        System.out.println(s == s8);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>用上述方法声明的string对象是固定的但是其所指向的对象可以发生变化，即s是引用变量。当声明s后，如出现 s = s +”a”;代码  则 s指向 ”hello,worlda“此字符串，但是s对象未发生变化，只是指向的对象发生变化。</p>
-</li>
-<li><p>String初始化方式(常用)</p>
-<p>①  String s = “hello,world” 属于直接量字符串，并且当 String s1 = “hello,world”出现在同一代码段中时，s == s1 &amp;&amp; s.equlas(s2)。因为 直接量的字符串会产生缓存池，所以，当声明s1的时候，编译器检测到缓存池中存在相同的字符串，所以就直接使用。两者栈内存地址相同，并且堆内存指向的内容相同。</p>
-<p>② String()  初始化一个String对象，表示一个空字符序列</p>
-<p>③String(String value) 利用一个直接量创建一个新串</p>
-<p>④String(char[] value) 利用一个字符数组创建</p>
-<p>⑤String(char[] value,int offset,int count) 截取字符数组，从offset开始count个字符创建</p>
-<p>⑥String(StringBuffer buffer);等同于 buffer.toString(); 同StringBuilder;`</p>
-</li>
-<li><p>字符串比较大小</p>
-<p>从第一位开始  两个字符串同时比较字符的ASCII码值；如 a &lt; bc 、  ac&lt;bc 、  b&gt; ac </p>
-</li>
-</ul>
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
-<li><p><strong>String s = “123” + “456”内存中产生几个字符串对象？</strong></p>
-<p>因为前面提到Java字符串的缓存，编译器在编译的时候会进行优化，所以 “123”与“456”被合成一个串“123456”,所以如果缓存池中没有“123456”这个对象，则会产生一个，且栈中产生一个引用s指向他，如果已存在那么产生0个对象，直接用s指向它。</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>如果spilt()函数的参数在要分割的字符串中没有怎么办？如String s = “helloworld” ,我现在调用String[] s2 = s.spilt(“abc”)，返回什么？</strong></p>
-<p>s2 为 helloworld</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>判断</strong></p>
-<p>String s = “ab” ; String s1 = “a”; String s2 = s1 +”b” ; String s3 = “ab”;</p>
-<p><strong>s == s3 —&gt; true</strong></p>
-<p><strong>s == s2 —&gt;false</strong>  s1+”b”产生了新对象 ， 栈内存中的地址不相同</p>
-<p><strong>s.equals(s2) —&gt;true</strong>  堆内存的内容相同 </p>
-</li>
-<li><p><strong>String str = new String(“abc”)产生几个对象</strong></p>
-<p>在运行期间创建一个对象，即在堆上创建了“abc”对象。涉及到两个对象，还有一个是在类加载的过程中在运行时常量池中创建了一个“abc”对象</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>String str1 = “I”; str1 += “love” + “java”</strong>(1)和<strong>String str1 = “I”; str1 = str1 + “love” + “java”</strong>(2)的区别</p>
-<p>1的效率比2高，1中的“love”+”java”在编译期间会被优化成“lovejava”而2中的不会被优化。前面说到过 s +=”hello”会被优化为StringBuilder 1会进行1次append而2会进行两次append操作</p>
-</li>
-</ul>
-<h4 id="StringBuffer与StringBuilder"><a href="#StringBuffer与StringBuilder" class="headerlink" title="StringBuffer与StringBuilder"></a>StringBuffer与StringBuilder</h4><p><code>与String不同，StringBuffer与StringBuilder类的对象能够被多次的修改，并且不产生新的对象。</code></p>
-<p><code>StringBuilder和StringBuffer类拥有的成员属性以及成员方法基本相同</code></p>
-<p><code>StringBuilder与StringBuffer之间最大的不同是在于StringBuilder的方法不是线程安全的（不能同步访问）体现在StringBuffer在类的成员方法前面对了一个关键字：synchronized </code></p>
-<p><code>StringBuilder比StringBuffer有速度优势，所以多数情况建议使用StringBuilder类，然而在程序要求线程安全的情况下，必须使用StringBuffer类</code></p>
-<p><code>string+=&quot;hello&quot;的操作事实上会被JVM优化成</code></p>
-<p><code>StringBuider str = new StringBuilder(string);</code></p>
-<p><code>str.append(&quot;hello&quot;);</code></p>
-<p><code>str.toString();</code></p>
-<p><code>所以对String生成的字符串进行操作时都会生成新对象，如果使再循环中进行字符串的操作，用String这种类型会产生大量的对象，如果不进行垃圾回收，会造成很大的内存资源浪费。</code></p>
-<ol>
-<li>append() 将指定的字符串追加到此字符串尾部</li>
-<li>reverse() 反转字符串</li>
-<li>delete(int start,int end) 移除次序列的子字符串中的字符</li>
-<li>insert(int offset,object i) 将 object （int 、string、double。。。。）参数的字符串表示形式插入到此序列中</li>
-<li>replace(int start,int end,String str) 使用给定String中的字符替换此序列的子字符串中的字符</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *代码示例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStringBuffer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        stringBuffer.append(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.reverse();</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.delete(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.insert(<span class="number">0</span>,<span class="string">&quot;6&quot;</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.replace(<span class="number">6</span>,<span class="number">6</span>,<span class="string">&quot;asd&quot;</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> *结果输出</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="number">123456</span></span><br><span class="line"><span class="number">654321</span></span><br><span class="line"><span class="number">54321</span></span><br><span class="line"><span class="number">654321</span></span><br><span class="line"><span class="number">654321</span>asd</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>java基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>类与对象</title>
     <url>/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h4 id="类与对象关系、属性、方法与对象"><a href="#类与对象关系、属性、方法与对象" class="headerlink" title="类与对象关系、属性、方法与对象"></a>类与对象关系、属性、方法与对象</h4><p>类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。</p>
@@ -1474,6 +1383,97 @@
 
 <p><code>输出结果为</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test</span><br><span class="line">testExtends</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符串</title>
+    <url>/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串在java中无非String、StringBuilder、StringBuffer</p>
+<p>三者效率比较：StringBuilder &gt; StringBuffer &gt; String,这个比较是相对的，再做大量的对同一字符串进行操作时，这个效率排名一般是正确的，但是当对字符串的操作很少时，比如 String str = “hello” + “world”的效率要高于</p>
+<p> StringBuilder str = new StringBuilder().append(“hello”).append(“world”)</p>
+<a id="more"></a>
+
+<h4 id="使用选择方式"><a href="#使用选择方式" class="headerlink" title="使用选择方式"></a>使用选择方式</h4><ul>
+<li>当字符串相加操作或者改动较少时，建议使用String str = “hello”的形式</li>
+<li>当字符串相加操作较多的情况下建议使用StringBuilder。如果使用了多线程，则使用StringBuffer</li>
+</ul>
+<h4 id="与equals"><a href="#与equals" class="headerlink" title="==与equals"></a>==与equals</h4><p><code>equals比较的是对象的内容也就是JVM堆内存中的内容，==比较的是地址即JVM栈内存中的内容</code></p>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><ul>
+<li>string声明的字符串长度不可变是与StringBuilder与SringBuffer的最直观的区别。</li>
+<li>string通过char数组保存字符串</li>
+<li>对String对象的任何改变都不影响到原对象，任何的change操作都会生成新对象，比如substring,concat或replace在源码中的操作都不是在原有字符串上进行的么事重新生成了一个新的字符串对象。</li>
+<li>string类的源码中 被final修饰  不能被继承（早起final修饰的方法会被转为内嵌调用以提升执行效率，现在的版本中已经渐渐被摒弃，所以现在不需要考虑用final去提升方法调用效率。只有不想让该方法被覆盖时才将方法设置为final）</li>
+<li>类似 String s = “hello,world”创建时会在JVM的栈内存中产生一个变量 s ，同时在堆内存中产生”hello,world“字符串对象，s指向hello,world的内存地址。像上面这种方式产生的字符串属于<strong>直接量字符串</strong> (直接赋值的这种类型，<em>new String(“hello,world”)不会产生缓存,new关键字来生成对象都是在堆区进行的。而在堆区进行对象生成的过程是不会去检测对象是否已经存在的，因此通过new来创建对象，创建出的一定是不同的对象，及时字符串的内容是相同的</em>)对象，JVM在处理这类字符串的时候，会进行缓存，产生时放入字符串池，当程序需要再次使用的时候，无需重新创建一个新的字符串，而是直接指向已存在的字符串。如下代码打印结果为 true：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestString</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        String s = <span class="string">&quot;hello,world&quot;</span>;</span><br><span class="line">        String s1 = <span class="string">&quot;hello,world&quot;</span>;</span><br><span class="line">        String s2 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">        String s3 = s2 + <span class="string">&quot;,world&quot;</span>;</span><br><span class="line">        System.out.println(s == s3);<span class="comment">//false</span></span><br><span class="line">        System.out.pringln(s.equals(s3));<span class="comment">//true</span></span><br><span class="line">        <span class="keyword">final</span> String s4 = <span class="string">&quot;hello&quot;</span>;<span class="comment">//对于被final修饰的变量，堆在class文件常量池中保存一个副本，也就是说不会通过连接而进行访问，对final边量的访问在编译期间都会直接被替代为真实的值。所以 String s5 = s4 + &quot;,world&quot;，实际上被JVM优化为 String s5 = &quot;hello&quot; +&quot;,world&quot;；等同于 String s5 = &quot;hello,world&quot;;但是如果final修饰的变量的结果是在运行时才能确定的，则 s4与s不是同一个对象</span></span><br><span class="line">        String s5 = s4 + <span class="string">&quot;,world&quot;</span>;</span><br><span class="line">      	String s6 = s2.concat(<span class="string">&quot;,world&quot;</span>);<span class="comment">//从末尾拼接</span></span><br><span class="line">        System.out.println(s == s5);<span class="comment">//true</span></span><br><span class="line">        System.out.println(s.equals(s5));<span class="comment">//true</span></span><br><span class="line">      	System.out.println(s == s6);<span class="comment">//false</span></span><br><span class="line">      	System.out.println(s.equals(s6))<span class="comment">//true</span></span><br><span class="line">        System.out.println(s == s1);<span class="comment">//true</span></span><br><span class="line">        String s7 = <span class="keyword">new</span> String(<span class="string">&quot;hello,world&quot;</span>);</span><br><span class="line">        String s8 = s7.intern();<span class="comment">//当调用s.intern()这句的时候，先去字符串常量池中找，是否有abc这个串，如果没有，则新增，同时返回引用，如果有，则返回已经存在的引用;</span></span><br><span class="line">        System.out.println(s == s7);<span class="comment">//false</span></span><br><span class="line">        System.out.println(s == s8);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>用上述方法声明的string对象是固定的但是其所指向的对象可以发生变化，即s是引用变量。当声明s后，如出现 s = s +”a”;代码  则 s指向 ”hello,worlda“此字符串，但是s对象未发生变化，只是指向的对象发生变化。</p>
+</li>
+<li><p>String初始化方式(常用)</p>
+<p>①  String s = “hello,world” 属于直接量字符串，并且当 String s1 = “hello,world”出现在同一代码段中时，s == s1 &amp;&amp; s.equlas(s2)。因为 直接量的字符串会产生缓存池，所以，当声明s1的时候，编译器检测到缓存池中存在相同的字符串，所以就直接使用。两者栈内存地址相同，并且堆内存指向的内容相同。</p>
+<p>② String()  初始化一个String对象，表示一个空字符序列</p>
+<p>③String(String value) 利用一个直接量创建一个新串</p>
+<p>④String(char[] value) 利用一个字符数组创建</p>
+<p>⑤String(char[] value,int offset,int count) 截取字符数组，从offset开始count个字符创建</p>
+<p>⑥String(StringBuffer buffer);等同于 buffer.toString(); 同StringBuilder;`</p>
+</li>
+<li><p>字符串比较大小</p>
+<p>从第一位开始  两个字符串同时比较字符的ASCII码值；如 a &lt; bc 、  ac&lt;bc 、  b&gt; ac </p>
+</li>
+</ul>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
+<li><p><strong>String s = “123” + “456”内存中产生几个字符串对象？</strong></p>
+<p>因为前面提到Java字符串的缓存，编译器在编译的时候会进行优化，所以 “123”与“456”被合成一个串“123456”,所以如果缓存池中没有“123456”这个对象，则会产生一个，且栈中产生一个引用s指向他，如果已存在那么产生0个对象，直接用s指向它。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>如果spilt()函数的参数在要分割的字符串中没有怎么办？如String s = “helloworld” ,我现在调用String[] s2 = s.spilt(“abc”)，返回什么？</strong></p>
+<p>s2 为 helloworld</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>判断</strong></p>
+<p>String s = “ab” ; String s1 = “a”; String s2 = s1 +”b” ; String s3 = “ab”;</p>
+<p><strong>s == s3 —&gt; true</strong></p>
+<p><strong>s == s2 —&gt;false</strong>  s1+”b”产生了新对象 ， 栈内存中的地址不相同</p>
+<p><strong>s.equals(s2) —&gt;true</strong>  堆内存的内容相同 </p>
+</li>
+<li><p><strong>String str = new String(“abc”)产生几个对象</strong></p>
+<p>在运行期间创建一个对象，即在堆上创建了“abc”对象。涉及到两个对象，还有一个是在类加载的过程中在运行时常量池中创建了一个“abc”对象</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>String str1 = “I”; str1 += “love” + “java”</strong>(1)和<strong>String str1 = “I”; str1 = str1 + “love” + “java”</strong>(2)的区别</p>
+<p>1的效率比2高，1中的“love”+”java”在编译期间会被优化成“lovejava”而2中的不会被优化。前面说到过 s +=”hello”会被优化为StringBuilder 1会进行1次append而2会进行两次append操作</p>
+</li>
+</ul>
+<h4 id="StringBuffer与StringBuilder"><a href="#StringBuffer与StringBuilder" class="headerlink" title="StringBuffer与StringBuilder"></a>StringBuffer与StringBuilder</h4><p><code>与String不同，StringBuffer与StringBuilder类的对象能够被多次的修改，并且不产生新的对象。</code></p>
+<p><code>StringBuilder和StringBuffer类拥有的成员属性以及成员方法基本相同</code></p>
+<p><code>StringBuilder与StringBuffer之间最大的不同是在于StringBuilder的方法不是线程安全的（不能同步访问）体现在StringBuffer在类的成员方法前面对了一个关键字：synchronized </code></p>
+<p><code>StringBuilder比StringBuffer有速度优势，所以多数情况建议使用StringBuilder类，然而在程序要求线程安全的情况下，必须使用StringBuffer类</code></p>
+<p><code>string+=&quot;hello&quot;的操作事实上会被JVM优化成</code></p>
+<p><code>StringBuider str = new StringBuilder(string);</code></p>
+<p><code>str.append(&quot;hello&quot;);</code></p>
+<p><code>str.toString();</code></p>
+<p><code>所以对String生成的字符串进行操作时都会生成新对象，如果使再循环中进行字符串的操作，用String这种类型会产生大量的对象，如果不进行垃圾回收，会造成很大的内存资源浪费。</code></p>
+<ol>
+<li>append() 将指定的字符串追加到此字符串尾部</li>
+<li>reverse() 反转字符串</li>
+<li>delete(int start,int end) 移除次序列的子字符串中的字符</li>
+<li>insert(int offset,object i) 将 object （int 、string、double。。。。）参数的字符串表示形式插入到此序列中</li>
+<li>replace(int start,int end,String str) 使用给定String中的字符替换此序列的子字符串中的字符</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *代码示例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStringBuffer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        stringBuffer.append(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.reverse();</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.delete(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.insert(<span class="number">0</span>,<span class="string">&quot;6&quot;</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">        stringBuffer.replace(<span class="number">6</span>,<span class="number">6</span>,<span class="string">&quot;asd&quot;</span>);</span><br><span class="line">        System.out.println(stringBuffer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> *结果输出</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="number">123456</span></span><br><span class="line"><span class="number">654321</span></span><br><span class="line"><span class="number">54321</span></span><br><span class="line"><span class="number">654321</span></span><br><span class="line"><span class="number">654321</span>asd</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>java基础</category>
       </categories>
