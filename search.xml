@@ -1,71 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>100. 相同的树</title>
-    <url>/100.%20%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="100-相同的树"><a href="#100-相同的树" class="headerlink" title="100. 相同的树"></a>100. 相同的树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
-<p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p>
-<a id="more"></a>
-
-<p>示例 1:</p>
-<pre><code>输入:       1         1
-          / \       / \
-         2   3     2   3
-
-        [1,2,3],   [1,2,3]
-
-输出: true</code></pre>
-<p>示例 2:</p>
-<pre><code>输入:      1          1
-          /           \
-         2             2
-
-        [1,2],     [1,null,2]
-
-输出: false</code></pre>
-<p>示例 3:</p>
-<pre><code>输入:       1         1
-          / \       / \
-         2   1     1   2
-
-        [1,2,1],   [1,1,2]
-
-输出: false</code></pre>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/same-tree">https://leetcode-cn.com/problems/same-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li><p>标签：深度优先遍历</p>
-</li>
-<li><p>终止条件与返回值：</p>
-<p>当两棵树的当前节点都为 null 时返回 true</p>
-<p>当其中一个为 null 另一个不为 null 时返回 false</p>
-<p>当两个都不为空但是值不相等时，返回 false</p>
-</li>
-<li><p>执行过程：当满足终止条件时进行返回，不满足时分别判断左子树和右子树是否相同，其中要注意代码中的短路效应</p>
-</li>
-<li><p><strong>复杂度分析：</strong></p>
-<ul>
-<li><strong>时间复杂度：O(n)<em>O</em>(<em>n</em>)，n<em>n</em> 为树的节点个数</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span>(p==<span class="keyword">null</span> &amp;&amp; q==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="keyword">null</span>||q==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(p.val==q.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><ul>
-<li></li>
-</ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>101. 对称二叉树</title>
     <url>/101.%20%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，检查它是否是镜像对称的。</p>
@@ -101,6 +36,47 @@
 
 
 
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>104. 二叉树的最大深度</title>
+    <url>/104.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="104-二叉树的最大深度"><a href="#104-二叉树的最大深度" class="headerlink" title="104. 二叉树的最大深度"></a>104. 二叉树的最大深度</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，找出其最大深度。</p>
+<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
+<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
+<a id="more"></a>
+
+<p>示例：<br>给定二叉树 [3,9,20,null,null,15,7]，</p>
+<pre><code>3
+ / \
+  9  20
+    /  \
+   15   7</code></pre>
+<p>返回它的最大深度 3 。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree">https://leetcode-cn.com/problems/maximum-depth-of-binary-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>求出树的高度，看左右子树相差的高度是否超过 1</li>
+<li><strong>自底向上</strong></li>
+<li><strong>复杂度分析：</strong><ul>
+<li><strong>时间复杂度O(N)：</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> b=maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(a,b)+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="0-9-365-1-9884558162725615283155185926434e-17；"><a href="#0-9-365-1-9884558162725615283155185926434e-17；" class="headerlink" title="0.9^365=1.9884558162725615283155185926434e-17；"></a>0.9^365=1.9884558162725615283155185926434e-17；</h3><h3 id="1-1-365-1283305580313352-696899448007898。"><a href="#1-1-365-1283305580313352-696899448007898。" class="headerlink" title="1.1^365=1283305580313352.696899448007898。"></a>1.1^365=1283305580313352.696899448007898。</h3><ul>
+<li>二叉树返回的长度是所求深度+1</li>
+</ul>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -171,79 +147,62 @@
       </tags>
   </entry>
   <entry>
-    <title>104. 二叉树的最大深度</title>
-    <url>/104.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</url>
-    <content><![CDATA[<h1 id="104-二叉树的最大深度"><a href="#104-二叉树的最大深度" class="headerlink" title="104. 二叉树的最大深度"></a>104. 二叉树的最大深度</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，找出其最大深度。</p>
-<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
-<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
+    <title>100. 相同的树</title>
+    <url>/100.%20%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="100-相同的树"><a href="#100-相同的树" class="headerlink" title="100. 相同的树"></a>100. 相同的树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p>
+<p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p>
 <a id="more"></a>
 
-<p>示例：<br>给定二叉树 [3,9,20,null,null,15,7]，</p>
-<pre><code>3
- / \
-  9  20
-    /  \
-   15   7</code></pre>
-<p>返回它的最大深度 3 。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree">https://leetcode-cn.com/problems/maximum-depth-of-binary-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>示例 1:</p>
+<pre><code>输入:       1         1
+          / \       / \
+         2   3     2   3
+
+        [1,2,3],   [1,2,3]
+
+输出: true</code></pre>
+<p>示例 2:</p>
+<pre><code>输入:      1          1
+          /           \
+         2             2
+
+        [1,2],     [1,null,2]
+
+输出: false</code></pre>
+<p>示例 3:</p>
+<pre><code>输入:       1         1
+          / \       / \
+         2   1     1   2
+
+        [1,2,1],   [1,1,2]
+
+输出: false</code></pre>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/same-tree">https://leetcode-cn.com/problems/same-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>求出树的高度，看左右子树相差的高度是否超过 1</li>
-<li><strong>自底向上</strong></li>
-<li><strong>复杂度分析：</strong><ul>
-<li><strong>时间复杂度O(N)：</strong></li>
+<li><p>标签：深度优先遍历</p>
+</li>
+<li><p>终止条件与返回值：</p>
+<p>当两棵树的当前节点都为 null 时返回 true</p>
+<p>当其中一个为 null 另一个不为 null 时返回 false</p>
+<p>当两个都不为空但是值不相等时，返回 false</p>
+</li>
+<li><p>执行过程：当满足终止条件时进行返回，不满足时分别判断左子树和右子树是否相同，其中要注意代码中的短路效应</p>
+</li>
+<li><p><strong>复杂度分析：</strong></p>
+<ul>
+<li><strong>时间复杂度：O(n)<em>O</em>(<em>n</em>)，n<em>n</em> 为树的节点个数</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=maxDepth(root.left);</span><br><span class="line">            <span class="keyword">int</span> b=maxDepth(root.right);</span><br><span class="line">            <span class="keyword">return</span> Math.max(a,b)+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span>(p==<span class="keyword">null</span> &amp;&amp; q==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="keyword">null</span>||q==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(p.val==q.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="0-9-365-1-9884558162725615283155185926434e-17；"><a href="#0-9-365-1-9884558162725615283155185926434e-17；" class="headerlink" title="0.9^365=1.9884558162725615283155185926434e-17；"></a>0.9^365=1.9884558162725615283155185926434e-17；</h3><h3 id="1-1-365-1283305580313352-696899448007898。"><a href="#1-1-365-1283305580313352-696899448007898。" class="headerlink" title="1.1^365=1283305580313352.696899448007898。"></a>1.1^365=1283305580313352.696899448007898。</h3><ul>
-<li>二叉树返回的长度是所求深度+1</li>
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><ul>
+<li></li>
 </ul>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>112. 路径总和</title>
-    <url>/112.%20%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C/</url>
-    <content><![CDATA[<h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。</p>
-<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
-<a id="more"></a>
-
-<p>给定如下二叉树，以及目标和 <code>sum = 22</code>，</p>
-<pre><code>               5
-             / \
-            4   8
-           /   / \
-          11  13  4
-         /  \      \
-        7    2      1</code></pre>
-<p>返回 <code>true</code>, 因为存在目标和为 22 的根节点到叶子节点的路径 <code>5-&gt;4-&gt;11-&gt;2</code>。</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>left 和 right 不等，或者 left 和 right 都为空<br>递归的比较 left，left 和 right.right，递归比较 left，right 和 right.left</li>
-<li><strong>复杂度分析：</strong><ul>
-<li>算法的时间复杂度是 O(n)O(n)，因为要遍历 nn 个节点</li>
-<li>空间复杂度是 O(n)O(n)，空间复杂度是递归的深度，也就是跟树高度有关，最坏情况下树变成一个链表结构，高度是nn。</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">// sum-=root.val;</span></span><br><span class="line">        <span class="comment">// hasPathSum(root.left,sum-root.val);</span></span><br><span class="line">        <span class="comment">// if(sum==0) return true;</span></span><br><span class="line">        <span class="comment">// if(root.right&gt;sum)</span></span><br><span class="line">        <span class="comment">// hasPathSum(root.right,sum-val)</span></span><br><span class="line">        <span class="comment">//判断到了最后的叶子节点</span></span><br><span class="line">        <span class="keyword">if</span>(root.right==<span class="keyword">null</span>&amp;&amp;root.left==<span class="keyword">null</span>) <span class="keyword">return</span> sum-root.val==<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>递归结束的return</p>
-<p>以及递归体</p>
-<p>递归不要关注太多的东西，只看眼前的节点。</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -346,6 +305,110 @@
       </tags>
   </entry>
   <entry>
+    <title>112. 路径总和</title>
+    <url>/112.%20%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。</p>
+<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
+<a id="more"></a>
+
+<p>给定如下二叉树，以及目标和 <code>sum = 22</code>，</p>
+<pre><code>               5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \      \
+        7    2      1</code></pre>
+<p>返回 <code>true</code>, 因为存在目标和为 22 的根节点到叶子节点的路径 <code>5-&gt;4-&gt;11-&gt;2</code>。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>left 和 right 不等，或者 left 和 right 都为空<br>递归的比较 left，left 和 right.right，递归比较 left，right 和 right.left</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>算法的时间复杂度是 O(n)O(n)，因为要遍历 nn 个节点</li>
+<li>空间复杂度是 O(n)O(n)，空间复杂度是递归的深度，也就是跟树高度有关，最坏情况下树变成一个链表结构，高度是nn。</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">// sum-=root.val;</span></span><br><span class="line">        <span class="comment">// hasPathSum(root.left,sum-root.val);</span></span><br><span class="line">        <span class="comment">// if(sum==0) return true;</span></span><br><span class="line">        <span class="comment">// if(root.right&gt;sum)</span></span><br><span class="line">        <span class="comment">// hasPathSum(root.right,sum-val)</span></span><br><span class="line">        <span class="comment">//判断到了最后的叶子节点</span></span><br><span class="line">        <span class="keyword">if</span>(root.right==<span class="keyword">null</span>&amp;&amp;root.left==<span class="keyword">null</span>) <span class="keyword">return</span> sum-root.val==<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>递归结束的return</p>
+<p>以及递归体</p>
+<p>递归不要关注太多的东西，只看眼前的节点。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
+    <url>/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p><strong>说明：</strong></p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">输入: [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">输出: <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li><p>既满足时间复杂度又满足空间复杂度，就要提到位运算中的异或运算 XOR，主要因为异或运算有以下几个特点：</p>
+</li>
+<li><ul>
+<li>一个数和 0 做 XOR 运算等于本身：a⊕0 = a</li>
+<li>一个数和其本身做 XOR 运算等于 0：a⊕a = 0</li>
+<li>XOR 运算满足交换律和结合律：a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b</li>
+</ul>
+</li>
+<li><p>故而在以上的基础条件上，将所有数字按照顺序做抑或运算，最后剩下的结果即为唯一的数字</p>
+</li>
+<li><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            res^=nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>利用 Hash 表，Time: O(n)<em>O</em>(<em>n</em>) Space: O(n)<em>O</em>(<em>n</em>)</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Integer i : nums) &#123;</span><br><span class="line">            Integer count = map.get(i);</span><br><span class="line">            count = count == <span class="keyword">null</span> ? <span class="number">1</span> : ++count;</span><br><span class="line">            map.put(i, count);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Integer i : map.keySet()) &#123;</span><br><span class="line">            Integer count = map.get(i);</span><br><span class="line">            <span class="keyword">if</span> (count == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// can&#x27;t find it.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>155. 最小栈</title>
     <url>/155.%20%E6%9C%80%E5%B0%8F%E6%A0%88/</url>
     <content><![CDATA[<ol start="155">
@@ -412,6 +475,141 @@
   </entry>
   <entry>
     <title>206. 反转链表</title>
+    <url>/169.%20%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h1 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169. 多数元素"></a>169. 多数元素</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: [<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [2,2,1,1,1,2,2]</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><blockquote>
+<p>两重循环暴力求解</p>
+</blockquote>
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>哈希表记录每个元素出现次数，发现出现超过<code>n/2</code>的就是众数</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;Integer,Integer&gt; count=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> n=nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:nums)&#123;</span><br><span class="line">            count.put(i,count.getOrDefault(i,<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(count.get(i)&gt;n/<span class="number">2</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路3"><a href="#思路3" class="headerlink" title="思路3"></a>思路3</h3><ul>
+<li>摩尔投票法思路</li>
+<li>候选人(cand_num)初始化为nums[0]，票数count初始化为1。</li>
+<li>当遇到与cand_num相同的数，则票数count = count + 1，否则票数count = count - 1。<br>当票数count为0时，更换候选人，并将票数count重置为1。<br>遍历完数组后，cand_num即为最终答案。</li>
+</ul>
+<blockquote>
+<p>为何这行得通呢？<br>投票法是遇到相同的则票数 + 1，遇到不同的则票数 - 1。<br>且“多数元素”的个数&gt; ⌊ n/2 ⌋，其余元素的个数总和&lt;= ⌊ n/2 ⌋。<br>因此“多数元素”的个数 - 其余元素的个数总和 的结果 肯定 &gt;= 1。<br>这就相当于每个“多数元素”和其他元素 两两相互抵消，抵消到最后肯定还剩余至少1个“多数元素”。</p>
+<p>无论数组是1 2 1 2 1，亦或是1 2 2 1 1，总能得到正确的候选人。</p>
+</blockquote>
+<ul>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码3"><a href="#代码3" class="headerlink" title="代码3"></a>代码3</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">1</span>,a=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num==a) count++;</span><br><span class="line">            <span class="keyword">else</span> count--;</span><br><span class="line">            <span class="keyword">if</span>(count==<span class="number">0</span>)&#123;</span><br><span class="line">                count=<span class="number">1</span>;</span><br><span class="line">                a=num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="思路4"><a href="#思路4" class="headerlink" title="思路4"></a>思路4</h3><ul>
+<li>快速排序</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码3-1"><a href="#代码3-1" class="headerlink" title="代码3"></a>代码3</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>map.getOrDefault(Object key, V defaultValue)<br>意思就是当Map集合中有这个key时，就使用这个key对应的value值，如果没有就使用默认值defaultValue</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>摩尔投票法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>322. 零钱兑换</title>
+    <url>/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</url>
+    <content><![CDATA[<p>#<a href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：偷窃 <span class="number">1</span> 号房屋 (金额 = <span class="number">1</span>) ，然后偷窃 <span class="number">3</span> 号房屋 (金额 = <span class="number">3</span>)。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">1</span> + <span class="number">3</span> = <span class="number">4</span> 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：[<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">12</span></span><br><span class="line">解释：偷窃 <span class="number">1</span> 号房屋 (金额 = <span class="number">2</span>), 偷窃 <span class="number">3</span> 号房屋 (金额 = <span class="number">9</span>)，接着偷窃 <span class="number">5</span> 号房屋 (金额 = <span class="number">1</span>)。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">2</span> + <span class="number">9</span> + <span class="number">1</span> = <span class="number">12</span> 。</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
+</ul>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li><p>读题知输入一个长度为 n 的数组，表示 n 个房屋，让我们求到第 n 个房屋的最大金额。</p>
+</li>
+<li><p>我们想一下到第n个房屋的最大金额 dp[n]: 1. 如果偷第 n 个房屋的话，由于相邻的房屋不能偷，所以 dp[n] = dp[n - 2] + nums[n]（即等于到第 n - 2 个房屋的最大金额 + 第 n 个房屋的金额） 2. 反之如果不偷第 n 个房屋的话，那么 dp[n] = dp[n - 1]（即等于到第 n - 1 个房屋的最大金额）</p>
+</li>
+<li><p>于是，我们得到了状态转移方程：dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])</p>
+</li>
+</ul>
+<ul>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度： O(N)</li>
+<li>空间复杂度： O(N)  ///O(1)[dp[i] = max(b, a + nums[i])，]</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**if(nums.length==0) return 0;</span></span><br><span class="line"><span class="comment">        if(nums.length==1) return nums[0];</span></span><br><span class="line"><span class="comment">        //if(nums.length==2) return nums[0]&gt;nums[1]?nums[0]:nums[1];</span></span><br><span class="line"><span class="comment">        int[] dp=new int[nums.length];</span></span><br><span class="line"><span class="comment">        dp[0] =nums[0];</span></span><br><span class="line"><span class="comment">        dp[1] =Math.max(nums[0],nums[1]);</span></span><br><span class="line"><span class="comment">        for(int i=2;i&lt;nums.length;i++)&#123;</span></span><br><span class="line"><span class="comment">            dp[i]=Math.max(dp[i-1],dp[i-2]+nums[i]);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        return dp[nums.length-1];**/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//a表示i-2,b表示i-1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> c=Math.max(a+nums[i],b);</span><br><span class="line">            a=b;</span><br><span class="line">            b=c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
     <url>/206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>反转一个单链表。</p>
 <a id="more"></a>
@@ -440,6 +638,200 @@
       <tags>
         <tag>双指针</tag>
         <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>322. 零钱兑换</title>
+    <url>/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/</url>
+    <content><![CDATA[<h1 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213. 打家劫舍 II"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，能够偷窃到的最高金额</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：你不能先偷窃 <span class="number">1</span> 号房屋（金额 = <span class="number">2</span>），然后偷窃 <span class="number">3</span> 号房屋（金额 = <span class="number">2</span>）, 因为他们是相邻的。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：你可以先偷窃 <span class="number">1</span> 号房屋（金额 = <span class="number">1</span>），然后偷窃 <span class="number">3</span> 号房屋（金额 = <span class="number">3</span>）。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">1</span> + <span class="number">3</span> = <span class="number">4</span> 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例3:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">0</span>]</span><br><span class="line">输出：<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
+</ul>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>两个dp,一个从0到n-1,另一个从1到n,最后取两个dp中的最大值</li>
+</ul>
+<ul>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度： O(N)</li>
+<li>空间复杂度： O(N)  ///O(1)[dp[i] = max(b, a + nums[i])，]</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">2</span>) <span class="keyword">return</span> Math.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dpone=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        dpone[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">        dpone[<span class="number">1</span>]=Math.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            dpone[i]=Math.max(dpone[i-<span class="number">1</span>],dpone[i-<span class="number">2</span>]+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dqtwo=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="comment">// dqtwo[0]=nums[1];</span></span><br><span class="line">        <span class="comment">// dqtwo[1]=Math.max(nums[0],nums[1]);</span></span><br><span class="line">        <span class="comment">// for(int i=2;i&lt;nums.length;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     dqtwo[i]=Math.max(dqtwo[i-1],dqtwo[i-2]+nums[i]);</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        dqtwo[<span class="number">1</span>]=nums[<span class="number">1</span>];</span><br><span class="line">        <span class="comment">// dqtwo[2]=nums[2];</span></span><br><span class="line">        dqtwo[<span class="number">2</span>]=Math.max(nums[<span class="number">1</span>],nums[<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            dqtwo[i]=Math.max(dqtwo[i-<span class="number">1</span>],dqtwo[i-<span class="number">2</span>]+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Math.max(dpone[nums.length-<span class="number">2</span>],dqtwo[nums.length-<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>623. 在二叉树中增加一行</title>
+    <url>/623.%20%E5%9C%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%A2%9E%E5%8A%A0%E4%B8%80%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="623-在二叉树中增加一行"><a href="#623-在二叉树中增加一行" class="headerlink" title="623. 在二叉树中增加一行"></a>623. 在二叉树中增加一行</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，根节点为第1层，深度为 1。在其第 d 层追加一行值为 v 的节点。</p>
+<p>添加规则：给定一个深度值 d （正整数），针对深度为 d-1 层的每一非空节点 N，为 N 创建两个值为 v 的左子树和右子树。</p>
+<p>将 N 原先的左子树，连接为新节点 v 的左子树；将 N 原先的右子树，连接为新节点 v 的右子树。</p>
+<p>如果 d 的值为 1，深度 d - 1 不存在，则创建一个新的根节点 v，原先的整棵树将作为 v 的左子树。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">       <span class="number">4</span></span><br><span class="line">     /   \</span><br><span class="line">    <span class="number">2</span>     <span class="number">6</span></span><br><span class="line">   / \   / </span><br><span class="line">  <span class="number">3</span>   <span class="number">1</span> <span class="number">5</span>   </span><br><span class="line"></span><br><span class="line">v = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">d = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">       <span class="number">4</span></span><br><span class="line">      / \</span><br><span class="line">     <span class="number">1</span>   <span class="number">1</span></span><br><span class="line">    /     \</span><br><span class="line">   <span class="number">2</span>       <span class="number">6</span></span><br><span class="line">  / \     / </span><br><span class="line"> <span class="number">3</span>   <span class="number">1</span>   <span class="number">5</span>   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2    </span><br><span class="line">   &#x2F; \   </span><br><span class="line">  3   1    </span><br><span class="line"></span><br><span class="line">v &#x3D; 1</span><br><span class="line"></span><br><span class="line">d &#x3D; 3</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2</span><br><span class="line">   &#x2F; \    </span><br><span class="line">  1   1</span><br><span class="line"> &#x2F;     \  </span><br><span class="line">3       1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意:</strong></p>
+<ol>
+<li>输入的深度值 d 的范围是：[1，二叉树最大深度 + 1]。</li>
+<li>输入的二叉树至少有一个节点。</li>
+</ol>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>利用BFS保存d-1层的节点</li>
+<li>然后对每个节点的左右节点进行修改<ul>
+<li>左节点：指向新创建的节点，其值为v，其左节点为当前节点的左节点</li>
+<li>右节点：指向新创建的节点，其值为v，其右节点为当前节点的右节点</li>
+</ul>
+</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">addOneRow</span><span class="params">(TreeNode root, <span class="keyword">int</span> v, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">1</span>) &#123;</span><br><span class="line">            TreeNode newRoot = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newRoot.left=root; </span><br><span class="line">            <span class="keyword">return</span> newRoot;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">2</span>) &#123;</span><br><span class="line">            TreeNode newLeft = <span class="keyword">new</span> TreeNode(v),newRight=<span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newLeft.left=root.left;</span><br><span class="line">            newRight.right=root.right;</span><br><span class="line">            root.left=newLeft;</span><br><span class="line">            root.right=newRight;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        root.left=addOneRow(root.left,v,d-<span class="number">1</span>);</span><br><span class="line">        root.right=addOneRow(root.right,v,d-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>map.getOrDefault(Object key, V defaultValue)<br>意思就是当Map集合中有这个key时，就使用这个key对应的value值，如果没有就使用默认值defaultValue</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>摩尔投票法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
+    <url>/234.%20%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>请判断一个链表是否为回文链表。</p>
+<a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span></span><br><span class="line">输出: <span class="keyword">false</span></span><br><span class="line">    </span><br><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span></span><br><span class="line">输出: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>进阶:</strong><br>你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>找到链表的中间节点</li>
+<li>反转链表<br>通过这两个操作之后，原链表就以中间节点被一分为二<br>前半部分一个链表，后半部分(被反转了)为一个链表<br>然后遍历这两个链表，如果遍历过程中发现两个链表节点不同，就说不是回文链表，直接返回false即可<br>如果链表遍历完了，说明是回文链表<br>注意一个小细节，如果链表长度是偶数的话，前半部分和后半部分长度是一样的<br>如果链表长度是奇数，那么前半部分的长度比后半部分长度多1个<br>所以最后迭代链表的时候，<strong>以后半部分为准</strong>就可以了，<strong>当链表总长为奇数时，前半部分的最后一个节点就不会被遍历到了。</strong></li>
+<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        ListNode p=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// ListNode slow=head;</span></span><br><span class="line">        <span class="comment">// ListNode fast=head;</span></span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        ListNode slow=p;</span><br><span class="line">        ListNode fast=p;</span><br><span class="line">        p.next=head;</span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        <span class="keyword">while</span>(fast!=<span class="keyword">null</span>&amp;&amp;fast.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            fast=fast.next.next;</span><br><span class="line">            slow=slow.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode cur=slow.next;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=null;</span></span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        slow=p.next;</span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            ListNode temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//pre.val</span></span><br><span class="line">        <span class="keyword">while</span>(pre!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre.val!=slow.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            slow=slow.next;</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>递归</li>
+<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>虚节点</p>
+<p>反转之后pre和cur的指向</p>
+<p><code>slow.next=null;</code>  把链表分开</p>
+<p>  <code>slow=p.next;</code>   把slow重新指向头节点</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>322. 零钱兑换</title>
+    <url>/322.%20%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/</url>
+    <content><![CDATA[<h1 id="322-零钱兑换"><a href="#322-零钱兑换" class="headerlink" title="322. 零钱兑换"></a><a href="https://leetcode-cn.com/problems/coin-change/">322. 零钱兑换</a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+<p>你可以认为每种硬币的数量是无限的。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：coins = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>], amount = <span class="number">11</span></span><br><span class="line">输出：<span class="number">3</span> </span><br><span class="line">解释：<span class="number">11</span> = <span class="number">5</span> + <span class="number">5</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">输入：coins = [<span class="number">2</span>], amount = <span class="number">3</span></span><br><span class="line">输出：-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">输入：coins = [<span class="number">1</span>], amount = <span class="number">0</span></span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line"></span><br><span class="line">输入：coins = [<span class="number">1</span>], amount = <span class="number">1</span></span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line"></span><br><span class="line">输入：coins = [<span class="number">1</span>], amount = <span class="number">2</span></span><br><span class="line">输出：<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= coins.length &lt;= 12</code></li>
+<li><code>1 &lt;= coins[i] &lt;= 231 - 1</code></li>
+<li><code>0 &lt;= amount &lt;= 104</code></li>
+</ul>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>利用BFS保存d-1层的节点</li>
+<li>然后对每个节点的左右节点进行修改<ul>
+<li>左节点：指向新创建的节点，其值为v，其左节点为当前节点的左节点</li>
+<li>右节点：指向新创建的节点，其值为v，其右节点为当前节点的右节点</li>
+</ul>
+</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] res=<span class="keyword">new</span> <span class="keyword">int</span>[amount+<span class="number">1</span>];</span><br><span class="line">        Arrays.fill(res,amount+<span class="number">1</span>);</span><br><span class="line">        res[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=amount;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;coins.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(coins[j]&lt;=i)&#123;</span><br><span class="line">                    <span class="keyword">int</span> cur=res[i-coins[j]]+<span class="number">1</span>;</span><br><span class="line">                    res[i]=Math.min(res[i],cur);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(res[amount]==amount+<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[amount];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>Arrays.fill（ a1, value ）;<br>注：a1是一个数组变量，value是一个a1中元素数据类型的值，作用：填充a1数组中的每个元素都是value</p>
+<p>确定「状态转移方程」，只要通过状态转移方程写出暴力递归解，剩下的也就是优化递归树，消除重叠子问题而已。</p>
+<p>1、<strong>确定 base case</strong></p>
+<p>2、<strong>确定「状态」，也就是原问题和子问题中会变化的变量</strong>。</p>
+<p>3、<strong>确定「选择」，也就是导致「状态」产生变化的行为</strong>。</p>
+<p>4、<strong>明确 <code>dp</code> 函数/数组的定义</strong>。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -498,6 +890,119 @@
       </categories>
       <tags>
         <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
+    <url>/MySQL-explain/</url>
+    <content><![CDATA[<p><img src="/.com//clipboard.png" alt="img"></p>
+<p><strong>type结果</strong></p>
+<p>type结果值从好到坏依次是：</p>
+<p>system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</p>
+<p>一般来说，得保证查询至少达到range级别，最好能达到ref，否则就可能会出现性能问题。</p>
+<p><strong>possible_keys</strong>：sql所用到的索引</p>
+<p><strong>key</strong>：显示MySQL实际决定使用的键（索引）。如果没有选择索引，键是NULL</p>
+<p><strong>rows</strong>: 显示MySQL认为它执行查询时必须检查的行数。</p>
+<ul>
+<li>id: select查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序===id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行</li>
+<li>select_type: 表示查询的类型。用于区别普通查询、联合查询、子查询等的复杂查询。</li>
+<li>table: 输出结果集的表 显示这一步所访问数据库中表名称（显示这一行的数据是关于哪张表的），有时不是真实的表名字，可能是简称，例如上面的e，d，也可能是第几步执行的结果的简称</li>
+<li>partitions:匹配的分区</li>
+<li>type:对表访问方式，表示MySQL在表中找到所需行的方式，又称“访问类型”。</li>
+<li>possible_keys:表示查询时，可能使用的索引</li>
+<li>key:表示实际使用的索引</li>
+<li>key_len:索引字段的长度</li>
+<li>ref:列与索引的比较</li>
+<li>rows:扫描出的行数(估算的行数)</li>
+<li>filtered:按表条件过滤的行百分比</li>
+<li>Extra:执行情况的描述和说明</li>
+</ul>
+<p><strong>挑选一些重要信息详细说明：</strong></p>
+<p>select_type</p>
+<ul>
+<li><ul>
+<li>SIMPLE 简单的select查询，查询中不包含子查询或者UNION</li>
+<li>PRIMARY 查询中若包含任何复杂的子部分，最外层查询则被标记为PRIMARY</li>
+<li>SUBQUERY 在SELECT或WHERE列表中包含了子查询</li>
+<li>DERIVED 在FROM列表中包含的子查询被标记为DERIVED（衍生），MySQL会递归执行这些子查询，把结果放在临时表中</li>
+<li>UNION 若第二个SELECT出现在UNION之后，则被标记为UNION：若UNION包含在FROM子句的子查询中，外层SELECT将被标记为：DERIVED</li>
+<li>UNION RESULT 从UNION表获取结果的SELECT</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>type</p>
+</li>
+<li><ul>
+<li>mysql找到数据行的方式，效率排名</li>
+<li>NULL &gt; system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; all</li>
+<li>一般来说，得保证查询至少达到range级别，最好能达到ref。</li>
+</ul>
+</li>
+<li><ol>
+<li>system 表只有一行记录（等于系统表），这是const类型的特列，平时不会出现，这个也可以忽略不计</li>
+<li>const 通过索引一次就找到了，const用于比较primary key 和 unique key，因为只匹配一行数据，所以很快。如果将主键置于where列表中，mysql就能将该查询转换为一个常量</li>
+<li>eq_ref 唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键索引和唯一索引 区别于const eq_ref用于联表查询的情况</li>
+<li>ref 非唯一索引扫描，返回匹配某个单独值的所有行，本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而，他可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体</li>
+<li>range 只检索给定范围的行，使用一个索引来选择行，一般是在where中出现between、&lt;、&gt;、in等查询，范围扫描好于全表扫描，因为他只需要开始于索引的某一点，而结束于另一点，不用扫描全部索引</li>
+<li>index Full Index Scan，Index与All区别为index类型只遍历索引树。通常比All快，因为索引文件通常比数据文件小。也就是说，虽然all和index都是读全表，但是index是从索引中读取的，而all是从硬盘读取的</li>
+<li>ALL Full Table Scan,将遍历全表以找到匹配的行</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>possible_keys</li>
+</ul>
+<p>指出mysql能使用哪个索引在表中找到记录，查询涉及到的字段若存在索引，则该索引被列出，但不一定被查询使用（该查询可以利用的索引，如果没有任何索引显示null）</p>
+<p>实际使用的索引，如果为NULL，则没有使用索引。（可能原因包括没有建立索引或索引失效）</p>
+<p>查询中若使用了覆盖索引（select 后要查询的字段刚好和创建的索引字段完全相同），则该索引仅出现在key列表中 possible_keys为null</p>
+<ul>
+<li>key</li>
+</ul>
+<p>key列显示mysql实际决定使用的索引，必然包含在possible_keys中。如果没有选择索引，键是NULL。想要强制使用或者忽视possible_keys列中的索引，在查询时指定FORCE INDEX、USE INDEX或者IGNORE index</p>
+<ul>
+<li>key_len</li>
+</ul>
+<p>表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度，在不损失精确性的情况下，长度越短越好。key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len是根据表定义计算而得，不是通过表内检索出的。</p>
+<ul>
+<li>ref</li>
+</ul>
+<p>显示索引的那一列被使用了，如果可能的话，最好是一个常数。哪些列或常量被用于查找索引列上的值。</p>
+<ul>
+<li>rows</li>
+</ul>
+<p>根据表统计信息及索引选用情况，大致估算出找到所需的记录所需要读取的行数，也就是说，用的越少越好</p>
+<ul>
+<li>extra</li>
+</ul>
+<p>包含不适合在其他列中显式但十分重要的额外信息</p>
+<ul>
+<li><ul>
+<li>Using Index:表示相应的select操作中使用了覆盖索引（Covering Index），避免访问了表的数据行，效率不错。如果同时出现using where，表明索引被用来执行索引键值的查找；如果没有同时出现using where，表明索引用来读取数据而非执行查找动作。</li>
+<li>Using where:不用读取表中所有信息，仅通过索引就可以获取所需数据，这发生在对表的全部的请求列都是同一个索引的部分的时候，表示mysql服务器将在存储引擎检索行后再进行过滤</li>
+<li>Using temporary：表示MySQL需要使用临时表来存储结果集，常见于排序和分组查询，常见 group by ; order by</li>
+<li>Using filesort：当Query中包含 order by 操作，而且无法利用索引完成的排序操作称为“文件排序”</li>
+<li>Using join buffer：表明使用了连接缓存,比如说在查询的时候，多表join的次数非常多，那么将配置文件中的缓冲区的join buffer调大一些。</li>
+<li>Impossible where：where子句的值总是false，不能用来获取任何元组</li>
+<li>Select tables optimized away：这个值意味着仅通过使用索引，优化器可能仅从聚合函数结果中返回一行</li>
+<li>No tables used：Query语句中使用from dual 或不含任何from子句</li>
+</ul>
+</li>
+</ul>
+<p>以上两种信息表示mysql无法使用索引</p>
+<ul>
+<li><ol>
+<li>using filesort ：表示mysql会对结果使用一个外部索引排序，而不是从表里按索引次序读到相关内容，可能在内存或磁盘上排序。mysql中无法利用索引完成的操作称为文件排序</li>
+<li>using temporary: 使用了用临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by和分组查询group by</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -870,6 +1375,109 @@
       </tags>
   </entry>
   <entry>
+    <title>类加载机制</title>
+    <url>/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="1、什么是类加载器"><a href="#1、什么是类加载器" class="headerlink" title="1、什么是类加载器"></a>1、什么是类加载器</h1><p>负责读取java字节代码，并转化成java.lang.Class类的一个实例。</p>
+<a id="more"></a>
+
+<h1 id="2、类加载器与类的“相同”判断"><a href="#2、类加载器与类的“相同”判断" class="headerlink" title="2、类加载器与类的“相同”判断"></a>2、类加载器与类的“相同”判断</h1><ul>
+<li>类加载器除了用于加载类外，还可用于确定类在Java虚拟机中的唯一性。</li>
+<li>即便是同样的字节代码，被不同的类加载器加载之后得到的类也是不同的。</li>
+<li>通俗一点来讲，要判断两个类是否“相同”，前提是这两个类必须被同一个类加载器加载，否则这个两个类不“相同”。</li>
+<li>这里的相同，包括Class对象的equals()方法、isAssignableFrom()方法、isInstance()方法、instanceof关键字等判断出来的结果。</li>
+</ul>
+<h1 id="3、类加载器种类"><a href="#3、类加载器种类" class="headerlink" title="3、类加载器种类"></a>3、类加载器种类</h1><ul>
+<li>启动类加载器，Bootstrap ClassLoader 加载JAVA_HOME\lib 或者被-Xbootclasspath参数限定的类</li>
+<li>扩展类加载器、Extension ClassLoader 加载\lib\ext,或者被java.ext.dirs系统变量指定的类</li>
+<li>应用程序类加载器，Application ClassLoader，加载ClassPath中的类库.</li>
+<li>自定义类加载器，通过集成ClassLoader实现，一般是加载我们的自定义类。</li>
+</ul>
+<h1 id="4、双亲委派模型"><a href="#4、双亲委派模型" class="headerlink" title="4、双亲委派模型"></a>4、双亲委派模型</h1><p>类加载器Java类如同其他的Java类一样，也是要由类加载器来加载的；除了启动类加载器，每个类都有其父类加载器（父子关系由组合（不是继承来实现））；</p>
+<p>所谓双亲委派是指每次收到类加载请求时，先将请求委派给父类加载器完成（所有加载请求最终会委派到顶层的Bootstrap ClassLoader加载器中），如果父类加载器无法完成这个加载（该加载器的搜索范围中没有找到对应的类），子类尝试自己加载。</p>
+<p>![](879896-20160415085506488-408997874 (1).png)</p>
+<h2 id="双亲委派好处"><a href="#双亲委派好处" class="headerlink" title="双亲委派好处"></a>双亲委派好处</h2><ul>
+<li>避免同一个类被多次加载</li>
+<li>每个加载器只能加载自己范围内的类；</li>
+</ul>
+<h1 id="5、类加载过程"><a href="#5、类加载过程" class="headerlink" title="5、类加载过程"></a>5、类加载过程</h1><p>类加载分为三个步骤：<strong>加载</strong>，<strong>连接</strong>，<strong>初始化</strong>；</p>
+<p>如下图 , 是一个类从加载到使用及卸载的全部生命周期，图片来自参考资料；</p>
+<p><img src="/.com//879896-20160414224549770-60006655.png"></p>
+<p><strong>加载</strong> ：</p>
+<ul>
+<li>根据一个类的全限定名(如cn.edu.hdu.test.HelloWorld.class)来读取此类的二进制字节流到JVM内部;</li>
+<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构（hotspot选择将Class对象存储在方法区中，Java虚拟机规范并没有明确要求一定要存储在方法区或堆区中）</li>
+<li>转换为一个与目标类型对应的java.lang.Class对象；</li>
+</ul>
+<p><strong>连接</strong></p>
+<ul>
+<li>验证<ul>
+<li>验证阶段主要包括四个验证过程：文件格式验证、元数据验证、字节码验证和符号引用验证。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>准备<ul>
+<li>为类中的所有静态变量分配内存空间，并为其设置一个初始值（由于还没有产生对象，实例变量将不再此操作范围内）；</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>解析<ul>
+<li>将常量池中的所有符号引用转为直接引用（得到类或者字段、方法在内存中的指针或者偏移量，以便直接调用该方法）。这个阶段可以在初始化之后再执行。</li>
+</ul>
+</li>
+</ul>
+<p><strong>初始化</strong></p>
+<p> 在连接的准备阶段，类变量已赋过一次系统要求的初始值，而在初始化阶段，则是根据程序员自己写的逻辑去初始化类变量和其他资源，举个例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public static int value1  &#x3D; 5;</span><br><span class="line">public static int value2  &#x3D; 6;</span><br><span class="line">static&#123;</span><br><span class="line">    value2 &#x3D; 66;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在准备阶段value1和value2都等于0；</p>
+<p>在初始化阶段value1和value2分别等于5和66；</p>
+<ul>
+<li>所有类变量初始化语句和静态代码块都会在编译时被前端编译器放在收集器里头，存放到一个特殊的方法中，这个方法就是<clinit>方法，即类/接口初始化方法，该方法只能在类加载的过程中由JVM调用；</clinit></li>
+<li>编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块中只能访问到定义在静态语句块之前的变量；</li>
+<li>如果超类还没有被初始化，那么优先对超类初始化，但在<clinit>方法内部不会显示调用超类的<clinit>方法，由JVM负责保证一个类的<clinit>方法执行之前，它的超类<clinit>方法已经被执行。</clinit></clinit></clinit></clinit></li>
+<li>JVM必须确保一个类在初始化的过程中，如果是多线程需要同时初始化它，仅仅只能允许其中一个线程对其执行初始化操作，其余线程必须等待，只有在活动线程执行完对类的初始化操作之后，才会通知正在等待的其他线程。(所以可以利用静态内部类实现线程安全的单例模式)</li>
+<li>如果一个类没有声明任何的类变量，也没有静态代码块，那么可以没有类<clinit>方法；</clinit></li>
+</ul>
+<p>类初始化何时触发：</p>
+<ol>
+<li><strong>为一个类型创建一个新的对象实例时（比如new、反射、序列化）</strong></li>
+<li><strong>调用一个类型的静态方法时（即在字节码中执行invokestatic指令）</strong></li>
+<li><strong>调用一个类型或接口的静态字段，或者对这些静态字段执行赋值操作时（即在字节码中，执行getstatic或者putstatic指令），不过用final修饰的静态字段除外，它被初始化为一个编译时常量表达式</strong></li>
+<li><strong>调用JavaAPI中的反射方法时（比如调用java.lang.Class中的方法，或者java.lang.reflect包中其他类的方法）</strong></li>
+<li><strong>初始化一个类的派生类时（Java虚拟机规范明确要求初始化一个类时，它的超类必须提前完成初始化操作，接口例外）</strong></li>
+<li><strong>JVM启动包含main方法的启动类时。</strong></li>
+</ol>
+<h1 id="6、自定义类加载器"><a href="#6、自定义类加载器" class="headerlink" title="6、自定义类加载器"></a>6、自定义类加载器</h1><p> 要创建用户自己的类加载器，只需要继承java.lang.ClassLoader类，然后覆盖它的findClass(String name)方法即可，即指明如何获取类的字节码流。</p>
+<p>**如果要符合双亲委派规范，则重写findClass方法（用户自定义类加载逻辑）；要破坏的话，重写loadClass方法(双亲委派的具体逻辑实现)**。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PathClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String classPath;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String classPath)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.classPath = classPath;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] classData = getData(name);</span><br><span class="line">        <span class="keyword">if</span>(classData == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> defineClass(name,classData,<span class="number">0</span>,classData.length);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] getData(String className)&#123;</span><br><span class="line">        String path = classPath + File.separatorChar</span><br><span class="line">                +className.replace(<span class="string">&#x27;.&#x27;</span>,File.separatorChar)+<span class="string">&quot;.class&quot;</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            InputStream is = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">            ByteArrayOutputStream stream = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">2048</span>];</span><br><span class="line">            <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> ((num=is.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                stream.write(buffer,<span class="number">0</span>,num);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stream.toByteArray();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        ClassLoader pcl = <span class="keyword">new</span> PathClassLoader(<span class="string">&quot;F:\\ideaworkspace\\learn\\simpleioc\\src\\main\\java&quot;</span>);</span><br><span class="line">        Class c = pcl.loadClass(<span class="string">&quot;com.lichaobao.simpleioc.classloader.TestClassLoad&quot;</span>);</span><br><span class="line">        System.out.println(c.newInstance());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestClassLoad</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;类加载成功&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="7、JAVA热部署实现"><a href="#7、JAVA热部署实现" class="headerlink" title="7、JAVA热部署实现"></a>7、JAVA热部署实现</h1><p>首先谈一下何为热部署（hotswap），热部署是在不重启 Java 虚拟机的前提下，能自动侦测到 class 文件的变化，更新运行时 class 的行为。</p>
+<p>Java 类是通过 Java 虚拟机加载的，某个类的 class 文件在被 classloader 加载后，会生成对应的 Class 对象，</p>
+<p>之后就可以创建该类的实例。默认的虚拟机行为只会在启动时加载类，如果后期有一个类需要更新的话，单纯替换编译的 class 文件，Java 虚拟机是不会更新正在运行的 class。如果要实现热部署，最根本的方式是修改虚拟机的源代码，改变 classloader 的加载行为，使虚拟机能监听 class 文件的更新，重新加载 class 文件，这样的行为破坏性很大，为后续的 JVM 升级埋下了一个大坑。</p>
+<p>另一种友好的方法是创建自己的 classloader 来加载需要监听的 class，这样就能控制类加载的时机，从而实现热部署。 </p>
+<p> 热部署步骤：</p>
+<ol>
+<li>销毁自定义classloader(被该加载器加载的class也会自动卸载)；</li>
+<li>更新class</li>
+<li>使用新的ClassLoader去加载class </li>
+</ol>
+<p>JVM中的Class只有满足以下三个条件，才能被GC回收，也就是该Class被卸载（unload）：</p>
+<ul>
+<li>该类所有的实例都已经被GC，也就是JVM中不存在该Class的任何实例。</li>
+<li>加载该类的ClassLoader已经被GC。</li>
+<li>该类的java.lang.Class 对象没有在任何地方被引用，如不能在任何地方通过反射访问该类的方法</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>类与对象</title>
     <url>/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h4 id="类与对象关系、属性、方法与对象"><a href="#类与对象关系、属性、方法与对象" class="headerlink" title="类与对象关系、属性、方法与对象"></a>类与对象关系、属性、方法与对象</h4><p>类通常是一类事物的抽象，某个具体类的实例为对象，如 人为一个类，则你、我、他是这个类的具体实例，也就是对象。Java是面向对象的语言，每个对象都有自己的属性和方法，属性描述了类的特点，方法描述了类的功能。如肤色、身高是人的属性，吃喝玩是类的功能。</p>
@@ -974,109 +1582,6 @@
       </categories>
       <tags>
         <tag>java基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>类加载机制</title>
-    <url>/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="1、什么是类加载器"><a href="#1、什么是类加载器" class="headerlink" title="1、什么是类加载器"></a>1、什么是类加载器</h1><p>负责读取java字节代码，并转化成java.lang.Class类的一个实例。</p>
-<a id="more"></a>
-
-<h1 id="2、类加载器与类的“相同”判断"><a href="#2、类加载器与类的“相同”判断" class="headerlink" title="2、类加载器与类的“相同”判断"></a>2、类加载器与类的“相同”判断</h1><ul>
-<li>类加载器除了用于加载类外，还可用于确定类在Java虚拟机中的唯一性。</li>
-<li>即便是同样的字节代码，被不同的类加载器加载之后得到的类也是不同的。</li>
-<li>通俗一点来讲，要判断两个类是否“相同”，前提是这两个类必须被同一个类加载器加载，否则这个两个类不“相同”。</li>
-<li>这里的相同，包括Class对象的equals()方法、isAssignableFrom()方法、isInstance()方法、instanceof关键字等判断出来的结果。</li>
-</ul>
-<h1 id="3、类加载器种类"><a href="#3、类加载器种类" class="headerlink" title="3、类加载器种类"></a>3、类加载器种类</h1><ul>
-<li>启动类加载器，Bootstrap ClassLoader 加载JAVA_HOME\lib 或者被-Xbootclasspath参数限定的类</li>
-<li>扩展类加载器、Extension ClassLoader 加载\lib\ext,或者被java.ext.dirs系统变量指定的类</li>
-<li>应用程序类加载器，Application ClassLoader，加载ClassPath中的类库.</li>
-<li>自定义类加载器，通过集成ClassLoader实现，一般是加载我们的自定义类。</li>
-</ul>
-<h1 id="4、双亲委派模型"><a href="#4、双亲委派模型" class="headerlink" title="4、双亲委派模型"></a>4、双亲委派模型</h1><p>类加载器Java类如同其他的Java类一样，也是要由类加载器来加载的；除了启动类加载器，每个类都有其父类加载器（父子关系由组合（不是继承来实现））；</p>
-<p>所谓双亲委派是指每次收到类加载请求时，先将请求委派给父类加载器完成（所有加载请求最终会委派到顶层的Bootstrap ClassLoader加载器中），如果父类加载器无法完成这个加载（该加载器的搜索范围中没有找到对应的类），子类尝试自己加载。</p>
-<p>![](879896-20160415085506488-408997874 (1).png)</p>
-<h2 id="双亲委派好处"><a href="#双亲委派好处" class="headerlink" title="双亲委派好处"></a>双亲委派好处</h2><ul>
-<li>避免同一个类被多次加载</li>
-<li>每个加载器只能加载自己范围内的类；</li>
-</ul>
-<h1 id="5、类加载过程"><a href="#5、类加载过程" class="headerlink" title="5、类加载过程"></a>5、类加载过程</h1><p>类加载分为三个步骤：<strong>加载</strong>，<strong>连接</strong>，<strong>初始化</strong>；</p>
-<p>如下图 , 是一个类从加载到使用及卸载的全部生命周期，图片来自参考资料；</p>
-<p><img src="/.com//879896-20160414224549770-60006655.png"></p>
-<p><strong>加载</strong> ：</p>
-<ul>
-<li>根据一个类的全限定名(如cn.edu.hdu.test.HelloWorld.class)来读取此类的二进制字节流到JVM内部;</li>
-<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构（hotspot选择将Class对象存储在方法区中，Java虚拟机规范并没有明确要求一定要存储在方法区或堆区中）</li>
-<li>转换为一个与目标类型对应的java.lang.Class对象；</li>
-</ul>
-<p><strong>连接</strong></p>
-<ul>
-<li>验证<ul>
-<li>验证阶段主要包括四个验证过程：文件格式验证、元数据验证、字节码验证和符号引用验证。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>准备<ul>
-<li>为类中的所有静态变量分配内存空间，并为其设置一个初始值（由于还没有产生对象，实例变量将不再此操作范围内）；</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>解析<ul>
-<li>将常量池中的所有符号引用转为直接引用（得到类或者字段、方法在内存中的指针或者偏移量，以便直接调用该方法）。这个阶段可以在初始化之后再执行。</li>
-</ul>
-</li>
-</ul>
-<p><strong>初始化</strong></p>
-<p> 在连接的准备阶段，类变量已赋过一次系统要求的初始值，而在初始化阶段，则是根据程序员自己写的逻辑去初始化类变量和其他资源，举个例子如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public static int value1  &#x3D; 5;</span><br><span class="line">public static int value2  &#x3D; 6;</span><br><span class="line">static&#123;</span><br><span class="line">    value2 &#x3D; 66;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在准备阶段value1和value2都等于0；</p>
-<p>在初始化阶段value1和value2分别等于5和66；</p>
-<ul>
-<li>所有类变量初始化语句和静态代码块都会在编译时被前端编译器放在收集器里头，存放到一个特殊的方法中，这个方法就是<clinit>方法，即类/接口初始化方法，该方法只能在类加载的过程中由JVM调用；</clinit></li>
-<li>编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块中只能访问到定义在静态语句块之前的变量；</li>
-<li>如果超类还没有被初始化，那么优先对超类初始化，但在<clinit>方法内部不会显示调用超类的<clinit>方法，由JVM负责保证一个类的<clinit>方法执行之前，它的超类<clinit>方法已经被执行。</clinit></clinit></clinit></clinit></li>
-<li>JVM必须确保一个类在初始化的过程中，如果是多线程需要同时初始化它，仅仅只能允许其中一个线程对其执行初始化操作，其余线程必须等待，只有在活动线程执行完对类的初始化操作之后，才会通知正在等待的其他线程。(所以可以利用静态内部类实现线程安全的单例模式)</li>
-<li>如果一个类没有声明任何的类变量，也没有静态代码块，那么可以没有类<clinit>方法；</clinit></li>
-</ul>
-<p>类初始化何时触发：</p>
-<ol>
-<li><strong>为一个类型创建一个新的对象实例时（比如new、反射、序列化）</strong></li>
-<li><strong>调用一个类型的静态方法时（即在字节码中执行invokestatic指令）</strong></li>
-<li><strong>调用一个类型或接口的静态字段，或者对这些静态字段执行赋值操作时（即在字节码中，执行getstatic或者putstatic指令），不过用final修饰的静态字段除外，它被初始化为一个编译时常量表达式</strong></li>
-<li><strong>调用JavaAPI中的反射方法时（比如调用java.lang.Class中的方法，或者java.lang.reflect包中其他类的方法）</strong></li>
-<li><strong>初始化一个类的派生类时（Java虚拟机规范明确要求初始化一个类时，它的超类必须提前完成初始化操作，接口例外）</strong></li>
-<li><strong>JVM启动包含main方法的启动类时。</strong></li>
-</ol>
-<h1 id="6、自定义类加载器"><a href="#6、自定义类加载器" class="headerlink" title="6、自定义类加载器"></a>6、自定义类加载器</h1><p> 要创建用户自己的类加载器，只需要继承java.lang.ClassLoader类，然后覆盖它的findClass(String name)方法即可，即指明如何获取类的字节码流。</p>
-<p>**如果要符合双亲委派规范，则重写findClass方法（用户自定义类加载逻辑）；要破坏的话，重写loadClass方法(双亲委派的具体逻辑实现)**。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PathClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String classPath;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String classPath)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.classPath = classPath;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] classData = getData(name);</span><br><span class="line">        <span class="keyword">if</span>(classData == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> defineClass(name,classData,<span class="number">0</span>,classData.length);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] getData(String className)&#123;</span><br><span class="line">        String path = classPath + File.separatorChar</span><br><span class="line">                +className.replace(<span class="string">&#x27;.&#x27;</span>,File.separatorChar)+<span class="string">&quot;.class&quot;</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            InputStream is = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">            ByteArrayOutputStream stream = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">2048</span>];</span><br><span class="line">            <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> ((num=is.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                stream.write(buffer,<span class="number">0</span>,num);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stream.toByteArray();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        ClassLoader pcl = <span class="keyword">new</span> PathClassLoader(<span class="string">&quot;F:\\ideaworkspace\\learn\\simpleioc\\src\\main\\java&quot;</span>);</span><br><span class="line">        Class c = pcl.loadClass(<span class="string">&quot;com.lichaobao.simpleioc.classloader.TestClassLoad&quot;</span>);</span><br><span class="line">        System.out.println(c.newInstance());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestClassLoad</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;类加载成功&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="7、JAVA热部署实现"><a href="#7、JAVA热部署实现" class="headerlink" title="7、JAVA热部署实现"></a>7、JAVA热部署实现</h1><p>首先谈一下何为热部署（hotswap），热部署是在不重启 Java 虚拟机的前提下，能自动侦测到 class 文件的变化，更新运行时 class 的行为。</p>
-<p>Java 类是通过 Java 虚拟机加载的，某个类的 class 文件在被 classloader 加载后，会生成对应的 Class 对象，</p>
-<p>之后就可以创建该类的实例。默认的虚拟机行为只会在启动时加载类，如果后期有一个类需要更新的话，单纯替换编译的 class 文件，Java 虚拟机是不会更新正在运行的 class。如果要实现热部署，最根本的方式是修改虚拟机的源代码，改变 classloader 的加载行为，使虚拟机能监听 class 文件的更新，重新加载 class 文件，这样的行为破坏性很大，为后续的 JVM 升级埋下了一个大坑。</p>
-<p>另一种友好的方法是创建自己的 classloader 来加载需要监听的 class，这样就能控制类加载的时机，从而实现热部署。 </p>
-<p> 热部署步骤：</p>
-<ol>
-<li>销毁自定义classloader(被该加载器加载的class也会自动卸载)；</li>
-<li>更新class</li>
-<li>使用新的ClassLoader去加载class </li>
-</ol>
-<p>JVM中的Class只有满足以下三个条件，才能被GC回收，也就是该Class被卸载（unload）：</p>
-<ul>
-<li>该类所有的实例都已经被GC，也就是JVM中不存在该Class的任何实例。</li>
-<li>加载该类的ClassLoader已经被GC。</li>
-<li>该类的java.lang.Class 对象没有在任何地方被引用，如不能在任何地方通过反射访问该类的方法</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>JVM</tag>
       </tags>
   </entry>
   <entry>
