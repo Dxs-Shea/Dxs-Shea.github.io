@@ -151,6 +151,55 @@
       </tags>
   </entry>
   <entry>
+    <title>113. 路径总和 II</title>
+    <url>/113.%20%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C%20II/</url>
+    <content><![CDATA[<h1 id="113-路径总和-II"><a href="#113-路径总和-II" class="headerlink" title="113. 路径总和 II"></a>113. 路径总和 II</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。</p>
+<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
+<a id="more"></a>
+
+<p>给定如下二叉树，以及目标和 <code>sum = 22</code>，</p>
+<pre><code>               5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \      \
+        7    2      1</code></pre>
+<p>返回 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">   [<span class="number">5</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">2</span>],</span><br><span class="line">   [<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>递归</li>
+<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; pathSum(TreeNode root, <span class="keyword">int</span> sum) &#123;</span><br><span class="line">        <span class="comment">// //List&lt;Integer&gt; temp = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">// List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// if(root==null) return res;</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// //temp.add(root.val);</span></span><br><span class="line">        <span class="comment">// if(root.right==null&amp;&amp;root.left==null&amp;&amp;sum-root.val==0)&#123;</span></span><br><span class="line">          </span><br><span class="line">        <span class="comment">//         List&lt;Integer&gt; temp = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">//         res.add(temp);</span></span><br><span class="line">           </span><br><span class="line">            </span><br><span class="line">        <span class="comment">//     temp = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">// &#125; </span></span><br><span class="line">       </span><br><span class="line">        <span class="comment">//  pathSum(root.left,sum-root.val);</span></span><br><span class="line">        <span class="comment">//  pathSum(root.right,sum-root.val);</span></span><br><span class="line">        <span class="comment">// return res;</span></span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; result=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        dfs(root,sum,<span class="keyword">new</span> ArrayList&lt;&gt;(),result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root,<span class="keyword">int</span> sum,List&lt;Integer&gt;list ,List&lt;List&lt;Integer&gt;&gt; result)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">            <span class="comment">//return result;</span></span><br><span class="line">        List&lt;Integer&gt; subList=<span class="keyword">new</span> ArrayList&lt;&gt;(list);</span><br><span class="line"></span><br><span class="line">        subList.add(root.val);</span><br><span class="line">        <span class="comment">//if(root.right==null&amp;&amp;root.left==null&amp;&amp;root.val==sum)&#123;</span></span><br><span class="line">        <span class="keyword">if</span>(root.right==<span class="keyword">null</span>&amp;&amp;root.left==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val==sum)</span><br><span class="line">                result.add(subList);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        dfs(root.left,sum-root.val,subList,result);</span><br><span class="line">        dfs(root.right,sum-root.val,subList,result);</span><br><span class="line">       <span class="comment">// return result;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>回溯</li>
+<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>将一个List赋值给另一个List</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; subList=<span class="keyword">new</span> ArrayList&lt;&gt;(list);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>递归的时候如果处理不当可能会出现分支污染导致结果错误。</p>
+<p>为什么会出现这种情况，我先来解释一下，因为除了基本类型是值传递以外，<strong>其他类型基本上很多都是引用传递</strong>。看一下上面的图，比如我开始调用的时候传入一个list对象，在调用第一个分支之后list中的数据修改了，那么后面的所有分支都能感知到，实际上也就是对后面的分支造成了污染。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>110. 平衡二叉树</title>
     <url>/110.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h1 id="110-平衡二叉树"><a href="#110-平衡二叉树" class="headerlink" title="110. 平衡二叉树"></a>110. 平衡二叉树</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
@@ -250,118 +299,6 @@
       </categories>
       <tags>
         <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>113. 路径总和 II</title>
-    <url>/113.%20%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C%20II/</url>
-    <content><![CDATA[<h1 id="113-路径总和-II"><a href="#113-路径总和-II" class="headerlink" title="113. 路径总和 II"></a>113. 路径总和 II</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。</p>
-<p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p>
-<a id="more"></a>
-
-<p>给定如下二叉树，以及目标和 <code>sum = 22</code>，</p>
-<pre><code>               5
-             / \
-            4   8
-           /   / \
-          11  13  4
-         /  \      \
-        7    2      1</code></pre>
-<p>返回 </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">   [<span class="number">5</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">2</span>],</span><br><span class="line">   [<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>递归</li>
-<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; pathSum(TreeNode root, <span class="keyword">int</span> sum) &#123;</span><br><span class="line">        <span class="comment">// //List&lt;Integer&gt; temp = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">// List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// if(root==null) return res;</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// //temp.add(root.val);</span></span><br><span class="line">        <span class="comment">// if(root.right==null&amp;&amp;root.left==null&amp;&amp;sum-root.val==0)&#123;</span></span><br><span class="line">          </span><br><span class="line">        <span class="comment">//         List&lt;Integer&gt; temp = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">//         res.add(temp);</span></span><br><span class="line">           </span><br><span class="line">            </span><br><span class="line">        <span class="comment">//     temp = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">// &#125; </span></span><br><span class="line">       </span><br><span class="line">        <span class="comment">//  pathSum(root.left,sum-root.val);</span></span><br><span class="line">        <span class="comment">//  pathSum(root.right,sum-root.val);</span></span><br><span class="line">        <span class="comment">// return res;</span></span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; result=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        dfs(root,sum,<span class="keyword">new</span> ArrayList&lt;&gt;(),result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root,<span class="keyword">int</span> sum,List&lt;Integer&gt;list ,List&lt;List&lt;Integer&gt;&gt; result)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">            <span class="comment">//return result;</span></span><br><span class="line">        List&lt;Integer&gt; subList=<span class="keyword">new</span> ArrayList&lt;&gt;(list);</span><br><span class="line"></span><br><span class="line">        subList.add(root.val);</span><br><span class="line">        <span class="comment">//if(root.right==null&amp;&amp;root.left==null&amp;&amp;root.val==sum)&#123;</span></span><br><span class="line">        <span class="keyword">if</span>(root.right==<span class="keyword">null</span>&amp;&amp;root.left==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root.val==sum)</span><br><span class="line">                result.add(subList);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        dfs(root.left,sum-root.val,subList,result);</span><br><span class="line">        dfs(root.right,sum-root.val,subList,result);</span><br><span class="line">       <span class="comment">// return result;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
-<li>回溯</li>
-<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>将一个List赋值给另一个List</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; subList=<span class="keyword">new</span> ArrayList&lt;&gt;(list);</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>递归的时候如果处理不当可能会出现分支污染导致结果错误。</p>
-<p>为什么会出现这种情况，我先来解释一下，因为除了基本类型是值传递以外，<strong>其他类型基本上很多都是引用传递</strong>。看一下上面的图，比如我开始调用的时候传入一个list对象，在调用第一个分支之后list中的数据修改了，那么后面的所有分支都能感知到，实际上也就是对后面的分支造成了污染。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>206. 反转链表</title>
-    <url>/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
-    <content><![CDATA[<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
-<p><strong>说明：</strong></p>
-<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
-<a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">输入: [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">输出: <span class="number">4</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li><p>既满足时间复杂度又满足空间复杂度，就要提到位运算中的异或运算 XOR，主要因为异或运算有以下几个特点：</p>
-</li>
-<li><ul>
-<li>一个数和 0 做 XOR 运算等于本身：a⊕0 = a</li>
-<li>一个数和其本身做 XOR 运算等于 0：a⊕a = 0</li>
-<li>XOR 运算满足交换律和结合律：a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b</li>
-</ul>
-</li>
-<li><p>故而在以上的基础条件上，将所有数字按照顺序做抑或运算，最后剩下的结果即为唯一的数字</p>
-</li>
-<li><p><strong>复杂度分析：</strong></p>
-<ul>
-<li>时间复杂度：O(n)</li>
-<li>空间复杂度：O(1)</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            res^=nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
-<li>利用 Hash 表，Time: O(n)<em>O</em>(<em>n</em>) Space: O(n)<em>O</em>(<em>n</em>)</li>
-<li><strong>复杂度分析：</strong><ul>
-<li>时间复杂度：O(n)</li>
-<li>空间复杂度：O(n)</li>
-</ul>
-</li>
-</ul>
-<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Integer i : nums) &#123;</span><br><span class="line">            Integer count = map.get(i);</span><br><span class="line">            count = count == <span class="keyword">null</span> ? <span class="number">1</span> : ++count;</span><br><span class="line">            map.put(i, count);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Integer i : map.keySet()) &#123;</span><br><span class="line">            Integer count = map.get(i);</span><br><span class="line">            <span class="keyword">if</span> (count == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// can&#x27;t find it.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -474,6 +411,255 @@
       </tags>
   </entry>
   <entry>
+    <title>120. 三角形最小路径和</title>
+    <url>/120.%20%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="64-最小路径和"><a href="#64-最小路径和" class="headerlink" title="64. 最小路径和"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/"><a href="https://leetcode-cn.com/problems/minimum-path-sum/">64. 最小路径和</a></a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
+<p>相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">     [<span class="number">2</span>],</span><br><span class="line">    [<span class="number">3</span>,<span class="number">4</span>],</span><br><span class="line">   [<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>],</span><br><span class="line">  [<span class="number">4</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">3</span>]</span><br><span class="line">]</span><br><span class="line">自顶向下的最小路径和为 <span class="number">11</span>（即，<span class="number">2</span> + <span class="number">3</span> + <span class="number">5</span> + <span class="number">1</span> = <span class="number">11</span>）。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li><p>定义二维 dp 数组，将解法二中「自顶向下的递归」改为「自底向上的递推」。</p>
+</li>
+<li><p><strong>1、状态定义：</strong><br>dp[i][j]dp[i][j] 表示从点 (i, j)(i,j) 到底边的最小路径和。</p>
+</li>
+<li><p><strong>2、状态转移：</strong><br>dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j]dp[i][j]=min(dp[i+1][j],dp[i+1][j+1])+triangle[i][j</p>
+</li>
+</ul>
+<ul>
+<li></li>
+<li><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(N^2)，N<em>N</em> 为三角形的行数。</li>
+<li>空间复杂度：O(N^2)，N<em>N</em> 为三角形的行数。</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(triangle==<span class="keyword">null</span>||triangle.size()==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//初始化: 加1可以不用初始化最后一层</span></span><br><span class="line">        <span class="keyword">int</span>[][] dq=<span class="keyword">new</span> <span class="keyword">int</span>[triangle.size()+<span class="number">1</span>][triangle.size()+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=triangle.size()-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">                dq[i][j]=Math.min(dq[i+<span class="number">1</span>][j],dq[i+<span class="number">1</span>][j+<span class="number">1</span>])+triangle.get(i).get(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dq[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
+    <url>/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p><strong>说明：</strong></p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">输入: [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">输出: <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li><p>既满足时间复杂度又满足空间复杂度，就要提到位运算中的异或运算 XOR，主要因为异或运算有以下几个特点：</p>
+</li>
+<li><ul>
+<li>一个数和 0 做 XOR 运算等于本身：a⊕0 = a</li>
+<li>一个数和其本身做 XOR 运算等于 0：a⊕a = 0</li>
+<li>XOR 运算满足交换律和结合律：a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b</li>
+</ul>
+</li>
+<li><p>故而在以上的基础条件上，将所有数字按照顺序做抑或运算，最后剩下的结果即为唯一的数字</p>
+</li>
+<li><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            res^=nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>利用 Hash 表，Time: O(n)<em>O</em>(<em>n</em>) Space: O(n)<em>O</em>(<em>n</em>)</li>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(n)</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Integer i : nums) &#123;</span><br><span class="line">            Integer count = map.get(i);</span><br><span class="line">            count = count == <span class="keyword">null</span> ? <span class="number">1</span> : ++count;</span><br><span class="line">            map.put(i, count);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Integer i : map.keySet()) &#123;</span><br><span class="line">            Integer count = map.get(i);</span><br><span class="line">            <span class="keyword">if</span> (count == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">// can&#x27;t find it.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>322. 零钱兑换</title>
+    <url>/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</url>
+    <content><![CDATA[<p>#<a href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：偷窃 <span class="number">1</span> 号房屋 (金额 = <span class="number">1</span>) ，然后偷窃 <span class="number">3</span> 号房屋 (金额 = <span class="number">3</span>)。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">1</span> + <span class="number">3</span> = <span class="number">4</span> 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：[<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">12</span></span><br><span class="line">解释：偷窃 <span class="number">1</span> 号房屋 (金额 = <span class="number">2</span>), 偷窃 <span class="number">3</span> 号房屋 (金额 = <span class="number">9</span>)，接着偷窃 <span class="number">5</span> 号房屋 (金额 = <span class="number">1</span>)。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">2</span> + <span class="number">9</span> + <span class="number">1</span> = <span class="number">12</span> 。</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
+</ul>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li><p>读题知输入一个长度为 n 的数组，表示 n 个房屋，让我们求到第 n 个房屋的最大金额。</p>
+</li>
+<li><p>我们想一下到第n个房屋的最大金额 dp[n]: 1. 如果偷第 n 个房屋的话，由于相邻的房屋不能偷，所以 dp[n] = dp[n - 2] + nums[n]（即等于到第 n - 2 个房屋的最大金额 + 第 n 个房屋的金额） 2. 反之如果不偷第 n 个房屋的话，那么 dp[n] = dp[n - 1]（即等于到第 n - 1 个房屋的最大金额）</p>
+</li>
+<li><p>于是，我们得到了状态转移方程：dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])</p>
+</li>
+</ul>
+<ul>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度： O(N)</li>
+<li>空间复杂度： O(N)  ///O(1)[dp[i] = max(b, a + nums[i])，]</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**if(nums.length==0) return 0;</span></span><br><span class="line"><span class="comment">        if(nums.length==1) return nums[0];</span></span><br><span class="line"><span class="comment">        //if(nums.length==2) return nums[0]&gt;nums[1]?nums[0]:nums[1];</span></span><br><span class="line"><span class="comment">        int[] dp=new int[nums.length];</span></span><br><span class="line"><span class="comment">        dp[0] =nums[0];</span></span><br><span class="line"><span class="comment">        dp[1] =Math.max(nums[0],nums[1]);</span></span><br><span class="line"><span class="comment">        for(int i=2;i&lt;nums.length;i++)&#123;</span></span><br><span class="line"><span class="comment">            dp[i]=Math.max(dp[i-1],dp[i-2]+nums[i]);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        return dp[nums.length-1];**/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//a表示i-2,b表示i-1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> c=Math.max(a+nums[i],b);</span><br><span class="line">            a=b;</span><br><span class="line">            b=c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>322. 零钱兑换</title>
+    <url>/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/</url>
+    <content><![CDATA[<h1 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213. 打家劫舍 II"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，能够偷窃到的最高金额</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：你不能先偷窃 <span class="number">1</span> 号房屋（金额 = <span class="number">2</span>），然后偷窃 <span class="number">3</span> 号房屋（金额 = <span class="number">2</span>）, 因为他们是相邻的。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：你可以先偷窃 <span class="number">1</span> 号房屋（金额 = <span class="number">1</span>），然后偷窃 <span class="number">3</span> 号房屋（金额 = <span class="number">3</span>）。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">1</span> + <span class="number">3</span> = <span class="number">4</span> 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例3:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">0</span>]</span><br><span class="line">输出：<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= nums.length &lt;= 100</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
+</ul>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>两个dp,一个从0到n-1,另一个从1到n,最后取两个dp中的最大值</li>
+</ul>
+<ul>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度： O(N)</li>
+<li>空间复杂度： O(N)  ///O(1)[dp[i] = max(b, a + nums[i])，]</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">2</span>) <span class="keyword">return</span> Math.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dpone=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        dpone[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">        dpone[<span class="number">1</span>]=Math.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            dpone[i]=Math.max(dpone[i-<span class="number">1</span>],dpone[i-<span class="number">2</span>]+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dqtwo=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="comment">// dqtwo[0]=nums[1];</span></span><br><span class="line">        <span class="comment">// dqtwo[1]=Math.max(nums[0],nums[1]);</span></span><br><span class="line">        <span class="comment">// for(int i=2;i&lt;nums.length;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     dqtwo[i]=Math.max(dqtwo[i-1],dqtwo[i-2]+nums[i]);</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        dqtwo[<span class="number">1</span>]=nums[<span class="number">1</span>];</span><br><span class="line">        <span class="comment">// dqtwo[2]=nums[2];</span></span><br><span class="line">        dqtwo[<span class="number">2</span>]=Math.max(nums[<span class="number">1</span>],nums[<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            dqtwo[i]=Math.max(dqtwo[i-<span class="number">1</span>],dqtwo[i-<span class="number">2</span>]+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Math.max(dpone[nums.length-<span class="number">2</span>],dqtwo[nums.length-<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>206. 反转链表</title>
+    <url>/206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>反转一个单链表。</p>
+<a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>-&gt;NULL</span><br><span class="line">输出: <span class="number">5</span>-&gt;<span class="number">4</span>-&gt;<span class="number">3</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span>-&gt;NULL</span><br></pre></td></tr></table></figure>
+
+<p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li>我们可以申请两个指针，第一个指针叫 pre，最初是指向 null 的。<br>第二个指针 cur 指向 head，然后不断遍历 cur。<br>每次迭代到 cur，都将 cur 的 next 指向 pre，然后 pre 和 cur 前进一位。<br>都迭代完了(cur 变成 null 了)，pre 就是最后一个节点了。</li>
+<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// if(head==null) return;</span></span><br><span class="line">        <span class="comment">// if(head.next==null) return head;</span></span><br><span class="line">        ListNode cur=head;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=cur.next;</span></span><br><span class="line">        ListNode temp=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//while(head!=null&amp;&amp;head.next!=null)&#123;</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            <span class="comment">//pre前进一位</span></span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//return head;</span></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>递归</li>
+<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+</ul>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>pre前进一位：pre=cur;</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>206. 反转链表</title>
     <url>/169.%20%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<h1 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169. 多数元素"></a>169. 多数元素</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
@@ -555,42 +741,41 @@
       </tags>
   </entry>
   <entry>
-    <title>322. 零钱兑换</title>
-    <url>/198.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</url>
-    <content><![CDATA[<p>#<a href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+    <title>623. 在二叉树中增加一行</title>
+    <url>/623.%20%E5%9C%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%A2%9E%E5%8A%A0%E4%B8%80%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="623-在二叉树中增加一行"><a href="#623-在二叉树中增加一行" class="headerlink" title="623. 在二叉树中增加一行"></a>623. 在二叉树中增加一行</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，根节点为第1层，深度为 1。在其第 d 层追加一行值为 v 的节点。</p>
+<p>添加规则：给定一个深度值 d （正整数），针对深度为 d-1 层的每一非空节点 N，为 N 创建两个值为 v 的左子树和右子树。</p>
+<p>将 N 原先的左子树，连接为新节点 v 的左子树；将 N 原先的右子树，连接为新节点 v 的右子树。</p>
+<p>如果 d 的值为 1，深度 d - 1 不存在，则创建一个新的根节点 v，原先的整棵树将作为 v 的左子树。</p>
 <a id="more"></a>
 
 <p><strong>示例1:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：偷窃 <span class="number">1</span> 号房屋 (金额 = <span class="number">1</span>) ，然后偷窃 <span class="number">3</span> 号房屋 (金额 = <span class="number">3</span>)。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">1</span> + <span class="number">3</span> = <span class="number">4</span> 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例2:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：[<span class="number">2</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">12</span></span><br><span class="line">解释：偷窃 <span class="number">1</span> 号房屋 (金额 = <span class="number">2</span>), 偷窃 <span class="number">3</span> 号房屋 (金额 = <span class="number">9</span>)，接着偷窃 <span class="number">5</span> 号房屋 (金额 = <span class="number">1</span>)。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">2</span> + <span class="number">9</span> + <span class="number">1</span> = <span class="number">12</span> 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">       <span class="number">4</span></span><br><span class="line">     /   \</span><br><span class="line">    <span class="number">2</span>     <span class="number">6</span></span><br><span class="line">   / \   / </span><br><span class="line">  <span class="number">3</span>   <span class="number">1</span> <span class="number">5</span>   </span><br><span class="line"></span><br><span class="line">v = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">d = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">       <span class="number">4</span></span><br><span class="line">      / \</span><br><span class="line">     <span class="number">1</span>   <span class="number">1</span></span><br><span class="line">    /     \</span><br><span class="line">   <span class="number">2</span>       <span class="number">6</span></span><br><span class="line">  / \     / </span><br><span class="line"> <span class="number">3</span>   <span class="number">1</span>   <span class="number">5</span>   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>0 &lt;= nums.length &lt;= 100</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
-</ul>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2    </span><br><span class="line">   &#x2F; \   </span><br><span class="line">  3   1    </span><br><span class="line"></span><br><span class="line">v &#x3D; 1</span><br><span class="line"></span><br><span class="line">d &#x3D; 3</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2</span><br><span class="line">   &#x2F; \    </span><br><span class="line">  1   1</span><br><span class="line"> &#x2F;     \  </span><br><span class="line">3       1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意:</strong></p>
+<ol>
+<li>输入的深度值 d 的范围是：[1，二叉树最大深度 + 1]。</li>
+<li>输入的二叉树至少有一个节点。</li>
+</ol>
 <h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li><p>读题知输入一个长度为 n 的数组，表示 n 个房屋，让我们求到第 n 个房屋的最大金额。</p>
-</li>
-<li><p>我们想一下到第n个房屋的最大金额 dp[n]: 1. 如果偷第 n 个房屋的话，由于相邻的房屋不能偷，所以 dp[n] = dp[n - 2] + nums[n]（即等于到第 n - 2 个房屋的最大金额 + 第 n 个房屋的金额） 2. 反之如果不偷第 n 个房屋的话，那么 dp[n] = dp[n - 1]（即等于到第 n - 1 个房屋的最大金额）</p>
-</li>
-<li><p>于是，我们得到了状态转移方程：dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])</p>
-</li>
+<li>利用BFS保存d-1层的节点</li>
+<li>然后对每个节点的左右节点进行修改<ul>
+<li>左节点：指向新创建的节点，其值为v，其左节点为当前节点的左节点</li>
+<li>右节点：指向新创建的节点，其值为v，其右节点为当前节点的右节点</li>
 </ul>
-<ul>
+</li>
 <li><strong>复杂度分析：</strong><ul>
-<li>时间复杂度： O(N)</li>
-<li>空间复杂度： O(N)  ///O(1)[dp[i] = max(b, a + nums[i])，]</li>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
 </ul>
 </li>
 </ul>
-<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**if(nums.length==0) return 0;</span></span><br><span class="line"><span class="comment">        if(nums.length==1) return nums[0];</span></span><br><span class="line"><span class="comment">        //if(nums.length==2) return nums[0]&gt;nums[1]?nums[0]:nums[1];</span></span><br><span class="line"><span class="comment">        int[] dp=new int[nums.length];</span></span><br><span class="line"><span class="comment">        dp[0] =nums[0];</span></span><br><span class="line"><span class="comment">        dp[1] =Math.max(nums[0],nums[1]);</span></span><br><span class="line"><span class="comment">        for(int i=2;i&lt;nums.length;i++)&#123;</span></span><br><span class="line"><span class="comment">            dp[i]=Math.max(dp[i-1],dp[i-2]+nums[i]);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        return dp[nums.length-1];**/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//a表示i-2,b表示i-1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> c=Math.max(a+nums[i],b);</span><br><span class="line">            a=b;</span><br><span class="line">            b=c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">addOneRow</span><span class="params">(TreeNode root, <span class="keyword">int</span> v, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">1</span>) &#123;</span><br><span class="line">            TreeNode newRoot = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newRoot.left=root; </span><br><span class="line">            <span class="keyword">return</span> newRoot;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">2</span>) &#123;</span><br><span class="line">            TreeNode newLeft = <span class="keyword">new</span> TreeNode(v),newRight=<span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newLeft.left=root.left;</span><br><span class="line">            newRight.right=root.right;</span><br><span class="line">            root.left=newLeft;</span><br><span class="line">            root.right=newRight;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        root.left=addOneRow(root.left,v,d-<span class="number">1</span>);</span><br><span class="line">        root.right=addOneRow(root.right,v,d-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -600,131 +785,66 @@
 
 
 
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>206. 反转链表</title>
-    <url>/206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>反转一个单链表。</p>
-<a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>-&gt;NULL</span><br><span class="line">输出: <span class="number">5</span>-&gt;<span class="number">4</span>-&gt;<span class="number">3</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span>-&gt;NULL</span><br></pre></td></tr></table></figure>
-
-<p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>我们可以申请两个指针，第一个指针叫 pre，最初是指向 null 的。<br>第二个指针 cur 指向 head，然后不断遍历 cur。<br>每次迭代到 cur，都将 cur 的 next 指向 pre，然后 pre 和 cur 前进一位。<br>都迭代完了(cur 变成 null 了)，pre 就是最后一个节点了。</li>
-<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// if(head==null) return;</span></span><br><span class="line">        <span class="comment">// if(head.next==null) return head;</span></span><br><span class="line">        ListNode cur=head;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=cur.next;</span></span><br><span class="line">        ListNode temp=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//while(head!=null&amp;&amp;head.next!=null)&#123;</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            <span class="comment">//pre前进一位</span></span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//return head;</span></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
-<li>递归</li>
-<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>pre前进一位：pre=cur;</p>
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>map.getOrDefault(Object key, V defaultValue)<br>意思就是当Map集合中有这个key时，就使用这个key对应的value值，如果没有就使用默认值defaultValue</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>双指针</tag>
-        <tag>链表</tag>
+        <tag>摩尔投票法</tag>
       </tags>
   </entry>
   <entry>
-    <title>322. 零钱兑换</title>
-    <url>/213.%20%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%20II/</url>
-    <content><![CDATA[<h1 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213. 打家劫舍 II"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警 。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 在不触动警报装置的情况下 ，能够偷窃到的最高金额</p>
+    <title>392. 判断子序列</title>
+    <url>/392.%20%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/</url>
+    <content><![CDATA[<h4 id="392-判断子序列"><a href="#392-判断子序列" class="headerlink" title="392. 判断子序列"></a><a href="https://leetcode-cn.com/problems/is-subsequence/">392. 判断子序列</a></h4><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定字符串 s 和 t ，判断 s 是否为 t 的子序列。</p>
+<p>你可以认为 s 和 t 中仅包含英文小写字母。字符串 t 可能会很长（长度 ~= 500,000），而 s 是个短字符串（长度 &lt;=100）。</p>
+<p>字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，”ace”是”abcde”的一个子序列，而”aec”不是）。</p>
 <a id="more"></a>
 
 <p><strong>示例1:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：你不能先偷窃 <span class="number">1</span> 号房屋（金额 = <span class="number">2</span>），然后偷窃 <span class="number">3</span> 号房屋（金额 = <span class="number">2</span>）, 因为他们是相邻的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">s = <span class="string">&quot;abc&quot;</span>, t = <span class="string">&quot;ahbgdc&quot;</span></span><br><span class="line"></span><br><span class="line">返回 <span class="keyword">true</span>.</span><br></pre></td></tr></table></figure>
 
-<p><strong>示例2:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：你可以先偷窃 <span class="number">1</span> 号房屋（金额 = <span class="number">1</span>），然后偷窃 <span class="number">3</span> 号房屋（金额 = <span class="number">3</span>）。</span><br><span class="line">     偷窃到的最高金额 = <span class="number">1</span> + <span class="number">3</span> = <span class="number">4</span> 。</span><br></pre></td></tr></table></figure>
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">s = <span class="string">&quot;axc&quot;</span>, t = <span class="string">&quot;ahbgdc&quot;</span></span><br><span class="line"></span><br><span class="line">返回 <span class="keyword">false</span>.</span><br></pre></td></tr></table></figure>
 
-<p><strong>示例3:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入：nums = [<span class="number">0</span>]</span><br><span class="line">输出：<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>0 &lt;= nums.length &lt;= 100</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
-</ul>
+<p>后续挑战 :</p>
+<p>如果有大量输入的 S，称作S1, S2, … , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代码？</p>
 <h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>两个dp,一个从0到n-1,另一个从1到n,最后取两个dp中的最大值</li>
-</ul>
+<li><p>用dp[i][j]表示字符串t的前j个字符串包含s的前i个字符串</p>
+</li>
+<li><p><strong>复杂度分析：</strong></p>
 <ul>
-<li><strong>复杂度分析：</strong><ul>
-<li>时间复杂度： O(N)</li>
-<li>空间复杂度： O(N)  ///O(1)[dp[i] = max(b, a + nums[i])，]</li>
+<li>时间复杂度：O(N^2)，N<em>N</em> 为三角形的行数。</li>
+<li>空间复杂度：O(N^2)，N<em>N</em> 为三角形的行数。</li>
 </ul>
 </li>
 </ul>
-<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">2</span>) <span class="keyword">return</span> Math.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dpone=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        dpone[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">        dpone[<span class="number">1</span>]=Math.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;nums.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            dpone[i]=Math.max(dpone[i-<span class="number">1</span>],dpone[i-<span class="number">2</span>]+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] dqtwo=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="comment">// dqtwo[0]=nums[1];</span></span><br><span class="line">        <span class="comment">// dqtwo[1]=Math.max(nums[0],nums[1]);</span></span><br><span class="line">        <span class="comment">// for(int i=2;i&lt;nums.length;i++)&#123;</span></span><br><span class="line">        <span class="comment">//     dqtwo[i]=Math.max(dqtwo[i-1],dqtwo[i-2]+nums[i]);</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        dqtwo[<span class="number">1</span>]=nums[<span class="number">1</span>];</span><br><span class="line">        <span class="comment">// dqtwo[2]=nums[2];</span></span><br><span class="line">        dqtwo[<span class="number">2</span>]=Math.max(nums[<span class="number">1</span>],nums[<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            dqtwo[i]=Math.max(dqtwo[i-<span class="number">1</span>],dqtwo[i-<span class="number">2</span>]+nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Math.max(dpone[nums.length-<span class="number">2</span>],dqtwo[nums.length-<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>206. 反转链表</title>
-    <url>/234.%20%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>请判断一个链表是否为回文链表。</p>
-<a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span></span><br><span class="line">输出: <span class="keyword">false</span></span><br><span class="line">    </span><br><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span></span><br><span class="line">输出: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>进阶:</strong><br>你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>找到链表的中间节点</li>
-<li>反转链表<br>通过这两个操作之后，原链表就以中间节点被一分为二<br>前半部分一个链表，后半部分(被反转了)为一个链表<br>然后遍历这两个链表，如果遍历过程中发现两个链表节点不同，就说不是回文链表，直接返回false即可<br>如果链表遍历完了，说明是回文链表<br>注意一个小细节，如果链表长度是偶数的话，前半部分和后半部分长度是一样的<br>如果链表长度是奇数，那么前半部分的长度比后半部分长度多1个<br>所以最后迭代链表的时候，<strong>以后半部分为准</strong>就可以了，<strong>当链表总长为奇数时，前半部分的最后一个节点就不会被遍历到了。</strong></li>
-<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
-</ul>
-<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        ListNode p=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// ListNode slow=head;</span></span><br><span class="line">        <span class="comment">// ListNode fast=head;</span></span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        ListNode slow=p;</span><br><span class="line">        ListNode fast=p;</span><br><span class="line">        p.next=head;</span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        <span class="keyword">while</span>(fast!=<span class="keyword">null</span>&amp;&amp;fast.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            fast=fast.next.next;</span><br><span class="line">            slow=slow.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode cur=slow.next;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=null;</span></span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        slow=p.next;</span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            ListNode temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//pre.val</span></span><br><span class="line">        <span class="keyword">while</span>(pre!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre.val!=slow.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            slow=slow.next;</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubsequence</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] dp=<span class="keyword">new</span> <span class="keyword">boolean</span>[s.length()+<span class="number">1</span>][t.length()+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t.length();i++) dp[<span class="number">0</span>][i]=<span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=t.length();j++)&#123;</span><br><span class="line">                <span class="comment">// if(s.charAt(i)==t.charAt(j)) dp[i][j]=true;</span></span><br><span class="line">                <span class="comment">// else dp[i][j]=dp[i-1][j-1];</span></span><br><span class="line">                <span class="keyword">if</span>(s.charAt(i-<span class="number">1</span>)==t.charAt(j-<span class="number">1</span>)) dp[i][j]=dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span> dp[i][j]=dp[i][j-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//return dp[s.length()-1][t.length()-1];</span></span><br><span class="line">        <span class="keyword">return</span> dp[s.length()][t.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
-<li>递归</li>
-<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
+<li>双指针<ul>
+<li>两个指针一个指向s的某个字符，一个指向t的某个字符</li>
+<li>其中指向t的指针每次都会往右移一位，指向s的指针每次和指向t的指针所对应的字符相同时才会往右移</li>
+<li>当指向s的指针指向s的末尾的时候，返回true。</li>
 </ul>
-<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>虚节点</p>
-<p>反转之后pre和cur的指向</p>
-<p><code>slow.next=null;</code>  把链表分开</p>
-<p>  <code>slow=p.next;</code>   把slow重新指向头节点</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSubsequence</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>;<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(j&lt;t.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)==t.charAt(j))&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">if</span>(i==s.length()) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>1.布尔类型的默认初始化值为false</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>双指针</tag>
-        <tag>链表</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -781,57 +901,95 @@
       </tags>
   </entry>
   <entry>
-    <title>623. 在二叉树中增加一行</title>
-    <url>/623.%20%E5%9C%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%A2%9E%E5%8A%A0%E4%B8%80%E8%A1%8C/</url>
-    <content><![CDATA[<h1 id="623-在二叉树中增加一行"><a href="#623-在二叉树中增加一行" class="headerlink" title="623. 在二叉树中增加一行"></a>623. 在二叉树中增加一行</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，根节点为第1层，深度为 1。在其第 d 层追加一行值为 v 的节点。</p>
-<p>添加规则：给定一个深度值 d （正整数），针对深度为 d-1 层的每一非空节点 N，为 N 创建两个值为 v 的左子树和右子树。</p>
-<p>将 N 原先的左子树，连接为新节点 v 的左子树；将 N 原先的右子树，连接为新节点 v 的右子树。</p>
-<p>如果 d 的值为 1，深度 d - 1 不存在，则创建一个新的根节点 v，原先的整棵树将作为 v 的左子树。</p>
+    <title>206. 反转链表</title>
+    <url>/234.%20%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a>234. 回文链表</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>请判断一个链表是否为回文链表。</p>
 <a id="more"></a>
 
-<p><strong>示例1:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">       <span class="number">4</span></span><br><span class="line">     /   \</span><br><span class="line">    <span class="number">2</span>     <span class="number">6</span></span><br><span class="line">   / \   / </span><br><span class="line">  <span class="number">3</span>   <span class="number">1</span> <span class="number">5</span>   </span><br><span class="line"></span><br><span class="line">v = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">d = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">       <span class="number">4</span></span><br><span class="line">      / \</span><br><span class="line">     <span class="number">1</span>   <span class="number">1</span></span><br><span class="line">    /     \</span><br><span class="line">   <span class="number">2</span>       <span class="number">6</span></span><br><span class="line">  / \     / </span><br><span class="line"> <span class="number">3</span>   <span class="number">1</span>   <span class="number">5</span>   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span></span><br><span class="line">输出: <span class="keyword">false</span></span><br><span class="line">    </span><br><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">2</span>-&gt;<span class="number">1</span></span><br><span class="line">输出: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 
-
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2    </span><br><span class="line">   &#x2F; \   </span><br><span class="line">  3   1    </span><br><span class="line"></span><br><span class="line">v &#x3D; 1</span><br><span class="line"></span><br><span class="line">d &#x3D; 3</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2</span><br><span class="line">   &#x2F; \    </span><br><span class="line">  1   1</span><br><span class="line"> &#x2F;     \  </span><br><span class="line">3       1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意:</strong></p>
-<ol>
-<li>输入的深度值 d 的范围是：[1，二叉树最大深度 + 1]。</li>
-<li>输入的二叉树至少有一个节点。</li>
-</ol>
+<p><strong>进阶:</strong><br>你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
 <h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
-<li>利用BFS保存d-1层的节点</li>
-<li>然后对每个节点的左右节点进行修改<ul>
-<li>左节点：指向新创建的节点，其值为v，其左节点为当前节点的左节点</li>
-<li>右节点：指向新创建的节点，其值为v，其右节点为当前节点的右节点</li>
+<li>找到链表的中间节点</li>
+<li>反转链表<br>通过这两个操作之后，原链表就以中间节点被一分为二<br>前半部分一个链表，后半部分(被反转了)为一个链表<br>然后遍历这两个链表，如果遍历过程中发现两个链表节点不同，就说不是回文链表，直接返回false即可<br>如果链表遍历完了，说明是回文链表<br>注意一个小细节，如果链表长度是偶数的话，前半部分和后半部分长度是一样的<br>如果链表长度是奇数，那么前半部分的长度比后半部分长度多1个<br>所以最后迭代链表的时候，<strong>以后半部分为准</strong>就可以了，<strong>当链表总长为奇数时，前半部分的最后一个节点就不会被遍历到了。</strong></li>
+<li><h2 id="复杂度分析："><a href="#复杂度分析：" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
 </ul>
-</li>
-<li><strong>复杂度分析：</strong><ul>
-<li>时间复杂度：</li>
-<li>空间复杂度：</li>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        ListNode p=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// ListNode slow=head;</span></span><br><span class="line">        <span class="comment">// ListNode fast=head;</span></span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        ListNode slow=p;</span><br><span class="line">        ListNode fast=p;</span><br><span class="line">        p.next=head;</span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        <span class="keyword">while</span>(fast!=<span class="keyword">null</span>&amp;&amp;fast.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            fast=fast.next.next;</span><br><span class="line">            slow=slow.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode cur=slow.next;</span><br><span class="line">        ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//ListNode temp=null;</span></span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        slow=p.next;</span><br><span class="line"><span class="comment">// ******************************</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            ListNode temp=cur.next;</span><br><span class="line">            cur.next=pre;</span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=temp;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//pre.val</span></span><br><span class="line">        <span class="keyword">while</span>(pre!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre.val!=slow.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            slow=slow.next;</span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li>递归</li>
+<li><h2 id="复杂度分析：-1"><a href="#复杂度分析：-1" class="headerlink" title="复杂度分析："></a><strong>复杂度分析：</strong></h2></li>
 </ul>
-</li>
-</ul>
-<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">addOneRow</span><span class="params">(TreeNode root, <span class="keyword">int</span> v, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">1</span>) &#123;</span><br><span class="line">            TreeNode newRoot = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newRoot.left=root; </span><br><span class="line">            <span class="keyword">return</span> newRoot;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(d==<span class="number">2</span>) &#123;</span><br><span class="line">            TreeNode newLeft = <span class="keyword">new</span> TreeNode(v),newRight=<span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newLeft.left=root.left;</span><br><span class="line">            newRight.right=root.right;</span><br><span class="line">            root.left=newLeft;</span><br><span class="line">            root.right=newRight;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        root.left=addOneRow(root.left,v,d-<span class="number">1</span>);</span><br><span class="line">        root.right=addOneRow(root.right,v,d-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>map.getOrDefault(Object key, V defaultValue)<br>意思就是当Map集合中有这个key时，就使用这个key对应的value值，如果没有就使用默认值defaultValue</p>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>虚节点</p>
+<p>反转之后pre和cur的指向</p>
+<p><code>slow.next=null;</code>  把链表分开</p>
+<p>  <code>slow=p.next;</code>   把slow重新指向头节点</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>摩尔投票法</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>746. 使用最小花费爬楼梯</title>
+    <url>/746.%20%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF/</url>
+    <content><![CDATA[<h4 id="746-使用最小花费爬楼梯"><a href="#746-使用最小花费爬楼梯" class="headerlink" title="746. 使用最小花费爬楼梯"></a><a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">746. 使用最小花费爬楼梯</a></h4><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>数组的每个索引作为一个阶梯，第 i个阶梯对应着一个非负数的体力花费值 cost<a href="%E7%B4%A2%E5%BC%95%E4%BB%8E0%E5%BC%80%E5%A7%8B">i</a>。</p>
+<p>每当你爬上一个阶梯你都要花费对应的体力花费值，然后你可以选择继续爬一个阶梯或者爬两个阶梯。</p>
+<p>您需要找到达到楼层顶部的最低花费。在开始时，你可以选择从索引为 0 或 1 的元素作为初始阶梯。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: cost = [<span class="number">10</span>, <span class="number">15</span>, <span class="number">20</span>]</span><br><span class="line">输出: <span class="number">15</span></span><br><span class="line">解释: 最低花费是从cost[<span class="number">1</span>]开始，然后走两步即可到阶梯顶，一共花费<span class="number">15</span>。</span><br></pre></td></tr></table></figure>
+
+<p> 示例 2:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入: cost = [<span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>]</span><br><span class="line">输出: <span class="number">6</span></span><br><span class="line">解释: 最低花费方式是从cost[<span class="number">0</span>]开始，逐个经过那些<span class="number">1</span>，跳过cost[<span class="number">3</span>]，一共花费<span class="number">6</span>。</span><br></pre></td></tr></table></figure>
+
+
+<p>注意：</p>
+<p>cost 的长度将会在 [2, 1000]。<br>每一个 cost[i] 将会是一个Integer类型，范围为 [0, 999]。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li></li>
+<li><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：O(1)</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="keyword">int</span>[] cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> minCost0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> minCost1 = Math.min(cost[<span class="number">0</span>], cost[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">int</span> minCost = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; cost.length; i++) &#123;</span><br><span class="line">            minCost = Math.min(minCost1 + cost[i], minCost0 + cost[i - <span class="number">1</span>]);</span><br><span class="line">            minCost0 = minCost1;</span><br><span class="line">            minCost1 = minCost;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minCost;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><ul>
+<li></li>
+<li><p><strong>复杂度分析：</strong></p>
+<ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3><p>初始状态</p>
+<p>状态转移方程</p>
+<p>—动态规划</p>
+<p><a href="https://www.toutiao.com/i6322398319666528769/?group_id=6322393448397684994&amp;group_flags=0">https://www.toutiao.com/i6322398319666528769/?group_id=6322393448397684994&amp;group_flags=0</a></p>
+<p><a href="http://www.360doc.com/content/16/0906/13/30724179_588796415.shtml">http://www.360doc.com/content/16/0906/13/30724179_588796415.shtml</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -890,6 +1048,117 @@
       </categories>
       <tags>
         <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>64. 最小路径和</title>
+    <url>/64.%20%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="64-最小路径和"><a href="#64-最小路径和" class="headerlink" title="64. 最小路径和"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/"><a href="https://leetcode-cn.com/problems/minimum-path-sum/">64. 最小路径和</a></a></h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个包含非负整数的 <em>m</em> x <em>n</em> 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
+<p><strong>说明：</strong>每次只能向下或者向右移动一步。</p>
+<a id="more"></a>
+
+<p><strong>示例1:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">输入:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">5</span>,<span class="number">1</span>],</span><br><span class="line">  [<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br><span class="line">输出: <span class="number">7</span></span><br><span class="line">解释: 因为路径 <span class="number">1</span>→<span class="number">3</span>→<span class="number">1</span>→<span class="number">1</span>→<span class="number">1</span> 的总和最小。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><ul>
+<li><p>状态定义：</p>
+<ul>
+<li>设 dp 为大小m<em>×</em>n 矩阵，其中 dp[i][j]<em>d**p</em>[<em>i</em>][<em>j</em>]的值代表直到走到 (i,j)的最小路径和。</li>
+</ul>
+</li>
+<li><p><strong>转移方程：</strong></p>
+<blockquote>
+<p>题目要求，只能向右或向下走，换句话说，当前单元格 (i,j)(i,j) 只能从左方单元格 (i-1,j)(i−1,j) 或上方单元格 (i,j-1)(i,j−1) 走到，因此只需要考虑矩阵左边界和上边界。</p>
+</blockquote>
+<p>走到当前单元格 (i,j)(i,j) 的最小路径和 == “从左方单元格 (i-1,j)(i−1,j) 与 从上方单元格 (i,j-1)(i,j−1) 走来的 两个最小路径和中较小的 ” ++ 当前单元格值 grid[i][j]grid[i][j] 。具体分为以下 44 种情况：<br>当左边和上边都不是矩阵边界时： 即当i \not= 0i<br>\</p>
+<p> =0, j \not= 0j<br>\</p>
+<p> =0时，dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]dp[i][j]=min(dp[i−1][j],dp[i][j−1])+grid[i][j] ；<br>当只有左边是矩阵边界时： 只能从上面来，即当i = 0, j \not= 0i=0,j<br>\</p>
+<p> =0时， dp[i][j] = dp[i][j - 1] + grid[i][j]dp[i][j]=dp[i][j−1]+grid[i][j] ；<br>当只有上边是矩阵边界时： 只能从左面来，即当i \not= 0, j = 0i<br>\</p>
+<p> =0,j=0时， dp[i][j] = dp[i - 1][j] + grid[i][j]dp[i][j]=dp[i−1][j]+grid[i][j] ；<br>当左边和上边都是矩阵边界时： 即当i = 0, j = 0i=0,j=0时，其实就是起点， dp[i][j] = grid[i][j]dp[i][j]=grid[i][j]；<br>初始状态：</p>
+<p>dpdp 初始化即可，不需要修改初始 00 值。</p>
+</li>
+<li><p><strong>返回值</strong></p>
+<p>返回 dpdp 矩阵右下角值，即走到终点的最小路径和。<br>其实我们完全不需要建立 dpdp 矩阵浪费额外空间，直接遍历 grid[i][j]grid[i][j] 修改即可。这是因为：grid[i][j] = min(grid[i - 1][j], grid[i][j - 1]) + grid[i][j] ；原 gridgrid 矩阵元素中被覆盖为 dpdp 元素后（都处于当前遍历点的左上方），不会再被使用到。</p>
+</li>
+</ul>
+<ul>
+<li><strong>复杂度分析：</strong><ul>
+<li>时间复杂度：O(M×N) ： 遍历整个 gridgrid 矩阵元素。</li>
+<li>空间复杂度： O(1) ： 直接修改原矩阵，不使用额外空间。  </li>
+</ul>
+</li>
+</ul>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> width=grid.length,height=grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span>(height==<span class="number">0</span>||width==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;height;i++) grid[<span class="number">0</span>][i]+=grid[<span class="number">0</span>][i-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;width;i++) grid[i][<span class="number">0</span>]+=grid[i-<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">   </span><br><span class="line">      </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;grid.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;grid[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                grid[i][j]+=Math.min(grid[i-<span class="number">1</span>][j],grid[i][j-<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> grid[width-<span class="number">1</span>][height-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="一点点收获"><a href="#一点点收获" class="headerlink" title="一点点收获"></a>一点点收获</h3>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Se7en</title>
+    <url>/Se7en/</url>
+    <content><![CDATA[<p><img src= "/img/loading.gif" data-lazy-src="/.com//seven.jpg" alt="seven"></p>
+<p>​        最近不在状态，今天下午看个电影，试图找回状态，遂选择了之前没有看完的《七宗罪》😈</p>
+<p>​        转载链接：<a href="https://www.zhihu.com/question/30624448/answer/232930196">https://www.zhihu.com/question/30624448/answer/232930196</a></p>
+<a id="more"></a>
+
+<p>​        《七宗罪》由摩根弗里曼和布拉德皮特主演，涉及到了宗教中的七原罪、<strong>精神疾病、悬疑、社会现象、人性隐喻、个人成长</strong>等多个方面，每一个方面拿出来，都是可以作为完整的一篇电影解析来呈现的。</p>
+<p>​        此文在社会现象和电影结构两点展开</p>
+<p>​        在影片的开头里，我们也看到了萨摩赛特办一场<strong>杀夫案</strong>的时候，问警员：<strong>孩子看到了吗</strong>？警员埋怨萨摩赛特多管闲事，让他管好自己和工作就好了，不要为自己找麻烦。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="/.com//image-20201011192148995.png" alt="image-20201011192148995"></p>
+<p>​        在影片里，萨摩赛特提到了自己遇见的一件事情加以佐证这种想法，他说自己并不是悲观，而是人性确实如此，一个女人收到迫害的时候，**喊“救火”甚至比“救命”要有效…**影片中多次通过萨摩赛特的对话让我们了解了他本人的一些观念，而从这些观念中，我们得出，萨摩赛特与现代生活是格格不入的。</p>
+<p>​        他会用一台脱离时代的打字机做事情，在一个花花绿绿的世界里独守着“读书”的习惯，对人慈善，遵守着严格的作息和整齐的穿着（在影片开头有展现）…这些，都在说明萨摩赛特的性格和特点。</p>
+<p>​        萨摩赛特对现实生活的抵抗，一部分原因来自于对社会现象的失望，而另一个原因则是生活上的格格不入，而<strong>米尔斯</strong>恰巧正式萨摩赛特的对立面。</p>
+<p>​        相比于萨摩赛特的沉稳和格格不入，米尔斯的性格冲动而果敢，就连萨摩赛特在评价米尔斯的时候，也提到过他冲动的性格，对于一个DETECTIVE（探员）来说，<strong>最怕的就是冲动的性格</strong>，所以萨摩赛特不止一次提醒他要冷静，但是米尔斯从未听过。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="/.com//image-20201011192254140.png" alt="image-20201011192254140"></p>
+<p>​        所以你会看到米尔斯打骂了“记者”，因受伤而愤怒的踹门进入了犯人房间，面对萨摩赛特的书单暴躁异常，无法专心等等。</p>
+<p>​        无时无刻不在展现了七宗罪中的“愤怒”原罪，萨摩赛特无法去阻止他，就像他不能去阻止凶手一样，事情的进展随着两个人的不断选择而变得越来越诡异。</p>
+<p>​        而萨摩赛特也逐渐的发现，自己已经越来越无能为力了。</p>
+<h2 id="电影为什么这样叙事？"><a href="#电影为什么这样叙事？" class="headerlink" title="电影为什么这样叙事？"></a>电影为什么这样叙事？</h2><p>​        说完了萨摩赛特，我们再来说一下萨摩赛特的故事线，在上文中我提到了一个概念：环状叙事，我为什么说这是一个环状叙事的故事呢？</p>
+<p>​        首先我们先来看看故事的开头，一个非常经典的开头，并且有很多人可能会忽略掉的细节。</p>
+<p>​        开头中向我们展现了萨摩赛特遇到的第一个案子，也就是我在前文中所提到的杀父案，警员说是夫妻两人在吵架的时候产生纠纷，因为“<strong>冲动</strong>”而下了杀手，注意这个<strong>冲动</strong>的细节，不是因为钱，也不是因为“出轨”或是其他的原因，只是因为冲动，导致了夫妻之间的杀戮，这是一点，建置了整个故事的引线部分，从这个小案件进而拉出整个连环案件，而这个小案件，就是因为大案件的“原罪”而造成的结果，所以说萨摩赛特接受的第一个案子，其实是整个故事的一个核心，也就是“原罪”。</p>
+<p>​        其次，萨摩赛特开头没有关心案件，而是先问“孩子有没有事”，这是一个隐喻（这里并没有过度解读），隐喻米尔斯和其妻子的孩子的事情，而他们的孩子，则是造成米尔斯最后因为冲动杀死约翰杜的<strong>因</strong>。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="/.com//v2-b0421221a07bbdca2c7cf989fe9527ab_720w.jpg" alt="img"></p>
+<p>​        最终造成了约翰杜因为妒忌而被枪杀的果。</p>
+<p>​        <strong>同样的，米尔斯也因为自己的愤怒（冲动）得到了惩罚，愤怒的原罪影响了他的情绪，最终不得不为杀人而承担责任。</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="/.com//v2-8b0d79cc1957a28071ad181415063c21_720w.jpg" alt="img"></p>
+<p>​        由以上看来，<strong>从开头的（冲动）原罪建置，到最后的七原罪的建置圆满，以愤怒（冲动）的原罪作为结局。整个故事呈现出来的，其实就是一个环形结构的形式。</strong></p>
+<p>​        导演的心思非常缜密，而且用法也很刁钻，很有意思，从而使得影片最后的升华非常的恰到好处，几乎称得上圆满。</p>
+<h2 id="原罪下的布道者与原罪加身者"><a href="#原罪下的布道者与原罪加身者" class="headerlink" title="原罪下的布道者与原罪加身者"></a>原罪下的布道者与原罪加身者</h2><p>​        在影片的最后，约翰杜曾多次指出，自己是在为上帝践行原罪处罚，这一点和萨摩赛特的想法不谋而合了，萨摩赛特既不是布道者，也不是原罪加身者，他厌恶世界的冷漠，但是没有去通过暴力来制止这种冷漠。</p>
+<p>​        约翰杜做了萨摩赛特不敢做的事情，他挽救了人们的冷漠，让人们开始对整件事情加以关注，虽然用的方式极其暴力和血腥。</p>
+<blockquote>
+<p>约翰杜说：我们在每个街角、每个家庭中都看到了原罪…我们容忍了，因为见怪不怪，没什么大不了，我们从早容忍到晚……现在不同了，我立下榜样，世人将对我的所作所为进行思索，和研究，并遵循——直到永远。</p>
+</blockquote>
+<p>​        这和萨摩赛特的想法其实不谋而合，可以说米尔斯就是萨摩赛特的另一种人格的展现，他们有太多的相似之处。</p>
+<p>​        也是从米尔斯身上，萨摩赛特思考到了很多东西。</p>
+<p>​        电影中呈现的观点很中性，萨摩赛特没有对约翰杜的所作所为进行一个总结，同样的，他也无法对现实生活中的冷漠进行一个总结。</p>
+<blockquote>
+<p>就像萨摩赛特在电影最后所引用的海明威的那句话一样：这个世界是个好地方，我们值得为之奋斗。我同意后半句。</p>
+</blockquote>
+<p>​        萨摩赛特感到了一种无力感，但是他却无法避免这种无力感，正像上文中所提到的，约翰杜的做法是植根于心的，米尔斯也是，他们是性格如此明显的一类人，萨摩赛特无法去改变他们，也无法去改变自己，他老了，终究会辞职，终究会离开世界，而离开世界之前，他想做一些有用的事情。</p>
+<p>​        这就是萨摩赛特的想法。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>2020-movies</tag>
       </tags>
   </entry>
   <entry>
@@ -1092,57 +1361,6 @@
       </categories>
       <tags>
         <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Se7en</title>
-    <url>/Se7en/</url>
-    <content><![CDATA[<p><img src= "/img/loading.gif" data-lazy-src="/.com//seven.jpg" alt="seven"></p>
-<p>​        最近不在状态，今天下午看个电影，试图找回状态，遂选择了之前没有看完的《七宗罪》😈</p>
-<p>​        转载链接：<a href="https://www.zhihu.com/question/30624448/answer/232930196">https://www.zhihu.com/question/30624448/answer/232930196</a></p>
-<a id="more"></a>
-
-<p>​        《七宗罪》由摩根弗里曼和布拉德皮特主演，涉及到了宗教中的七原罪、<strong>精神疾病、悬疑、社会现象、人性隐喻、个人成长</strong>等多个方面，每一个方面拿出来，都是可以作为完整的一篇电影解析来呈现的。</p>
-<p>​        此文在社会现象和电影结构两点展开</p>
-<p>​        在影片的开头里，我们也看到了萨摩赛特办一场<strong>杀夫案</strong>的时候，问警员：<strong>孩子看到了吗</strong>？警员埋怨萨摩赛特多管闲事，让他管好自己和工作就好了，不要为自己找麻烦。</p>
-<p><img src= "/img/loading.gif" data-lazy-src="/.com//image-20201011192148995.png" alt="image-20201011192148995"></p>
-<p>​        在影片里，萨摩赛特提到了自己遇见的一件事情加以佐证这种想法，他说自己并不是悲观，而是人性确实如此，一个女人收到迫害的时候，**喊“救火”甚至比“救命”要有效…**影片中多次通过萨摩赛特的对话让我们了解了他本人的一些观念，而从这些观念中，我们得出，萨摩赛特与现代生活是格格不入的。</p>
-<p>​        他会用一台脱离时代的打字机做事情，在一个花花绿绿的世界里独守着“读书”的习惯，对人慈善，遵守着严格的作息和整齐的穿着（在影片开头有展现）…这些，都在说明萨摩赛特的性格和特点。</p>
-<p>​        萨摩赛特对现实生活的抵抗，一部分原因来自于对社会现象的失望，而另一个原因则是生活上的格格不入，而<strong>米尔斯</strong>恰巧正式萨摩赛特的对立面。</p>
-<p>​        相比于萨摩赛特的沉稳和格格不入，米尔斯的性格冲动而果敢，就连萨摩赛特在评价米尔斯的时候，也提到过他冲动的性格，对于一个DETECTIVE（探员）来说，<strong>最怕的就是冲动的性格</strong>，所以萨摩赛特不止一次提醒他要冷静，但是米尔斯从未听过。</p>
-<p><img src= "/img/loading.gif" data-lazy-src="/.com//image-20201011192254140.png" alt="image-20201011192254140"></p>
-<p>​        所以你会看到米尔斯打骂了“记者”，因受伤而愤怒的踹门进入了犯人房间，面对萨摩赛特的书单暴躁异常，无法专心等等。</p>
-<p>​        无时无刻不在展现了七宗罪中的“愤怒”原罪，萨摩赛特无法去阻止他，就像他不能去阻止凶手一样，事情的进展随着两个人的不断选择而变得越来越诡异。</p>
-<p>​        而萨摩赛特也逐渐的发现，自己已经越来越无能为力了。</p>
-<h2 id="电影为什么这样叙事？"><a href="#电影为什么这样叙事？" class="headerlink" title="电影为什么这样叙事？"></a>电影为什么这样叙事？</h2><p>​        说完了萨摩赛特，我们再来说一下萨摩赛特的故事线，在上文中我提到了一个概念：环状叙事，我为什么说这是一个环状叙事的故事呢？</p>
-<p>​        首先我们先来看看故事的开头，一个非常经典的开头，并且有很多人可能会忽略掉的细节。</p>
-<p>​        开头中向我们展现了萨摩赛特遇到的第一个案子，也就是我在前文中所提到的杀父案，警员说是夫妻两人在吵架的时候产生纠纷，因为“<strong>冲动</strong>”而下了杀手，注意这个<strong>冲动</strong>的细节，不是因为钱，也不是因为“出轨”或是其他的原因，只是因为冲动，导致了夫妻之间的杀戮，这是一点，建置了整个故事的引线部分，从这个小案件进而拉出整个连环案件，而这个小案件，就是因为大案件的“原罪”而造成的结果，所以说萨摩赛特接受的第一个案子，其实是整个故事的一个核心，也就是“原罪”。</p>
-<p>​        其次，萨摩赛特开头没有关心案件，而是先问“孩子有没有事”，这是一个隐喻（这里并没有过度解读），隐喻米尔斯和其妻子的孩子的事情，而他们的孩子，则是造成米尔斯最后因为冲动杀死约翰杜的<strong>因</strong>。</p>
-<p><img src= "/img/loading.gif" data-lazy-src="/.com//v2-b0421221a07bbdca2c7cf989fe9527ab_720w.jpg" alt="img"></p>
-<p>​        最终造成了约翰杜因为妒忌而被枪杀的果。</p>
-<p>​        <strong>同样的，米尔斯也因为自己的愤怒（冲动）得到了惩罚，愤怒的原罪影响了他的情绪，最终不得不为杀人而承担责任。</strong></p>
-<p><img src= "/img/loading.gif" data-lazy-src="/.com//v2-8b0d79cc1957a28071ad181415063c21_720w.jpg" alt="img"></p>
-<p>​        由以上看来，<strong>从开头的（冲动）原罪建置，到最后的七原罪的建置圆满，以愤怒（冲动）的原罪作为结局。整个故事呈现出来的，其实就是一个环形结构的形式。</strong></p>
-<p>​        导演的心思非常缜密，而且用法也很刁钻，很有意思，从而使得影片最后的升华非常的恰到好处，几乎称得上圆满。</p>
-<h2 id="原罪下的布道者与原罪加身者"><a href="#原罪下的布道者与原罪加身者" class="headerlink" title="原罪下的布道者与原罪加身者"></a>原罪下的布道者与原罪加身者</h2><p>​        在影片的最后，约翰杜曾多次指出，自己是在为上帝践行原罪处罚，这一点和萨摩赛特的想法不谋而合了，萨摩赛特既不是布道者，也不是原罪加身者，他厌恶世界的冷漠，但是没有去通过暴力来制止这种冷漠。</p>
-<p>​        约翰杜做了萨摩赛特不敢做的事情，他挽救了人们的冷漠，让人们开始对整件事情加以关注，虽然用的方式极其暴力和血腥。</p>
-<blockquote>
-<p>约翰杜说：我们在每个街角、每个家庭中都看到了原罪…我们容忍了，因为见怪不怪，没什么大不了，我们从早容忍到晚……现在不同了，我立下榜样，世人将对我的所作所为进行思索，和研究，并遵循——直到永远。</p>
-</blockquote>
-<p>​        这和萨摩赛特的想法其实不谋而合，可以说米尔斯就是萨摩赛特的另一种人格的展现，他们有太多的相似之处。</p>
-<p>​        也是从米尔斯身上，萨摩赛特思考到了很多东西。</p>
-<p>​        电影中呈现的观点很中性，萨摩赛特没有对约翰杜的所作所为进行一个总结，同样的，他也无法对现实生活中的冷漠进行一个总结。</p>
-<blockquote>
-<p>就像萨摩赛特在电影最后所引用的海明威的那句话一样：这个世界是个好地方，我们值得为之奋斗。我同意后半句。</p>
-</blockquote>
-<p>​        萨摩赛特感到了一种无力感，但是他却无法避免这种无力感，正像上文中所提到的，约翰杜的做法是植根于心的，米尔斯也是，他们是性格如此明显的一类人，萨摩赛特无法去改变他们，也无法去改变自己，他老了，终究会辞职，终究会离开世界，而离开世界之前，他想做一些有用的事情。</p>
-<p>​        这就是萨摩赛特的想法。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>2020-movies</tag>
       </tags>
   </entry>
   <entry>
